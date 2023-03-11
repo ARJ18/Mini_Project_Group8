@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mist.jpg-2aa5ae9e11872b088eb3d774b973fc1b.stex"
+path="res://.import/Walk2.png-6c243da79b929a8818e6d045dd64f312.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/mist.jpg"
-dest_files=[ "res://.import/mist.jpg-2aa5ae9e11872b088eb3d774b973fc1b.stex" ]
+source_file="res://Images/Vampire_Girl/Walk/Walk2.png"
+dest_files=[ "res://.import/Walk2.png-6c243da79b929a8818e6d045dd64f312.stex" ]
 
 [params]
 
