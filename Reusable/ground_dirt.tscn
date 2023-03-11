@@ -5,9 +5,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghfb0"]
 size = Vector2(240, 132.893)
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="ground" type="StaticBody2D"]
 position = Vector2(8, 16)
-gravity_scale = 0.0
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -16,6 +15,5 @@ scale = Vector2(0.4, 0.339152)
 texture = ExtResource("1_t4afy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-8, -13.5538)
 shape = SubResource("RectangleShape2D_ghfb0")
