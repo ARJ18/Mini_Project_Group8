@@ -1,30 +1,52 @@
 extends KinematicBody2D
 
-export var mov_speed = 400.0
 onready var _animated_sprite = $AnimatedSprite
-var screen_size = Vector2.ZERO
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	screen_size = get_viewport_rect().size
+var motion = Vector2(0,0)
+const SPEED = 500
+const GRAVITY = 200
+const JUMP=2500
+const UP = Vector2(0,-1)
+const WORLD_LIMIT = 5000
 
 
 
-func _process(delta):
+func _physics_process(_delta):
+	apply_gravity()
+	move()
+	jump()
+	animate()
+	move_and_slide(motion,UP)
 	
-	var direction = Vector2.ZERO
-	if Input.is_action_pressed("ui_left"):
-		direction.x -= 1
+	
+func apply_gravity():#applies gravity
+	if position.y > WORLD_LIMIT:
+		get_tree().quit()
+	if is_on_floor() and motion.y>0 :
+		motion.y = 0
+	elif is_on_ceiling():
+		motion.y = 1	
+	else:
+		motion.y += GRAVITY
+
+
+func move():#controls movement of the player
+	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_right"):
+		motion.x = 0
+	elif Input.is_action_pressed("ui_left"):
+		motion.x = -SPEED
 		_animated_sprite.flip_h = true
-	if Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("ui_right"):
+		motion.x = SPEED
 		_animated_sprite.flip_h = false
-		direction.x += 1
-	if direction.length() > 1:
-		direction = direction.normalized()
-	
-	position += direction*mov_speed*delta
-	position.x = clamp(position.x,0,screen_size.x)
-	position.y = clamp(position.y,0,screen_size.y)
-	
+	else:
+		motion.x = 0
+
+
+func jump():#makes the player jump
+	if Input.is_action_pressed("ui_up") and is_on_floor():
+			motion.y -= JUMP	
+		
+func animate():
 	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left"):
 		_animated_sprite.play("walk")
 	else:
