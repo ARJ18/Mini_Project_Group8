@@ -24,7 +24,7 @@ func apply_gravity():#applies gravity
 	if is_on_floor() and motion.y>0 :
 		motion.y = 0
 	elif is_on_ceiling():
-		motion.y = 1	
+		motion.y = 1
 	else:
 		motion.y += GRAVITY
 
@@ -43,7 +43,7 @@ func move():#controls movement of the player
 
 
 func jump():#makes the player jump
-	if Input.is_action_pressed("ui_up") and is_on_floor():
+	if Input.is_action_pressed("jump") and is_on_floor():
 			motion.y -= JUMP	
 		
 func animate():
