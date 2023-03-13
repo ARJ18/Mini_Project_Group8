@@ -3,8 +3,8 @@ extends KinematicBody2D
 onready var _animated_sprite = $AnimatedSprite
 var motion = Vector2(0,0)
 const SPEED = 500
-const GRAVITY = 200
-const JUMP=2500
+const GRAVITY = 500
+const JUMP=5000
 const UP = Vector2(0,-1)
 const WORLD_LIMIT = 5000
 

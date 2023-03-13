@@ -11,5 +11,5 @@ dest_files=[ "res://.import/pushSFX.mp3-d027315f856f5bdf5e09262f645d5846.mp3str"
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

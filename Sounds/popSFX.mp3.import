@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/popSFX.mp3-1d578694fa4787d75e1f16cccdd4f81b.mp3str"
+
+[deps]
+
+source_file="res://Sounds/popSFX.mp3"
+dest_files=[ "res://.import/popSFX.mp3-1d578694fa4787d75e1f16cccdd4f81b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
