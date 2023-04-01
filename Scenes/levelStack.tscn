@@ -50,6 +50,6 @@ stream = ExtResource( 6 )
 [node name="popSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
 
-[connection signal="input_event" from="woodPlank" to="." method="_on_woodPlank_input_event"]
+[connection signal="mouse_signal" from="woodPlank" to="." method="_on_woodPlank_mouse_signal"]
 [connection signal="pressed" from="pushButton" to="." method="_on_pushButton_pressed"]
 [connection signal="button_down" from="popButton" to="." method="_on_popButton_button_down"]

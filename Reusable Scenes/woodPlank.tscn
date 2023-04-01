@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Images/stackwood.png" type="Texture" id=1]
+[ext_resource path="res://Reusable Scenes/woodPlank.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 288, 72 )
 
 [node name="woodPlank" type="StaticBody2D"]
 input_pickable = true
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
@@ -16,3 +18,5 @@ texture = ExtResource( 1 )
 visible = false
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 1 )
+
+[connection signal="mouse_entered" from="." to="." method="_on_woodPlank_mouse_entered"]
