@@ -6,17 +6,19 @@ export (PackedScene) var stack_item
 onready var curr_item = get_node("woodPlank")
 var stack = []
 var top_color = "a900ff"
+var balance = 3
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	stack.push_back(curr_item)
-	
+	curr_item.connect("mouse_signal",self,"fkk")
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	$Balance.set_text("Balance: "+ str(balance))
 
 func spawn_stack_item():
 	var new_plank = stack_item.instance()
@@ -29,21 +31,26 @@ func spawn_stack_item():
 	curr_item.modulate = Color(top_color)
 
 func _on_popButton_button_down():
-	if stack.back()==null:
+	if stack.empty():
 		print("Underflow")
 	else:
 		var popped = stack.pop_back()
 		popped.queue_free()
-		curr_item=stack.back()
-		curr_item.modulate = Color(top_color)
+		balance +=1
+		if !stack.empty():
+			curr_item=stack.back()
+			curr_item.modulate = Color(top_color)
 		$popSFX.play()
 
 
 func _on_pushButton_pressed():
 	print("Button Pushed")
-#	print(curr_item.position)
-	spawn_stack_item()
-	$pushSFX.play()
+	if balance!=0:
+		balance-=1
+		spawn_stack_item()
+		$pushSFX.play()
+	else:
+		print("Overflow")
 
 func _on_woodPlank_mouse_signal():
 	print("Hello")
