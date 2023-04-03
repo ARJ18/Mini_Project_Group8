@@ -48,6 +48,4 @@ func _on_pushButton_pressed():
 	else:
 		print("Overflow")
 
-func _on_woodPlank_mouse_signal():
-	print("Hello")
 

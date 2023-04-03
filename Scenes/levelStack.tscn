@@ -62,6 +62,5 @@ margin_right = 40.0
 margin_bottom = 14.0
 custom_fonts/font = SubResource( 1 )
 
-[connection signal="mouse_signal" from="woodPlank" to="." method="_on_woodPlank_mouse_signal"]
 [connection signal="pressed" from="pushButton" to="." method="_on_pushButton_pressed"]
 [connection signal="button_down" from="popButton" to="." method="_on_popButton_button_down"]
