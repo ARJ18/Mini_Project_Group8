@@ -1,6 +1,5 @@
 extends Node2D
 
-
 #var stack_item = preload("res://Reusable Scenes/woodPlank.tscn")
 export (PackedScene) var stack_item
 onready var curr_item = get_node("woodPlank")
@@ -8,13 +7,10 @@ var stack = []
 var top_color = "a900ff"
 var balance = 3
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	stack.push_back(curr_item)
-	curr_item.connect("mouse_signal",self,"fkk")
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -55,5 +51,3 @@ func _on_pushButton_pressed():
 func _on_woodPlank_mouse_signal():
 	print("Hello")
 
-func fkk():
-	print("Fkkk")

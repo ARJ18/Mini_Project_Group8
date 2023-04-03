@@ -19,6 +19,8 @@ stack_item = ExtResource( 3 )
 [node name="bgImg" type="TextureRect" parent="."]
 margin_right = 1300.0
 margin_bottom = 722.0
+rect_clip_content = true
+mouse_filter = 2
 texture = ExtResource( 1 )
 
 [node name="ground" parent="." instance=ExtResource( 2 )]
@@ -50,6 +52,7 @@ text = "Pop"
 
 [node name="pushSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = -18.353
 
 [node name="popSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )

@@ -12,5 +12,4 @@ func _process(delta):
 
 
 func _on_woodPlank_mouse_entered():
-	print("hello")
 	emit_signal("mouse_signal")
