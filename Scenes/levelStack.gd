@@ -5,6 +5,7 @@ export (PackedScene) var stack_item
 onready var curr_item = get_node("woodPlank")
 var stack = []
 var top_color = "a900ff"
+var select_color = "#f5e3b3"
 var balance = 3
 
 # Called when the node enters the scene tree for the first time.
@@ -15,13 +16,16 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$ImmovableObjects/Balance.set_text("Balance: "+ str(balance))
+	curr_item.modulate = Color(select_color)
+
+
 func spawn_stack_item():
 	var new_plank = stack_item.instance()
 	add_child(new_plank)
 	stack.push_back(new_plank)
 	curr_item.modulate = Color.white
 	new_plank.position.x =curr_item.position.x
-	new_plank.position.y = curr_item.position.y - 73
+	new_plank.position.y = curr_item.position.y - 60
 	curr_item = new_plank
 	curr_item.modulate = Color(top_color)
 
@@ -47,4 +51,19 @@ func _on_pushButton_pressed():
 	else:
 		print("Overflow")
 
+func _on_woodPlank_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			curr_item = get_node("woodPlank")
 
+
+func _on_woodPlank2_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			curr_item = get_node("woodPlank2")
+
+
+func _on_woodPlank3_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			curr_item = get_node("woodPlank3")

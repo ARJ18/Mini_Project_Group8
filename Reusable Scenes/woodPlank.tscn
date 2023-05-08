@@ -1,21 +1,24 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Images/stackwood.png" type="Texture" id=1]
+[ext_resource path="res://Images/Textures/pngwing.com.png" type="Texture" id=1]
 [ext_resource path="res://Reusable Scenes/woodPlank.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 288, 72 )
+extents = Vector2( 275.863, 72 )
 
 [node name="woodPlank" type="StaticBody2D"]
 input_pickable = true
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 1.4782e-05, 0 )
+scale = Vector2( 0.586081, 0.743529 )
 texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 46, 34, 546, 85 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.579998, 0.430556 )
 shape = SubResource( 1 )
 
 [connection signal="mouse_entered" from="." to="." method="_on_woodPlank_mouse_entered"]
