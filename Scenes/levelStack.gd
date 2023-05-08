@@ -14,8 +14,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Balance.set_text("Balance: "+ str(balance))
-
+	$ImmovableObjects/Balance.set_text("Balance: "+ str(balance))
 func spawn_stack_item():
 	var new_plank = stack_item.instance()
 	add_child(new_plank)
