@@ -1,0 +1,116 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Font/font_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Reusable Scenes/settings.gd" type="Script" id=2]
+
+[node name="PopupDialog" type="PopupDialog"]
+margin_left = 192.0
+margin_top = 128.0
+margin_right = 840.0
+margin_bottom = 464.0
+script = ExtResource( 2 )
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_right = 640.0
+margin_bottom = 328.0
+theme = ExtResource( 1 )
+tab_align = 0
+
+[node name="Video" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VSync" type="Label" parent="TabContainer/Video"]
+margin_left = 60.0
+margin_top = 26.0
+margin_right = 120.0
+margin_bottom = 46.0
+text = "V Sync"
+
+[node name="Bloom" type="Label" parent="TabContainer/Video"]
+margin_left = 60.0
+margin_top = 90.0
+margin_right = 110.0
+margin_bottom = 110.0
+text = "Bloom"
+
+[node name="Bright" type="Label" parent="TabContainer/Video"]
+margin_left = 60.0
+margin_top = 154.0
+margin_right = 160.0
+margin_bottom = 174.0
+text = "Brightness"
+
+[node name="VSyncTog" type="CheckButton" parent="TabContainer/Video"]
+margin_left = 444.0
+margin_top = 18.0
+margin_right = 520.0
+margin_bottom = 58.0
+
+[node name="BloomTog" type="CheckButton" parent="TabContainer/Video"]
+margin_left = 444.0
+margin_top = 82.0
+margin_right = 520.0
+margin_bottom = 122.0
+
+[node name="BrightSlide" type="HSlider" parent="TabContainer/Video"]
+margin_left = 380.0
+margin_top = 154.0
+margin_right = 572.0
+margin_bottom = 170.0
+value = 50.0
+
+[node name="Audio" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Music" type="Label" parent="TabContainer/Audio"]
+margin_left = 60.0
+margin_top = 138.0
+margin_right = 180.0
+margin_bottom = 158.0
+text = "Music Volume"
+
+[node name="SFX" type="Label" parent="TabContainer/Audio"]
+margin_left = 60.0
+margin_top = 74.0
+margin_right = 160.0
+margin_bottom = 94.0
+text = "SFX Volume"
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Audio"]
+margin_left = 316.0
+margin_top = 138.0
+margin_right = 572.0
+margin_bottom = 154.0
+value = 50.0
+
+[node name="HSlider2" type="HSlider" parent="TabContainer/Audio"]
+margin_left = 316.0
+margin_top = 74.0
+margin_right = 572.0
+margin_bottom = 90.0
+value = 50.0
+
+[node name="CloseBtn" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -28.0
+margin_top = -72.0
+margin_right = 34.0
+margin_bottom = -46.0
+theme = ExtResource( 1 )
+text = "Close"
+
+[connection signal="button_up" from="CloseBtn" to="." method="_on_CloseBtn_button_up"]

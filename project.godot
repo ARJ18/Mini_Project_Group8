@@ -14,6 +14,11 @@ config/name="DSA_Game"
 run/main_scene="res://Scenes/levelStack.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+SaveSettings="*res://Scripts/save_settings.gd"
+SavePlayer="*res://Scripts/save_player.gd"
+
 [display]
 
 window/size/width=1280
