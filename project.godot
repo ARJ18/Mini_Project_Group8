@@ -16,6 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+EnvChanges="*res://Scripts/env_changes.gd"
 SaveSettings="*res://Scripts/save_settings.gd"
 SavePlayer="*res://Scripts/save_player.gd"
 

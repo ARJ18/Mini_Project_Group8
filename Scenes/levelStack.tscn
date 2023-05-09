@@ -345,9 +345,11 @@ position = Vector2( 1504, 640 )
 [node name="pushSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -18.353
+bus = "SFX"
 
 [node name="popSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
+bus = "SFX"
 
 [node name="player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 48, 440 )
