@@ -8,7 +8,8 @@ const JUMP=5000
 const UP = Vector2(0,-1)
 const WORLD_LIMIT = 5000
 
-
+func _ready():
+	pass
 
 func _physics_process(_delta):
 	apply_gravity()
@@ -16,7 +17,7 @@ func _physics_process(_delta):
 	jump()
 	animate()
 	move_and_slide(motion,UP)
-	
+
 	
 func apply_gravity():#applies gravity
 	if position.y > WORLD_LIMIT:

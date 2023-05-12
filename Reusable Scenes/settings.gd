@@ -8,7 +8,9 @@ func _ready():
 	$TabContainer/Video/VSyncTog.pressed = settings_data.vsync
 	$TabContainer/Video/BrightSlide.value = settings_data.brightness
 	$TabContainer/Audio/musicvol.value = settings_data.music
+	set_volume_db(1,settings_data.music)
 	$TabContainer/Audio/sfxvol.value = settings_data.sfx
+	set_volume_db(2,settings_data.sfx)
 
 func _on_CloseBtn_button_up():
 	settings_data.music = $TabContainer/Audio/musicvol.value
@@ -26,7 +28,27 @@ func _on_BrightSlide_drag_ended(value_changed):
 	if value_changed:
 		settings_data.brightness = $TabContainer/Video/BrightSlide.value
 
+func set_volume_db(bus,percent):
+	if percent == 0:
+		AudioServer.set_bus_mute(bus,true)
+	else:
+		AudioServer.set_bus_mute(bus,false)
+		if percent >= 95:
+			AudioServer.set_bus_volume_db(bus,5.00)
+		elif percent >= 60 and percent < 95:
+			AudioServer.set_bus_volume_db(bus,0.00)
+		elif percent >= 30 and percent < 60:
+			AudioServer.set_bus_volume_db(bus,-3.00)
+		elif percent >= 10 and percent < 30:
+			AudioServer.set_bus_volume_db(bus,-7.00)
+		elif percent > 0 and percent < 10:
+			AudioServer.set_bus_volume_db(bus,-20.00)
 
 func _on_musicvol_drag_ended(value_changed):
-	AudioServer.set_bus_volume_db(1,1)   # need to calculate volume according to slider value
-	print($TabContainer/Audio/musicvol.value)
+	var percentage = $TabContainer/Audio/musicvol.value
+	set_volume_db(1,percentage)
+
+
+func _on_sfxvol_drag_ended(value_changed):
+	var percentage = $TabContainer/Audio/sfxvol.value
+	set_volume_db(2,percentage)
