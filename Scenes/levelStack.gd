@@ -54,7 +54,7 @@ func _on_popButton_button_down():
 		#if !stack.empty():
 			#curr_item=stack.back()
 			#curr_item.modulate = Color(top_color)
-		$popSFX.play()
+		$ImmovableObjects/popSFX.play()
 	else:
 		print("Underflow")
 		$Warnings/underflowWarning.visible =true
@@ -65,7 +65,7 @@ func _on_pushButton_pressed():
 	if balance!=0:
 		balance-=1
 		spawn_stack_item(sel_item)
-		$pushSFX.play()
+		$ImmovableObjects/pushSFX.play()
 	else:
 		print("Overflow")
 		$Warnings/overflowWarning.visible = true

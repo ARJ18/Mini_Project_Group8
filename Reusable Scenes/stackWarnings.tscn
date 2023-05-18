@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Font/font_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Font/unispace bd.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 2 )
+
+[node name="Warnings" type="CanvasLayer"]
+layer = 100
+
+[node name="underflowWarning" type="WindowDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.0
+margin_top = -78.0
+margin_right = 156.0
+margin_bottom = 78.0
+custom_colors/title_color = Color( 0, 0, 0, 1 )
+popup_exclusive = true
+window_title = "WARNING"
+
+[node name="Label" type="Label" parent="underflowWarning"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -132.0
+margin_top = -48.0
+margin_right = 132.0
+margin_bottom = 2.0
+custom_fonts/font = SubResource( 8 )
+text = "Popping this plank will lead to underflow"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="underOK" type="Button" parent="underflowWarning"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -46.0
+margin_right = 40.0
+margin_bottom = -20.0
+theme = ExtResource( 1 )
+text = "OK"
+
+[node name="overflowWarning" type="WindowDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.0
+margin_top = -78.0
+margin_right = 156.0
+margin_bottom = 78.0
+custom_colors/title_color = Color( 0, 0, 0, 1 )
+popup_exclusive = true
+window_title = "WARNING"
+
+[node name="Label" type="Label" parent="overflowWarning"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -132.0
+margin_top = -48.0
+margin_right = 132.0
+margin_bottom = 2.0
+custom_fonts/font = SubResource( 8 )
+text = "You don't have enough logs to push"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="overOK" type="Button" parent="overflowWarning"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -46.0
+margin_right = 40.0
+margin_bottom = -20.0
+theme = ExtResource( 1 )
+text = "OK"
