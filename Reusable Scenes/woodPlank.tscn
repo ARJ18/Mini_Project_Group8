@@ -21,5 +21,3 @@ region_rect = Rect2( 46, 34, 546, 85 )
 visible = false
 scale = Vector2( 0.579998, 0.430556 )
 shape = SubResource( 1 )
-
-[connection signal="mouse_entered" from="." to="." method="_on_woodPlank_mouse_entered"]
