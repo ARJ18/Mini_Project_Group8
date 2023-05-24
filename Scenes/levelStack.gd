@@ -96,13 +96,6 @@ func _on_woodPlank4_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			sel_item.get_tail_data().modulate = Color.white
 			sel_item = stack4
-	
-	
-func _on_pauseButton_button_up():
-	$Pausemenu.visible = true
-	$player.set_physics_process(false)
-	$ImmovableObjects/pushButton.disabled = true
-	$ImmovableObjects/popButton.disabled = true
 
 func _on_resume_button_down():
 	$player.set_physics_process(true)
@@ -118,3 +111,8 @@ func _on_warnOK_button_up():
 	$Warnings/underflowWarning.hide()
 
 
+func _on_pauseButton_button_up():
+	$Pausemenu.visible = true
+	$player.set_physics_process(false)
+	$ImmovableObjects/pushButton.disabled = true
+	$ImmovableObjects/popButton.disabled = true

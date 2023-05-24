@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Images/background/1.png" type="Texture" id=1]
 [ext_resource path="res://Images/background/2.png" type="Texture" id=2]
@@ -8,12 +8,20 @@
 [ext_resource path="res://Reusable Scenes/player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://TileSets/groundTile.tres" type="TileSet" id=7]
 [ext_resource path="res://Reusable Scenes/woodPlank.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Floater.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Reusable Scenes/Floater.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/levelStack2.gd" type="Script" id=10]
+[ext_resource path="res://Reusable Scenes/pauseButton.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Font/font_theme.tres" type="Theme" id=12]
+[ext_resource path="res://Reusable Scenes/Pausemenu.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sounds/pushSFX.mp3" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/popSFX.mp3" type="AudioStream" id=15]
 
 [node name="levelStack2" type="Node2D"]
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_vertical_guides_": [ 2560.0 ]
 }
+stack_item = ExtResource( 8 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 7 )
@@ -26,7 +34,6 @@ position = Vector2( 40, 528 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_limit_end = Vector2( 2560, 0 )
-scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.1, 1 )
@@ -35,6 +42,7 @@ motion_mirroring = Vector2( 1920, 0 )
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
 margin_right = 1920.0
 margin_bottom = 720.0
+mouse_filter = 2
 texture = ExtResource( 1 )
 expand = true
 
@@ -45,6 +53,7 @@ motion_mirroring = Vector2( 1920, 0 )
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2"]
 margin_right = 1920.0
 margin_bottom = 720.0
+mouse_filter = 2
 texture = ExtResource( 2 )
 expand = true
 
@@ -55,6 +64,7 @@ motion_mirroring = Vector2( 1920, 0 )
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3"]
 margin_right = 1920.0
 margin_bottom = 720.0
+mouse_filter = 2
 texture = ExtResource( 3 )
 expand = true
 
@@ -65,6 +75,7 @@ motion_mirroring = Vector2( 1920, 0 )
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer4"]
 margin_right = 1920.0
 margin_bottom = 720.0
+mouse_filter = 2
 texture = ExtResource( 4 )
 expand = true
 
@@ -74,6 +85,7 @@ motion_mirroring = Vector2( 1920, 0 )
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer5"]
 margin_right = 1920.0
 margin_bottom = 720.0
+mouse_filter = 2
 texture = ExtResource( 5 )
 expand = true
 
@@ -81,5 +93,139 @@ expand = true
 position = Vector2( 384, 704 )
 
 [node name="Floater" parent="." instance=ExtResource( 9 )]
-position = Vector2( 646, 512 )
-scale = Vector2( 0.99588, 1 )
+position = Vector2( 597, 506 )
+move_to = Vector2( 200, 0 )
+move_from = Vector2( 0, 0 )
+speed = 100.0
+
+[node name="Floater2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1181, 647 )
+move_to = Vector2( 0, -100 )
+move_from = Vector2( 0, 0 )
+
+[node name="ImmovableObjects" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="balance" type="Label" parent="ImmovableObjects"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 56.0
+margin_bottom = 22.0
+theme = ExtResource( 12 )
+
+[node name="push" type="Button" parent="ImmovableObjects"]
+margin_left = 1181.0
+margin_top = 96.0
+margin_right = 1261.0
+margin_bottom = 136.0
+text = "Push"
+
+[node name="pop" type="Button" parent="ImmovableObjects"]
+margin_left = 1181.0
+margin_top = 142.0
+margin_right = 1261.0
+margin_bottom = 182.0
+text = "Pop"
+
+[node name="pushSFX" type="AudioStreamPlayer2D" parent="ImmovableObjects"]
+stream = ExtResource( 14 )
+bus = "SFX"
+
+[node name="popSFX" type="AudioStreamPlayer2D" parent="ImmovableObjects"]
+stream = ExtResource( 15 )
+bus = "SFX"
+
+[node name="pauseButton" parent="ImmovableObjects" instance=ExtResource( 11 )]
+
+[node name="Pausemenu" parent="." instance=ExtResource( 13 )]
+visible = false
+
+[node name="Warnings" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="underflowWarning" type="WindowDialog" parent="Warnings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.0
+margin_top = -78.0
+margin_right = 156.0
+margin_bottom = 78.0
+window_title = "WARNING"
+
+[node name="Label" type="Label" parent="Warnings/underflowWarning"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -132.0
+margin_top = -51.0
+margin_right = 132.0
+margin_bottom = -1.0
+theme = ExtResource( 12 )
+text = "Popping this plank will lead to underflow"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="underOK" type="Button" parent="Warnings/underflowWarning"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -54.0
+margin_right = 40.0
+margin_bottom = -28.0
+theme = ExtResource( 12 )
+text = "OK"
+
+[node name="overflowWarning" type="WindowDialog" parent="Warnings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.0
+margin_top = -78.0
+margin_right = 156.0
+margin_bottom = 78.0
+window_title = "WARNING"
+
+[node name="Label" type="Label" parent="Warnings/overflowWarning"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -112.0
+margin_top = -40.0
+margin_right = 114.0
+margin_bottom = 3.0
+theme = ExtResource( 12 )
+text = "You don't have enough logs to push"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="overOK" type="Button" parent="Warnings/overflowWarning"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -47.0
+margin_right = 40.0
+margin_bottom = -21.0
+theme = ExtResource( 12 )
+text = "OK"
+
+[connection signal="input_event" from="woodPlank" to="." method="_on_woodPlank_input_event"]
+[connection signal="button_up" from="ImmovableObjects/push" to="." method="_on_push_button_up"]
+[connection signal="button_up" from="ImmovableObjects/pop" to="." method="_on_pop_button_up"]
+[connection signal="button_up" from="ImmovableObjects/pauseButton" to="." method="_on_pauseButton_button_up"]
+[connection signal="button_up" from="Pausemenu/resume" to="." method="_on_resume_button_up"]
+[connection signal="button_up" from="Warnings/underflowWarning/underOK" to="." method="_on_underOK_button_up"]
+[connection signal="button_up" from="Warnings/overflowWarning/overOK" to="." method="_on_overOK_button_up"]
+
+[editable path="Pausemenu"]

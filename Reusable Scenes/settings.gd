@@ -1,6 +1,5 @@
 extends PopupDialog
 
-signal change_brightness(value)
 
 onready var settings_data = SaveSettings.data
 
