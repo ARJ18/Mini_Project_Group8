@@ -14,4 +14,4 @@ func _on_options_button_up():
 
 
 func _on_exit_button_up():
-	get_tree().free()
+	get_tree().quit()
