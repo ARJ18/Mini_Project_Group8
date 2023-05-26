@@ -7,6 +7,8 @@
 extents = Vector2( 275.863, 72 )
 
 [node name="woodPlank" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 7
 input_pickable = true
 script = ExtResource( 2 )
 

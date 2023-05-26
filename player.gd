@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal fall_out()
+
 onready var _animated_sprite = $AnimatedSprite
 var motion = Vector2(0,0)
 const SPEED = 300
@@ -21,7 +23,8 @@ func _physics_process(_delta):
 	
 func apply_gravity():#applies gravity
 	if position.y > WORLD_LIMIT:
-		get_tree().quit()
+		emit_signal("fall_out")
+		queue_free()
 	if is_on_floor() and motion.y>0 :
 		motion.y = 0
 	elif is_on_ceiling():
@@ -52,3 +55,5 @@ func animate():
 		_animated_sprite.play("walk")
 	else:
 		_animated_sprite.stop()
+
+

@@ -1,5 +1,7 @@
 extends Node2D
 
+signal crushed()
+
 const IDLE_DURATION = 1.0
 
 export var move_to = Vector2(840,506)
@@ -30,3 +32,10 @@ func set_to(to):
 	
 func set_from(from):
 	move_from = from
+
+
+func _on_crusher_area_entered(area):
+	if abs(area.global_position.y) < abs(get_node("Platform/crusher").global_position.y):
+		return
+	print("Crushed")
+	emit_signal("crushed")

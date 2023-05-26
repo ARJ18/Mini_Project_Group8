@@ -18,7 +18,7 @@ var balance = 3
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+	$player.connect("fall_out",self,"on_fall")
 	stack1.push_back(get_node("woodPlank"))
 	stack2.push_back(get_node("woodPlank2"))
 	stack3.push_back(get_node("woodPlank3"))
@@ -29,12 +29,15 @@ func _ready():
 	
 	sel_item = stack1
 	$Pausemenu.visible = false
+	$Warnings/fallWarning.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$ImmovableObjects/Balance.set_text("Balance: "+ str(balance))
 	sel_item.get_tail_data().modulate = Color(select_color)
 
+func on_fall():
+	$Warnings/fallWarning.popup()
 
 func spawn_stack_item(stack_id):
 	var new_plank = stack_item.instance()
@@ -116,3 +119,10 @@ func _on_pauseButton_button_up():
 	$player.set_physics_process(false)
 	$ImmovableObjects/pushButton.disabled = true
 	$ImmovableObjects/popButton.disabled = true
+
+
+func _on_fallReplay_button_up():
+	get_tree().reload_current_scene()
+
+func _on_quitBtn_button_up():
+	get_tree().quit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Images/floater.png" type="Texture" id=1]
 [ext_resource path="res://Reusable Scenes/Floater.gd" type="Script" id=2]
@@ -6,12 +6,17 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 54, 25 )
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 53, 6 )
+
 [node name="Floater" type="Node2D"]
 physics_interpolation_mode = 1
 script = ExtResource( 2 )
 speed = 20.0
 
 [node name="Platform" type="KinematicBody2D" parent="."]
+collision_layer = 2
+collision_mask = 13
 motion/sync_to_physics = true
 
 [node name="Sprite" type="Sprite" parent="Platform"]
@@ -24,7 +29,19 @@ visible = false
 position = Vector2( 0, -1 )
 shape = SubResource( 1 )
 
+[node name="crusher" type="Area2D" parent="Platform"]
+position = Vector2( 0, 22 )
+collision_layer = 2
+monitorable = false
+
+[node name="crushDet" type="CollisionShape2D" parent="Platform/crusher"]
+visible = false
+position = Vector2( 0, -4 )
+shape = SubResource( 2 )
+
 [node name="MotionTween" type="Tween" parent="."]
 repeat = true
 playback_process_mode = 0
 playback/repeat = true
+
+[connection signal="area_entered" from="Platform/crusher" to="." method="_on_crusher_area_entered"]

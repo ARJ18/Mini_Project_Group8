@@ -245,6 +245,51 @@ margin_bottom = -20.0
 theme = ExtResource( 15 )
 text = "OK"
 
+[node name="fallWarning" type="WindowDialog" parent="Warnings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.0
+margin_top = -78.0
+margin_right = 156.0
+margin_bottom = 78.0
+theme = ExtResource( 15 )
+window_title = "WARNING"
+
+[node name="Label" type="Label" parent="Warnings/fallWarning"]
+anchor_left = 0.5
+anchor_top = 0.314
+anchor_right = 0.5
+anchor_bottom = 0.314
+margin_left = -104.0
+margin_top = -9.984
+margin_right = 106.0
+margin_bottom = 10.016
+text = "You fell out of world"
+align = 1
+valign = 1
+
+[node name="fallReplay" type="Button" parent="Warnings/fallWarning"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = -53.0
+margin_right = 112.0
+margin_bottom = -27.0
+text = "Replay"
+
+[node name="quitBtn" type="Button" parent="Warnings/fallWarning"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = -53.0
+margin_right = -40.0
+margin_bottom = -27.0
+text = "Quit"
+
 [node name="Pausemenu" parent="." instance=ExtResource( 17 )]
 visible = false
 
@@ -257,6 +302,8 @@ visible = false
 [connection signal="input_event" from="woodPlank4" to="." method="_on_woodPlank4_input_event"]
 [connection signal="button_up" from="Warnings/underflowWarning/underOK" to="." method="_on_warnOK_button_up"]
 [connection signal="button_up" from="Warnings/overflowWarning/overOK" to="." method="_on_overOK_button_up"]
+[connection signal="button_up" from="Warnings/fallWarning/fallReplay" to="." method="_on_fallReplay_button_up"]
+[connection signal="button_up" from="Warnings/fallWarning/quitBtn" to="." method="_on_quitBtn_button_up"]
 [connection signal="button_down" from="Pausemenu/resume" to="." method="_on_resume_button_down"]
 
 [editable path="player"]
