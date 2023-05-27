@@ -80,6 +80,7 @@ jump={
 2d_physics/layer_2="floaters"
 2d_physics/layer_3="ground"
 2d_physics/layer_4="woodplank"
+2d_physics/layer_5="miscObjects"
 
 [physics]
 

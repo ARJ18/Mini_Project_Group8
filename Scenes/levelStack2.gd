@@ -12,6 +12,7 @@ onready var stack4 = LinkedList.new()
 onready var stack5 = LinkedList.new()
 var top_color = "a900ff"
 var select_color = "#ef8888"
+var key_acq = false
 
 var to = Vector2(120,0)
 var from = Vector2(0,0)
@@ -150,3 +151,10 @@ func _on_fallReplay_button_up():
 	$Warnings/fallWarning.visible = false
 	get_tree().reload_current_scene()
 
+func _on_ShiningKey_body_entered(body):
+	$ShiningKey.visible = false
+	key_acq = true
+
+
+func _on_Portal_body_entered(body):
+	print("Level Finished")

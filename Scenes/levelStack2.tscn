@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Images/background/1.png" type="Texture" id=1]
 [ext_resource path="res://Images/background/2.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Sounds/pushSFX.mp3" type="AudioStream" id=14]
 [ext_resource path="res://Sounds/popSFX.mp3" type="AudioStream" id=15]
 [ext_resource path="res://Images/key/bigkeysprites.png" type="Texture" id=16]
+[ext_resource path="res://Images/portal/portals.png" type="Texture" id=17]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -107,6 +108,63 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 32.5, 56 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 0, 0, 214, 214 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 214, 0, 214, 214 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 428, 0, 214, 214 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 642, 0, 214, 214 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 856, 0, 214, 214 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 0, 214, 214, 214 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 214, 214, 214, 214 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 428, 214, 214, 214 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 642, 214, 214, 214 )
+
+[sub_resource type="SpriteFrames" id=28]
+animations = [ {
+"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=29]
+radius = 48.0
+height = 96.0
 
 [node name="levelStack2" type="Node2D"]
 script = ExtResource( 10 )
@@ -419,16 +477,30 @@ text = "Quit"
 
 [node name="ShiningKey" type="Area2D" parent="."]
 position = Vector2( 2048, 528 )
+z_index = -2
+collision_layer = 16
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ShiningKey"]
 frames = SubResource( 17 )
 animation = "shinig"
-frame = 9
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShiningKey"]
 visible = false
 shape = SubResource( 18 )
+
+[node name="Portal" type="Area2D" parent="."]
+position = Vector2( 1856, 560 )
+z_index = -2
+collision_layer = 16
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Portal"]
+frames = SubResource( 28 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
+visible = false
+shape = SubResource( 29 )
 
 [connection signal="input_event" from="woodPlank" to="." method="_on_woodPlank_input_event"]
 [connection signal="input_event" from="woodPlank2" to="." method="_on_woodPlank2_input_event"]
@@ -445,5 +517,7 @@ shape = SubResource( 18 )
 [connection signal="button_up" from="Warnings/crushWarning/quitBtn" to="." method="_on_quitBtn_button_up"]
 [connection signal="button_up" from="Warnings/fallWarning/fallReplay" to="." method="_on_fallReplay_button_up"]
 [connection signal="button_up" from="Warnings/fallWarning/quitBtn" to="." method="_on_quitBtn_button_up"]
+[connection signal="body_entered" from="ShiningKey" to="." method="_on_ShiningKey_body_entered"]
+[connection signal="body_entered" from="Portal" to="." method="_on_Portal_body_entered"]
 
 [editable path="Pausemenu"]
