@@ -15,3 +15,7 @@ func _on_options_button_up():
 
 func _on_exit_button_up():
 	get_tree().quit()
+
+
+func _on_replay_button_up():
+	get_tree().reload_current_scene()

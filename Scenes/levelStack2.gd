@@ -1,6 +1,6 @@
 extends Node2D
 
-var balance = 5
+var balance = 3
 const LinkedList = preload("res://Reusable Scenes/LinkedList.gd")
 export (PackedScene) var stack_item
 onready var curr_item = get_node("woodPlank")
@@ -9,6 +9,7 @@ onready var stack1 = LinkedList.new()
 onready var stack2 = LinkedList.new()
 onready var stack3 = LinkedList.new()
 onready var stack4 = LinkedList.new()
+onready var stack5 = LinkedList.new()
 var top_color = "a900ff"
 var select_color = "#ef8888"
 
@@ -22,9 +23,12 @@ func _ready():
 	$player.connect("fall_out",self,"on_fall")
 	stack1.push_back(get_node("woodPlank"))
 	stack2.push_back(get_node("woodPlank2"))
-	
-	for i in range(0,3):
-		spawn_stack_item(stack2)
+	stack3.push_back(get_node("woodPlank3"))
+	stack4.push_back(get_node("woodPlank4"))
+	stack5.push_back(get_node("woodPlank5"))
+	spawn_stack_item(stack2)
+	spawn_stack_item(stack4)
+	spawn_stack_item(stack5)
 	
 	sel_item = stack1
 	$Pausemenu.visible = false
@@ -68,6 +72,24 @@ func _on_woodPlank2_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			sel_item.get_tail_data().modulate = Color.white
 			sel_item = stack2
+
+func _on_woodPlank3_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			sel_item.get_tail_data().modulate = Color.white
+			sel_item = stack3
+
+func _on_woodPlank4_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			sel_item.get_tail_data().modulate = Color.white
+			sel_item = stack4
+
+func _on_woodPlank5_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			sel_item.get_tail_data().modulate = Color.white
+			sel_item = stack5
 
 func _on_underOK_button_up():
 	$Warnings/underflowWarning.visible = false
@@ -127,3 +149,4 @@ func _on_quitBtn_button_up():
 func _on_fallReplay_button_up():
 	$Warnings/fallWarning.visible = false
 	get_tree().reload_current_scene()
+
