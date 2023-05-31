@@ -4,7 +4,7 @@
 [ext_resource path="res://Font/unispace bd.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Reusable Scenes/settings.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/main_menu.gd" type="Script" id=4]
-[ext_resource path="res://Sounds/test_music.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/bg_music/main_menu_bg.mp3" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
@@ -34,6 +34,8 @@ stretch_mode = 5
 
 [node name="bgMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+volume_db = -3.888
+autoplay = true
 bus = "Music"
 
 [node name="buttonContainer" type="VBoxContainer" parent="."]
@@ -95,3 +97,4 @@ margin_right = 324.0
 margin_bottom = 168.0
 
 [connection signal="button_up" from="buttonContainer/settingsButton" to="." method="_on_settingsButton_button_up"]
+[connection signal="button_up" from="buttonContainer/exitButton" to="." method="_on_exitButton_button_up"]

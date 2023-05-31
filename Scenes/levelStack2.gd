@@ -154,7 +154,16 @@ func _on_fallReplay_button_up():
 func _on_ShiningKey_body_entered(body):
 	$ShiningKey.visible = false
 	key_acq = true
-
+	$InvisibleCollisionobject/Barrier.set_deferred("disabled",true)
+	$InvisibleCollisionobject.visible = false
 
 func _on_Portal_body_entered(body):
 	print("Level Finished")
+
+func _on_Door_body_entered(body):
+	if !key_acq:
+		return
+	$Door/doorcollison.set_deferred("disabled",true)
+	$Door.visible = false
+	$Door.monitoring = false
+	$Portal.monitoring = true

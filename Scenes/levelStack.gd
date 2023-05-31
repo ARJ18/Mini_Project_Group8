@@ -13,7 +13,7 @@ onready var stack4 = LinkedList.new()
 var top_color = "a900ff"
 var select_color = "#ef8888"
 var balance = 3
-
+#var next_scene = preload("res://Scenes/levelStack2.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -126,3 +126,7 @@ func _on_fallReplay_button_up():
 
 func _on_quitBtn_button_up():
 	get_tree().quit()
+
+
+func _on_PortalArea_body_entered(body):
+	get_tree().change_scene("res://Scenes/levelStack2.tscn")
