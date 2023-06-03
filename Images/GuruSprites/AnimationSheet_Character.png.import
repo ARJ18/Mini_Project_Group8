@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mountain-Dusk.png-81766b2fb717eecb3d9c402ddb27d9e3.stex"
+path="res://.import/AnimationSheet_Character.png-159b28cafe79d9c33debda62f71311f2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Super Mountain Dusk Files/Previews/Mountain-Dusk.png"
-dest_files=[ "res://.import/Mountain-Dusk.png-81766b2fb717eecb3d9c402ddb27d9e3.stex" ]
+source_file="res://Images/GuruSprites/AnimationSheet_Character.png"
+dest_files=[ "res://.import/AnimationSheet_Character.png-159b28cafe79d9c33debda62f71311f2.stex" ]
 
 [params]
 

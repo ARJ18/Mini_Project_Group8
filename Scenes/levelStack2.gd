@@ -35,6 +35,7 @@ func _ready():
 	$Pausemenu.visible = false
 	$Warnings/crushWarning.visible = false
 	$Warnings/fallWarning.visible = false
+	$Warnings/keyWarning.visible = false
 	$Floater.set_from(from)
 	$Floater.set_to(to)
 
@@ -167,3 +168,19 @@ func _on_Door_body_entered(body):
 	$Door.visible = false
 	$Door.monitoring = false
 	$Portal.monitoring = true
+
+
+func _on_keyOK_button_up():
+	$Warnings/keyWarning.visible = false
+	$player.set_physics_process(true)
+	$ImmovableObjects/push.disabled = false
+	$ImmovableObjects/pop.disabled = false
+
+
+func _on_WarningGenerator_body_entered(body):
+	if !key_acq:
+		$Warnings/keyWarning.popup()
+		$player.set_physics_process(false)
+		$ImmovableObjects/push.disabled = true
+		$ImmovableObjects/pop.disabled = true
+		

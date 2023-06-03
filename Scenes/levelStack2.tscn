@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Images/background/1.png" type="Texture" id=1]
 [ext_resource path="res://Images/background/2.png" type="Texture" id=2]
@@ -119,6 +119,9 @@ extents = Vector2( 64, 108 )
 
 [sub_resource type="RectangleShape2D" id=31]
 extents = Vector2( 10, 112 )
+
+[sub_resource type="RectangleShape2D" id=32]
+extents = Vector2( 10, 104 )
 
 [node name="levelStack2" type="Node2D"]
 script = ExtResource( 10 )
@@ -429,6 +432,43 @@ margin_right = -40.0
 margin_bottom = -27.0
 text = "Quit"
 
+[node name="keyWarning" type="WindowDialog" parent="Warnings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.0
+margin_top = -78.0
+margin_right = 156.0
+margin_bottom = 78.0
+theme = ExtResource( 12 )
+window_title = "WARNING"
+
+[node name="Label" type="Label" parent="Warnings/keyWarning"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -154.0
+margin_top = -48.0
+margin_right = 154.0
+margin_bottom = -5.0
+text = "Acquire the key to open the door"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="keyOK" type="Button" parent="Warnings/keyWarning"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = 31.0
+margin_right = 40.0
+margin_bottom = 57.0
+text = "OK"
+
 [node name="ShiningKey" type="Area2D" parent="."]
 position = Vector2( 2048, 528 )
 z_index = -2
@@ -437,7 +477,7 @@ collision_layer = 16
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ShiningKey"]
 frames = SubResource( 17 )
 animation = "shinig"
-frame = 15
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShiningKey"]
@@ -452,6 +492,7 @@ monitoring = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Portal"]
 frames = ExtResource( 17 )
+frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
@@ -479,6 +520,15 @@ visible = false
 position = Vector2( 0, -16 )
 shape = SubResource( 31 )
 
+[node name="WarningGenerator" type="Area2D" parent="."]
+position = Vector2( 1768, 576 )
+collision_layer = 16
+
+[node name="KeyCol" type="CollisionShape2D" parent="WarningGenerator"]
+visible = false
+position = Vector2( 0, -16 )
+shape = SubResource( 32 )
+
 [connection signal="input_event" from="woodPlank" to="." method="_on_woodPlank_input_event"]
 [connection signal="input_event" from="woodPlank2" to="." method="_on_woodPlank2_input_event"]
 [connection signal="input_event" from="woodPlank3" to="." method="_on_woodPlank3_input_event"]
@@ -494,8 +544,10 @@ shape = SubResource( 31 )
 [connection signal="button_up" from="Warnings/crushWarning/quitBtn" to="." method="_on_quitBtn_button_up"]
 [connection signal="button_up" from="Warnings/fallWarning/fallReplay" to="." method="_on_fallReplay_button_up"]
 [connection signal="button_up" from="Warnings/fallWarning/quitBtn" to="." method="_on_quitBtn_button_up"]
+[connection signal="button_up" from="Warnings/keyWarning/keyOK" to="." method="_on_keyOK_button_up"]
 [connection signal="body_entered" from="ShiningKey" to="." method="_on_ShiningKey_body_entered"]
 [connection signal="body_entered" from="Portal" to="." method="_on_Portal_body_entered"]
 [connection signal="body_entered" from="Door" to="." method="_on_Door_body_entered"]
+[connection signal="body_entered" from="WarningGenerator" to="." method="_on_WarningGenerator_body_entered"]
 
 [editable path="Pausemenu"]
