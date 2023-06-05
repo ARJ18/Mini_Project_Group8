@@ -477,7 +477,7 @@ collision_layer = 16
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ShiningKey"]
 frames = SubResource( 17 )
 animation = "shinig"
-frame = 5
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShiningKey"]
@@ -492,7 +492,7 @@ monitoring = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Portal"]
 frames = ExtResource( 17 )
-frame = 7
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
