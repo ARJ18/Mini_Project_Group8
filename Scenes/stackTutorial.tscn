@@ -33,16 +33,15 @@ margin_bottom = 1024.0
 texture = ExtResource( 1 )
 expand = true
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 1224, 656 )
+[node name="Guru" type="Area2D" parent="."]
+position = Vector2( 48, 280 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Guru"]
 scale = Vector2( 2.25, 2.25 )
 frames = SubResource( 3 )
 animation = "idle"
-frame = 1
 speed_scale = 0.3
 playing = true
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guru"]
