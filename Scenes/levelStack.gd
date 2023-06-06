@@ -17,8 +17,11 @@ var balance = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player_unset_phys()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$player.connect("fall_out",self,"on_fall")
+	$Warnings/STACKiNSTRUCTIONS.connect("ready_to_play",self,"player_set_phys")
+	$Warnings/STACKiNSTRUCTIONS.popup()
 	stack1.push_back(get_node("woodPlank"))
 	stack2.push_back(get_node("woodPlank2"))
 	stack3.push_back(get_node("woodPlank3"))
@@ -38,6 +41,12 @@ func _process(delta):
 
 func on_fall():
 	$Warnings/fallWarning.popup()
+
+func player_unset_phys():
+	$player.set_physics_process(false)
+
+func player_set_phys():
+	$player.set_physics_process(true)
 
 func spawn_stack_item(stack_id):
 	var new_plank = stack_item.instance()
@@ -60,6 +69,7 @@ func _on_popButton_button_down():
 		$ImmovableObjects/popSFX.play()
 	else:
 		print("Underflow")
+		player_unset_phys()
 		$Warnings/underflowWarning.visible =true
 
 
@@ -71,6 +81,7 @@ func _on_pushButton_pressed():
 		$ImmovableObjects/pushSFX.play()
 	else:
 		print("Overflow")
+		player_unset_phys()
 		$Warnings/overflowWarning.visible = true
 
 func _on_woodPlank_input_event(viewport, event, shape_idx):
@@ -108,10 +119,12 @@ func _on_resume_button_down():
 
 func _on_overOK_button_up():
 	$Warnings/overflowWarning.hide()
+	player_set_phys()
 
 
 func _on_warnOK_button_up():
 	$Warnings/underflowWarning.hide()
+	player_set_phys()
 
 
 func _on_pauseButton_button_up():
@@ -130,3 +143,8 @@ func _on_quitBtn_button_up():
 
 func _on_PortalArea_body_entered(body):
 	get_tree().change_scene("res://Scenes/levelStack2.tscn")
+
+
+func _on_howtoplayBtn_button_up():
+	$Warnings/STACKiNSTRUCTIONS.popup()
+	player_unset_phys()
