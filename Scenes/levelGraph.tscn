@@ -7,7 +7,7 @@
 [node name="levelGraph" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="City" parent="." instance=ExtResource( 3 )]
+[node name="City1" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1112, 489 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
@@ -57,7 +57,11 @@ position = Vector2( 167, 215 )
 rotation = -3.13378
 scale = Vector2( 0.03, 0.03 )
 
-[connection signal="input_event" from="City" to="." method="_on_City_input_event"]
+[node name="FuelLabel" type="Label" parent="."]
+margin_right = 122.0
+margin_bottom = 31.0
+
+[connection signal="input_event" from="City1" to="." method="_on_City1_input_event"]
 [connection signal="input_event" from="City2" to="." method="_on_City2_input_event"]
 [connection signal="input_event" from="City3" to="." method="_on_City3_input_event"]
 [connection signal="input_event" from="City4" to="." method="_on_City4_input_event"]
