@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/stack_level __bg.mp3-b2229ea88dbc9a1e75f459f555ffff12.mp3str"
+
+[deps]
+
+source_file="res://Sounds/bg_music/stack_level __bg.mp3"
+dest_files=[ "res://.import/stack_level __bg.mp3-b2229ea88dbc9a1e75f459f555ffff12.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

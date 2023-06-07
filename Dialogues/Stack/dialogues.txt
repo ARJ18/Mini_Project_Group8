@@ -1,0 +1,41 @@
+NPC: Hey there, adventurer! I've got a stack of knowledge to share with you today. Ready to dive into the world of stacks?
+
+Player: Absolutely! Teach me, oh wise NPC!
+
+NPC: Haha, your GURU reporting for duty! Alright, imagine a stack like a big pile of pancakes. You can only add or remove a pancake from the top. We call it a "last in, first out" structure. Hungry yet?
+
+Player: I can almost smell those pancakes! So, the pancake I put on top will be the first one I can gobble up?
+
+NPC: You bet! You've got a nose for this. Let's say we've got a stack with pancakes labeled 1, 2, and 3. If we add pancake 4, it's gonna be the new star at the top. Mmm, delicious!
+
+Player: I'm drooling already! So, if I want to take a bite, which pancake will I get first?
+
+NPC: Haha, hold your syrup! Since it's last in, first out, you'll devour pancake number 4 before getting to the others. The freshest flapjack first!
+
+Player: I can almost taste it! But how do we add a pancake to the stack? Can I just...flip it onto the top?
+
+NPC: Haha, I love your enthusiasm! We call adding a pancake "pushing." So, go ahead and push a pancake onto the stack. Show me your flipping skills!
+
+Player: *flips a pancake onto the stack* Ta-da! Pancake successfully pushed!
+
+NPC: Excellent flipping technique! Now, let's talk about removing a pancake, or as we say, "popping" it. Can you demonstrate your popping skills?
+
+Player: *pretends to take a bite out of the top pancake* Mmm, a satisfying bite!
+
+NPC: Haha, I can almost hear the crunch! You've nailed it. Popping removes the top pancake. But remember, no syrup needed.
+
+Player: Got it! So, if I want to peek at the top pancake without munching on it, how can I do that?
+
+NPC: Ah, you're a careful eater! We call that "peeking." Just take a quick look at the top pancake without disturbing the stack. It's like a sneak peek before the feast!
+
+Player: Sneaky and smart! I'm loving this pancake stack adventure. Can we try something fun with our pancake stack?
+
+NPC: Absolutely! Let's make it challenging. Imagine our stack has pancakes labeled 5, 8, and 3. Your task is to push pancake number 2, then pop one, and finally peek at the top pancake. Ready?
+
+Player: Ready as ever! *flips pancake 2 onto the stack* Easy-peasy! *pretends to take a bite* And voila, pancake 2 is gone! Now, let's take a peek at what's left... pancake number 8!
+
+NPC: Bravo, you pancake expert! You've mastered the art of stacks. With these skills, you're sure to become the stack champion of the pancake world.
+
+Player: Thank you, oh wise and syrup-loving NPC! I'll make you proud with my pancake stacking skills.
+
+NPC: Haha, you already have! Keep stacking, keep learning, and remember to always save room for pancakes. Good luck on your stack-tastic adventures, adventurer!

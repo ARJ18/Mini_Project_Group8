@@ -1,0 +1,255 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Font/font_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Font/unispace bd.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Reusable Scenes/STACKiNSTRUCTIONS.gd" type="Script" id=3]
+[ext_resource path="res://Videos/stackSelect.ogv" type="VideoStream" id=4]
+[ext_resource path="res://Images/arrow.png" type="Texture" id=5]
+[ext_resource path="res://Images/wasd.png" type="Texture" id=6]
+[ext_resource path="res://Videos/pushpop.webm" type="VideoStream" id=7]
+[ext_resource path="res://Images/portal/portalss.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 2 )
+
+[node name="STACKiNSTRUCTIONS" type="WindowDialog"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -373.0
+margin_top = -222.0
+margin_right = 373.0
+margin_bottom = 280.0
+theme = ExtResource( 1 )
+popup_exclusive = true
+window_title = "INSTRUCTIONS"
+script = ExtResource( 3 )
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_left = 5.0
+margin_top = 6.0
+margin_right = 741.0
+margin_bottom = 486.0
+tab_align = 0
+
+[node name="Movement" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="MovementLabel" type="Label" parent="TabContainer/Movement"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 17.0
+margin_top = 26.0
+margin_right = 722.0
+margin_bottom = 193.0
+custom_fonts/font = SubResource( 1 )
+text = "Basic Movement:
+
+Use A key to move LEFT. Use D key to move RIGHT"
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/Movement"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -190.0
+margin_right = 190.0
+margin_bottom = 224.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="TabContainer/Movement"]
+margin_left = 540.0
+margin_top = 130.0
+margin_right = 629.0
+margin_bottom = 202.0
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+
+[node name="TextureRect3" type="TextureRect" parent="TabContainer/Movement"]
+margin_left = 108.0
+margin_top = 130.0
+margin_right = 197.0
+margin_bottom = 202.0
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+flip_h = true
+
+[node name="NextSLide" type="Button" parent="TabContainer/Movement"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -70.0
+margin_top = -40.0
+text = "Next"
+
+[node name="Select" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="SelectLabel" type="Label" parent="TabContainer/Select"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -360.5
+margin_top = 16.0
+margin_right = 360.5
+margin_bottom = 59.0
+text = "Use your mouse pointer and Left Mouse button to select the stack you want to perform operations"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="VideoPlayer" type="VideoPlayer" parent="TabContainer/Select"]
+margin_left = 49.0
+margin_top = 80.0
+margin_right = 697.0
+margin_bottom = 312.0
+mouse_filter = 2
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="Next" type="Button" parent="TabContainer/Select"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -70.0
+margin_top = -40.0
+text = "Next"
+
+[node name="previous" type="Button" parent="TabContainer/Select"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 92.0
+text = "Previous"
+
+[node name="Actions" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label" type="Label" parent="TabContainer/Actions"]
+margin_right = 721.0
+margin_bottom = 72.0
+text = "Select the required stack and press action buttons to perform actions like Push and Pop"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ActionsVideoPlayer" type="VideoPlayer" parent="TabContainer/Actions"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -261.0
+margin_top = -156.0
+margin_right = 261.0
+margin_bottom = 156.0
+mouse_filter = 2
+stream = ExtResource( 7 )
+autoplay = true
+
+[node name="Button" type="Button" parent="TabContainer/Actions"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 92.0
+text = "Previous"
+
+[node name="Button2" type="Button" parent="TabContainer/Actions"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -70.0
+margin_top = -40.0
+text = "Next"
+
+[node name="Goal" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label" type="Label" parent="TabContainer/Goal"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -360.0
+margin_top = 32.0
+margin_right = 360.0
+margin_bottom = 176.0
+text = "Your aim is to navigate the terrain and find the portal to complete the level. 
+Use the wood planks provided to you wisely to cross gaps and reach the portal safely. 
+Always keep watch of the amount of planks you have with you on the top left corner of screen."
+autowrap = true
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/Goal"]
+margin_left = 481.0
+margin_top = 160.0
+margin_right = 658.0
+margin_bottom = 352.0
+mouse_filter = 2
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="TabContainer/Goal"]
+margin_left = 489.0
+margin_top = 352.0
+margin_right = 669.0
+margin_bottom = 372.0
+text = "Portal to be found"
+
+[node name="Button" type="Button" parent="TabContainer/Goal"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 92.0
+text = "Previous"
+
+[node name="playbtn" type="Button" parent="TabContainer/Goal"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -70.0
+margin_top = -40.0
+text = "Start"
+
+[connection signal="popup_hide" from="." to="." method="_on_STACKiNSTRUCTIONS_popup_hide"]
+[connection signal="tab_clicked" from="TabContainer/Movement" to="." method="_on_Movement_tab_clicked"]
+[connection signal="button_up" from="TabContainer/Movement/NextSLide" to="." method="_on_NextSLide_button_up"]
+[connection signal="tab_clicked" from="TabContainer/Select" to="." method="_on_Select_tab_clicked"]
+[connection signal="finished" from="TabContainer/Select/VideoPlayer" to="." method="_on_VideoPlayer_finished"]
+[connection signal="button_up" from="TabContainer/Select/Next" to="." method="_on_Next_button_up"]
+[connection signal="button_up" from="TabContainer/Select/previous" to="." method="_on_previous_button_up"]
+[connection signal="tab_clicked" from="TabContainer/Actions" to="." method="_on_Actions_tab_clicked"]
+[connection signal="finished" from="TabContainer/Actions/ActionsVideoPlayer" to="." method="_on_ActionsVideoPlayer_finished"]
+[connection signal="button_up" from="TabContainer/Actions/Button" to="." method="_on_Button_button_up"]
+[connection signal="button_up" from="TabContainer/Actions/Button2" to="." method="_on_Button2_button_up"]
+[connection signal="tab_clicked" from="TabContainer/Goal" to="." method="_on_Goal_tab_clicked"]
+[connection signal="button_up" from="TabContainer/Goal/Button" to="." method="_on_Button_button_up"]
+[connection signal="button_up" from="TabContainer/Goal/playbtn" to="." method="_on_playbtn_button_up"]
