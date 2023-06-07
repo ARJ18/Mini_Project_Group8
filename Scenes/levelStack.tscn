@@ -322,7 +322,7 @@ collision_layer = 16
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PortalArea"]
 position = Vector2( 0, -2 )
 frames = ExtResource( 16 )
-frame = 3
+frame = 6
 playing = true
 flip_h = true
 
