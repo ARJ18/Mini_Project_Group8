@@ -16,4 +16,4 @@ func _on_exitButton_button_up():
 
 
 func _on_startButton_button_up():
-	get_tree().change_scene("res://Scenes/levelStack.tscn")
+	get_tree().change_scene("res://Scenes/levelSelector.tscn")
