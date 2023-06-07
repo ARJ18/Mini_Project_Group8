@@ -1,56 +1,85 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Reusable Scenes/Car.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/levelGraph.gd" type="Script" id=2]
 [ext_resource path="res://Reusable Scenes/City.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Reusable Scenes/pauseButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Reusable Scenes/Pausemenu.tscn" type="PackedScene" id=5]
 
 [node name="levelGraph" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="City1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1112, 489 )
+[node name="City0" parent="." instance=ExtResource( 3 )]
+position = Vector2( 182, 112 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="City1" parent="." instance=ExtResource( 3 )]
+position = Vector2( 200, 552 )
+scale = Vector2( 0.2, 0.2 )
+input_pickable = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="City2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 133, 514 )
+position = Vector2( 370, 278 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="City3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 122, 101 )
+position = Vector2( 550, 485 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="City4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 478, 320 )
+position = Vector2( 626, 91 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="City5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 487, 619 )
+position = Vector2( 839, 298 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="City6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 461, 92 )
+position = Vector2( 895, 565 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="City7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 796, 468 )
+position = Vector2( 991, 105 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="City8" parent="." instance=ExtResource( 3 )]
-position = Vector2( 831, 183 )
+position = Vector2( 1125, 364 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
-
-[node name="City9" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1173, 88 )
-scale = Vector2( 0.2, 0.2 )
-input_pickable = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Car" parent="." instance=ExtResource( 1 )]
 position = Vector2( 167, 215 )
@@ -61,12 +90,23 @@ scale = Vector2( 0.03, 0.03 )
 margin_right = 122.0
 margin_bottom = 31.0
 
-[connection signal="input_event" from="City1" to="." method="_on_City1_input_event"]
-[connection signal="input_event" from="City2" to="." method="_on_City2_input_event"]
-[connection signal="input_event" from="City3" to="." method="_on_City3_input_event"]
-[connection signal="input_event" from="City4" to="." method="_on_City4_input_event"]
-[connection signal="input_event" from="City5" to="." method="_on_City5_input_event"]
-[connection signal="input_event" from="City6" to="." method="_on_City6_input_event"]
-[connection signal="input_event" from="City7" to="." method="_on_City7_input_event"]
-[connection signal="input_event" from="City8" to="." method="_on_City8_input_event"]
-[connection signal="input_event" from="City9" to="." method="_on_City9_input_event"]
+[node name="ImmovableObjects" type="CanvasLayer" parent="."]
+
+[node name="pauseButton" parent="ImmovableObjects" instance=ExtResource( 4 )]
+
+[node name="Pausemenu" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[connection signal="input_event" from="City0" to="." method="_on_City1_input_event"]
+[connection signal="input_event" from="City1" to="." method="_on_City2_input_event"]
+[connection signal="input_event" from="City2" to="." method="_on_City3_input_event"]
+[connection signal="input_event" from="City3" to="." method="_on_City4_input_event"]
+[connection signal="input_event" from="City4" to="." method="_on_City5_input_event"]
+[connection signal="input_event" from="City5" to="." method="_on_City6_input_event"]
+[connection signal="input_event" from="City6" to="." method="_on_City7_input_event"]
+[connection signal="input_event" from="City7" to="." method="_on_City8_input_event"]
+[connection signal="input_event" from="City8" to="." method="_on_City9_input_event"]
+[connection signal="button_up" from="ImmovableObjects/pauseButton" to="." method="_on_pauseButton_button_up"]
+[connection signal="button_up" from="Pausemenu/resume" to="." method="_on_resume_button_up"]
+
+[editable path="Pausemenu"]
