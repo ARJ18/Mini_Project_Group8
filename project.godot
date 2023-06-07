@@ -10,8 +10,8 @@ config_version=4
 
 [application]
 
-config/name="DSA_Game"
-run/main_scene="res://Scenes/levelGraph.tscn"
+config/name="Data Quest"
+run/main_scene="res://Scenes/main_menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -81,6 +81,8 @@ jump={
 2d_physics/layer_3="ground"
 2d_physics/layer_4="woodplank"
 2d_physics/layer_5="miscObjects"
+2d_physics/layer_6="city"
+2d_physics/layer_7="car"
 
 [physics]
 

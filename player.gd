@@ -47,9 +47,9 @@ func move():#controls movement of the player
 
 
 func jump():#makes the player jump
-	if Input.is_action_pressed("jump") and is_on_floor():
-			motion.y -= JUMP	
-		
+#	if Input.is_action_pressed("jump") and is_on_floor():
+#			motion.y -= JUMP	
+	pass
 func animate():
 	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left"):
 		_animated_sprite.play("walk")
