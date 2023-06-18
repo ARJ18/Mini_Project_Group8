@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+signal next_pressed()
 export (String, FILE, "*.json") var d_file
 
 var dialouge = []
@@ -18,9 +19,6 @@ func load_dialogue():
 		file.open(d_file,File.READ)
 		return parse_json(file.get_as_text())
 
-func _input(event):
-	if event.is_action_pressed("ui_click"):
-		next_script()
 
 func next_script():
 	curr_dia_id += 1
@@ -29,3 +27,21 @@ func next_script():
 		return
 	$NinePatchRect/Name.text = dialouge[curr_dia_id]['name']
 	$NinePatchRect/Text.text = dialouge[curr_dia_id]['text']
+
+func prev_script():
+	curr_dia_id -= 1
+	
+	if curr_dia_id < 0:
+		return
+	$NinePatchRect/Name.text = dialouge[curr_dia_id]['name']
+	$NinePatchRect/Text.text = dialouge[curr_dia_id]['text']
+
+
+func _on_goback_button_up():
+	prev_script()
+
+
+func _on_gofront_button_up():
+	next_script()
+	emit_signal("next_pressed")
+

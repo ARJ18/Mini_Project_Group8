@@ -31,6 +31,7 @@ func _ready():
 		spawn_stack_item(stack4)
 	
 	sel_item = stack1
+	set_topSelector(sel_item)
 	$Pausemenu.visible = false
 	$Warnings/fallWarning.visible = false
 
@@ -38,6 +39,9 @@ func _ready():
 func _process(delta):
 	$ImmovableObjects/Balance.set_text("Balance: "+ str(balance))
 	sel_item.get_tail_data().modulate = Color(select_color)
+
+func set_topSelector(item):
+	$TopSelector.position = item.get_head_data().position
 
 func on_fall():
 	$Warnings/fallWarning.popup()
@@ -56,12 +60,14 @@ func spawn_stack_item(stack_id):
 	#curr_item.modulate = Color.white
 	new_plank.position.x = curr_pos.x
 	new_plank.position.y = curr_pos.y - 64
+	set_topSelector(stack_id)
 	#curr_item.modulate = Color(top_color)
 
 func _on_popButton_button_down():
 	if sel_item.size() >1:
 		var popped = sel_item.pop_back()
 		popped.queue_free()
+		set_topSelector(sel_item)
 		balance +=1
 		#if !stack.empty():
 			#curr_item=stack.back()
@@ -89,6 +95,7 @@ func _on_woodPlank_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			sel_item.get_tail_data().modulate = Color.white
 			sel_item = stack1
+			set_topSelector(sel_item)
 
 
 func _on_woodPlank2_input_event(viewport, event, shape_idx):
@@ -96,6 +103,7 @@ func _on_woodPlank2_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			sel_item.get_tail_data().modulate = Color.white
 			sel_item = stack2
+			set_topSelector(sel_item)
 
 
 func _on_woodPlank3_input_event(viewport, event, shape_idx):
@@ -103,6 +111,7 @@ func _on_woodPlank3_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			sel_item.get_tail_data().modulate = Color.white
 			sel_item = stack3
+			set_topSelector(sel_item)
 
 
 func _on_woodPlank4_input_event(viewport, event, shape_idx):
@@ -110,6 +119,7 @@ func _on_woodPlank4_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			sel_item.get_tail_data().modulate = Color.white
 			sel_item = stack4
+			set_topSelector(sel_item)
 
 func _on_resume_button_down():
 	$player.set_physics_process(true)

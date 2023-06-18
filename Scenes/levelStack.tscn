@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Reusable Scenes/pauseButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Images/Free Pixel Art Hill/PNG/Hills Layer 01.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Reusable Scenes/STACKiNSTRUCTIONS.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Images/how to play.png" type="Texture" id=19]
 [ext_resource path="res://Sounds/bg_music/stack_level __bg.mp3" type="AudioStream" id=20]
+[ext_resource path="res://Images/topselect.png" type="Texture" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 8 )
@@ -30,6 +31,13 @@ font_data = ExtResource( 8 )
 [sub_resource type="CapsuleShape2D" id=9]
 radius = 46.0
 height = 84.0
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 160, 32 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 30
+font_data = ExtResource( 8 )
 
 [node name="levelStack" type="Node2D"]
 script = ExtResource( 5 )
@@ -309,6 +317,7 @@ margin_bottom = -27.0
 text = "Quit"
 
 [node name="STACKiNSTRUCTIONS" parent="Warnings" instance=ExtResource( 18 )]
+visible = false
 margin_top = -251.0
 margin_bottom = 251.0
 
@@ -322,6 +331,7 @@ collision_layer = 16
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PortalArea"]
 position = Vector2( 0, -2 )
 frames = ExtResource( 16 )
+frame = 1
 playing = true
 flip_h = true
 
@@ -335,6 +345,38 @@ pitch_scale = 0.6
 autoplay = true
 bus = "Music"
 area_mask = 0
+
+[node name="TopSelector" type="Area2D" parent="."]
+position = Vector2( 384, 696 )
+z_index = 25
+collision_layer = 0
+collision_mask = 0
+
+[node name="Sprite" type="Sprite" parent="TopSelector"]
+modulate = Color( 1, 1, 1, 0.662745 )
+position = Vector2( -2.38419e-06, -7.62939e-06 )
+scale = Vector2( 0.8, 0.937502 )
+texture = ExtResource( 21 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopSelector"]
+visible = false
+shape = SubResource( 10 )
+
+[node name="Label" type="Label" parent="TopSelector"]
+modulate = Color( 1, 1, 1, 0.662745 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -48.0
+margin_top = -24.0
+margin_right = 48.0
+margin_bottom = 24.0
+theme = ExtResource( 15 )
+custom_fonts/font = SubResource( 11 )
+text = "TOP"
+align = 1
+valign = 1
 
 [connection signal="pressed" from="ImmovableObjects/pushButton" to="." method="_on_pushButton_pressed"]
 [connection signal="button_down" from="ImmovableObjects/popButton" to="." method="_on_popButton_button_down"]
