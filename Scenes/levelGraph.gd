@@ -13,30 +13,31 @@ var fuel = MAX_FUEL
 var graph = WeightedAdjacencyMatrix.new(9)
 var current_index =  0
 var next_index = 0 
+
 func _ready():
-	graph_init()	
+	graph_init()    
 	fuelLabel = $FuelLabel
-	fuelLabel.text = "Fuel : "+str(fuel)
+	fuelLabel.text = "Fuel: " + str(fuel)
 	$Car.global_position = $City0.global_position
-	
+
 func move(delta):
-	if fuel>0:
+	if fuel > 0:
 		if moving:
-			$Car.global_position = $Car.global_position.move_toward(destination_position,delta*move_speed)
-			
+			$Car.global_position = $Car.global_position.move_toward(destination_position, delta * move_speed)
+
 		if $Car.global_position == destination_position:
 			moving = false
-			
+		
 
 func _process(delta):
 	move(delta)
 
 func setFuel():
-	fuel -= graph.getWeight(current_index,next_index)
+	fuel -= graph.getWeight(current_index, next_index)
 	if fuel < 0:
 		fuel = 0
 		$Warning/fueloverWarn.popup()
-	fuelLabel.text = "Fuel : "+str(fuel)
+	fuelLabel.text = "Fuel: " + str(fuel)
 
 func _on_City0_input_event(_viewport, _event, _shape_idx):
 	move_to($City0)
@@ -58,20 +59,18 @@ func _on_City8_input_event(_viewport, _event, _shape_idx):
 	move_to($City8)
 
 func move_to(city):
-	
 	next_index = int(str(city)[4])
-	print(str(current_index) + " " + str(next_index))
-	if Input.is_action_just_pressed("ui_click") and moving==false and graph.hasEdge(current_index,next_index):
+	if Input.is_action_just_pressed("ui_click") and moving == false and graph.hasEdge(current_index, next_index):
 		destination_position = city.global_position
 		direction = (destination_position - $Car.position).normalized()
-		var new_angle =  PI + atan2(direction.y, direction.x) 
-		$Car.rotation  = new_angle
+		var new_angle = PI + atan2(direction.y, direction.x)
+		$Car.rotation = new_angle
 		moving = true
 		setFuel()
 		current_index = next_index
-		
-class WeightedAdjacencyMatrix:
 
+
+class WeightedAdjacencyMatrix:
 	var numVertices: int
 	var matrix: Array
 
@@ -104,14 +103,6 @@ class WeightedAdjacencyMatrix:
 			return false
 		return matrix[source][destination] != -1
 
-func _on_pauseButton_button_up():
-	$Pausemenu.visible = true
-	set_process(false)
-
-
-func _on_resume_button_up():
-	set_process(true)
-		
 func graph_init():
 	graph.addEdge(0, 1, 4.0)
 	graph.addEdge(1, 0, 4.0)
@@ -154,8 +145,6 @@ func graph_init():
 
 	graph.addEdge(7, 8, 7.0)
 	graph.addEdge(8, 7, 7.0)
-
-
 
 func _on_replayBtn_button_up():
 	get_tree().reload_current_scene()
