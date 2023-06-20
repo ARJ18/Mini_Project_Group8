@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal next_pressed()
+signal prev_presssed()
 export (String, FILE, "*.json") var d_file
 
 var dialouge = []
@@ -21,24 +22,28 @@ func load_dialogue():
 
 
 func next_script():
+
+	print(len(dialouge))
+	if curr_dia_id >= len(dialouge)-1:
+		return 
 	curr_dia_id += 1
-	
-	if curr_dia_id >= len(dialouge):
-		return
 	$NinePatchRect/Name.text = dialouge[curr_dia_id]['name']
 	$NinePatchRect/Text.text = dialouge[curr_dia_id]['text']
 
+
 func prev_script():
-	curr_dia_id -= 1
 	
-	if curr_dia_id < 0:
+	
+	if curr_dia_id <= 0:
 		return
+	curr_dia_id -= 1
 	$NinePatchRect/Name.text = dialouge[curr_dia_id]['name']
 	$NinePatchRect/Text.text = dialouge[curr_dia_id]['text']
 
 
 func _on_goback_button_up():
 	prev_script()
+	emit_signal("prev_presssed")
 
 
 func _on_gofront_button_up():
