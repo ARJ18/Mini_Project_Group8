@@ -38,7 +38,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$ImmovableObjects/Balance.set_text("Balance: "+ str(balance))
-	sel_item.get_tail_data().modulate = Color(select_color)
+	sel_item.get_head_data().modulate = Color(select_color)
 
 func set_topSelector(item):
 	$TopSelector.position = item.get_head_data().position
@@ -55,7 +55,9 @@ func player_set_phys():
 func spawn_stack_item(stack_id):
 	var new_plank = stack_item.instance()
 	add_child(new_plank)
+	
 	var curr_pos = stack_id.get_head_data().position
+	stack_id.get_head_data().modulate = Color.white
 	stack_id.push_back(new_plank)
 	#curr_item.modulate = Color.white
 	new_plank.position.x = curr_pos.x
@@ -93,7 +95,7 @@ func _on_pushButton_pressed():
 func _on_woodPlank_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			sel_item.get_tail_data().modulate = Color.white
+			sel_item.get_head_data().modulate = Color.white
 			sel_item = stack1
 			set_topSelector(sel_item)
 
@@ -101,7 +103,7 @@ func _on_woodPlank_input_event(viewport, event, shape_idx):
 func _on_woodPlank2_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			sel_item.get_tail_data().modulate = Color.white
+			sel_item.get_head_data().modulate = Color.white
 			sel_item = stack2
 			set_topSelector(sel_item)
 
@@ -109,7 +111,7 @@ func _on_woodPlank2_input_event(viewport, event, shape_idx):
 func _on_woodPlank3_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			sel_item.get_tail_data().modulate = Color.white
+			sel_item.get_head_data().modulate = Color.white
 			sel_item = stack3
 			set_topSelector(sel_item)
 
@@ -117,7 +119,7 @@ func _on_woodPlank3_input_event(viewport, event, shape_idx):
 func _on_woodPlank4_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			sel_item.get_tail_data().modulate = Color.white
+			sel_item.get_head_data().modulate = Color.white
 			sel_item = stack4
 			set_topSelector(sel_item)
 

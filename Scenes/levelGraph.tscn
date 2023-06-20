@@ -7,13 +7,16 @@
 [ext_resource path="res://Reusable Scenes/Pausemenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Font/font_theme.tres" type="Theme" id=6]
 [ext_resource path="res://Images/road.png" type="Texture" id=7]
-[ext_resource path="res://Reusable Scenes/road.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Images/grassbg.png" type="Texture" id=8]
 
 [node name="levelGraph" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="roaddd" parent="." instance=ExtResource( 8 )]
-distance = 4
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 2560.0
+margin_bottom = 1440.0
+mouse_filter = 2
+texture = ExtResource( 8 )
 
 [node name="Road2" type="TextureRect" parent="."]
 margin_left = 620.0
@@ -21,6 +24,18 @@ margin_top = -16.0
 margin_right = 844.0
 margin_bottom = 279.0
 rect_rotation = 90.2437
+mouse_filter = 2
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 1
+
+[node name="Road6" type="TextureRect" parent="."]
+margin_left = 243.0
+margin_top = 19.0
+margin_right = 467.0
+margin_bottom = 314.0
+rect_rotation = 46.3054
+rect_scale = Vector2( 0.857963, 1.0119 )
 mouse_filter = 2
 texture = ExtResource( 7 )
 expand = true
@@ -82,10 +97,10 @@ expand = true
 stretch_mode = 1
 
 [node name="Road13" type="TextureRect" parent="."]
-margin_left = 200.0
-margin_top = 96.0
-margin_right = 424.0
-margin_bottom = 445.0
+margin_left = 216.0
+margin_top = 120.0
+margin_right = 440.0
+margin_bottom = 469.0
 rect_rotation = -0.199975
 mouse_filter = 2
 texture = ExtResource( 7 )
@@ -271,131 +286,6 @@ margin_right = 216.0
 margin_bottom = 156.0
 text = "REPLAY"
 
-[node name="dist" type="Label" parent="."]
-margin_left = 442.0
-margin_top = 44.0
-margin_right = 482.0
-margin_bottom = 64.0
-theme = ExtResource( 6 )
-text = "8"
-
-[node name="dist2" type="Label" parent="."]
-margin_left = 747.0
-margin_top = 48.0
-margin_right = 787.0
-margin_bottom = 68.0
-theme = ExtResource( 6 )
-text = "7"
-
-[node name="dist8" type="Label" parent="."]
-margin_left = 356.0
-margin_top = 207.0
-margin_right = 396.0
-margin_bottom = 221.0
-theme = ExtResource( 6 )
-text = "11"
-
-[node name="dist9" type="Label" parent="."]
-margin_left = 572.0
-margin_top = 191.0
-margin_right = 612.0
-margin_bottom = 211.0
-theme = ExtResource( 6 )
-text = "2"
-
-[node name="dist10" type="Label" parent="."]
-margin_left = 680.0
-margin_top = 367.0
-margin_right = 720.0
-margin_bottom = 387.0
-theme = ExtResource( 6 )
-text = "6"
-
-[node name="dist11" type="Label" parent="."]
-margin_left = 994.0
-margin_top = 256.0
-margin_right = 1034.0
-margin_bottom = 270.0
-theme = ExtResource( 6 )
-text = "14"
-
-[node name="dist3" type="Label" parent="."]
-margin_left = 1091.0
-margin_top = 128.0
-margin_right = 1131.0
-margin_bottom = 142.0
-rect_rotation = 30.0
-theme = ExtResource( 6 )
-text = "9"
-
-[node name="dist12" type="Label" parent="."]
-margin_left = 816.0
-margin_top = 220.0
-margin_right = 856.0
-margin_bottom = 234.0
-rect_rotation = 30.0
-theme = ExtResource( 6 )
-text = "4"
-
-[node name="dist4" type="Label" parent="."]
-margin_left = 1091.0
-margin_top = 408.0
-margin_right = 1131.0
-margin_bottom = 428.0
-rect_rotation = -44.9999
-theme = ExtResource( 6 )
-text = "10"
-
-[node name="dist13" type="Label" parent="."]
-margin_left = 442.0
-margin_top = 316.0
-margin_right = 482.0
-margin_bottom = 330.0
-rect_rotation = -44.9999
-theme = ExtResource( 6 )
-text = "7"
-
-[node name="dist5" type="Label" parent="."]
-margin_left = 798.0
-margin_top = 512.0
-margin_right = 838.0
-margin_bottom = 532.0
-theme = ExtResource( 6 )
-text = "2"
-
-[node name="dist6" type="Label" parent="."]
-margin_left = 464.0
-margin_top = 512.0
-margin_right = 482.0
-margin_bottom = 532.0
-theme = ExtResource( 6 )
-text = "1"
-
-[node name="dist7" type="Label" parent="."]
-margin_left = 169.0
-margin_top = 384.0
-margin_right = 209.0
-margin_bottom = 398.0
-rect_rotation = 44.9999
-theme = ExtResource( 6 )
-text = "8"
-
-[node name="dist14" type="Label" parent="."]
-margin_left = 16.0
-margin_top = 220.0
-margin_right = 76.0
-margin_bottom = 247.0
-theme = ExtResource( 6 )
-text = "START!"
-
-[node name="dist15" type="Label" parent="."]
-margin_left = 1185.0
-margin_top = 320.0
-margin_right = 1245.0
-margin_bottom = 347.0
-theme = ExtResource( 6 )
-text = "FINISH!"
-
 [connection signal="input_event" from="City0" to="." method="_on_City0_input_event"]
 [connection signal="input_event" from="City1" to="." method="_on_City1_input_event"]
 [connection signal="input_event" from="City2" to="." method="_on_City2_input_event"]
@@ -409,5 +299,4 @@ text = "FINISH!"
 [connection signal="button_up" from="Pausemenu/resume" to="." method="_on_resume_button_up"]
 [connection signal="button_up" from="Warning/fueloverWarn/replayBtn" to="." method="_on_replayBtn_button_up"]
 
-[editable path="roaddd"]
 [editable path="Pausemenu"]
