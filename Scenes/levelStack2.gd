@@ -124,6 +124,7 @@ func _on_pop_button_up():
 	else:
 		print("Underflow")
 		$Warnings/underflowWarning.visible =true
+		$player.set_physics_process(false)
 
 
 func _on_pauseButton_button_up():
@@ -160,6 +161,7 @@ func _on_ShiningKey_body_entered(body):
 
 func _on_Portal_body_entered(body):
 	print("Level Finished")
+	get_tree().change_scene("res://Scenes/levelGraph.tscn")
 
 func _on_Door_body_entered(body):
 	if !key_acq:

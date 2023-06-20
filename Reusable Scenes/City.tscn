@@ -3,9 +3,8 @@
 [ext_resource path="res://Images/Cloud.png" type="Texture" id=1]
 
 [node name="City" type="StaticBody2D"]
-__meta__ = {
-"_edit_group_": true
-}
+collision_layer = 32
+collision_mask = 0
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.25, 0.25 )

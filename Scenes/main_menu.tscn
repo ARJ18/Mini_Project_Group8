@@ -96,5 +96,6 @@ margin_top = -168.0
 margin_right = 324.0
 margin_bottom = 168.0
 
+[connection signal="button_up" from="buttonContainer/startButton" to="." method="_on_startButton_button_up"]
 [connection signal="button_up" from="buttonContainer/settingsButton" to="." method="_on_settingsButton_button_up"]
 [connection signal="button_up" from="buttonContainer/exitButton" to="." method="_on_exitButton_button_up"]
