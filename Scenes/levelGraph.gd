@@ -21,23 +21,24 @@ func _ready():
 	$Car.global_position = $City0.global_position
 
 func move(delta):
-	if fuel > 0:
+	if fuel_available():
 		if moving:
 			$Car.global_position = $Car.global_position.move_toward(destination_position, delta * move_speed)
 
 		if $Car.global_position == destination_position:
 			moving = false
-		
 
 func _process(delta):
 	move(delta)
 
 func setFuel():
 	fuel -= graph.getWeight(current_index, next_index)
-	if fuel < 0:
-		fuel = 0
-		$Warning/fueloverWarn.popup()
 	fuelLabel.text = "Fuel: " + str(fuel)
+func fuel_available():
+	if fuel >= graph.getWeight(current_index, next_index):
+		return true
+	else :
+		return false
 
 func _on_City0_input_event(_viewport, _event, _shape_idx):
 	move_to($City0)
@@ -63,11 +64,15 @@ func move_to(city):
 	if Input.is_action_just_pressed("ui_click") and moving == false and graph.hasEdge(current_index, next_index):
 		destination_position = city.global_position
 		direction = (destination_position - $Car.position).normalized()
-		var new_angle = PI + atan2(direction.y, direction.x)
-		$Car.rotation = new_angle
-		moving = true
-		setFuel()
-		current_index = next_index
+		if fuel_available():
+			var new_angle = PI + atan2(direction.y, direction.x)
+			$Car.rotation = new_angle
+			moving = true
+			setFuel()
+			current_index = next_index
+		else:
+			$Warning/fueloverWarn.popup()
+			
 
 
 class WeightedAdjacencyMatrix:
@@ -102,10 +107,21 @@ class WeightedAdjacencyMatrix:
 			print("Invalid vertices.")
 			return false
 		return matrix[source][destination] != -1
+	
+	func getAdjacentVertices(vertex: int) -> Array:
+		if vertex < 0 or vertex >= numVertices:
+			print("Invalid vertex.")	
+			return []
+
+		var adjacentVertices = []
+		for i in range(numVertices):
+			if matrix[vertex][i] != -1:
+				adjacentVertices.append(i)
+		return adjacentVertices
 
 func graph_init():
-	graph.addEdge(0, 1, 4.0)
-	graph.addEdge(1, 0, 4.0)
+	graph.addEdge(0, 1, 20.0)
+	graph.addEdge(1, 0, 20.0)
 
 	graph.addEdge(0, 7, 8.0)
 	graph.addEdge(7, 0, 8.0)

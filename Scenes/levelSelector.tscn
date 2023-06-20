@@ -40,22 +40,22 @@ text = "Level Selection"
 [node name="Label2" type="Label" parent="CanvasLayer"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -520.0
+margin_left = -512.0
 margin_top = 616.0
-margin_right = -268.0
+margin_right = -44.0
 margin_bottom = 653.0
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 1 )
 text = "More levels coming soon..."
 
-[node name="TextureRect" type="ColorRect" parent="CanvasLayer"]
+[node name="StackRect" type="ColorRect" parent="CanvasLayer"]
 modulate = Color( 0.533333, 0.435294, 0.843137, 1 )
 margin_left = 128.0
 margin_top = 184.0
 margin_right = 1152.0
 margin_bottom = 304.0
 
-[node name="TextureRect2" type="ColorRect" parent="CanvasLayer"]
+[node name="GraphRect" type="ColorRect" parent="CanvasLayer"]
 modulate = Color( 0.533333, 0.435294, 0.843137, 1 )
 margin_left = 128.0
 margin_top = 360.0
@@ -68,9 +68,9 @@ margin_bottom = 320.0
 rect_scale = Vector2( 0.27, 0.27 )
 texture_normal = ExtResource( 6 )
 
-[node name="button layout" type="CanvasLayer" parent="."]
+[node name="buttonlayout" type="CanvasLayer" parent="."]
 
-[node name="stackTutBtn" type="Button" parent="button layout"]
+[node name="stackTutBtn" type="Button" parent="buttonlayout"]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 608.0
@@ -83,7 +83,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="stackLevelBtn" type="Button" parent="button layout"]
+[node name="stackLevelBtn" type="Button" parent="buttonlayout"]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 920.0
@@ -91,10 +91,10 @@ margin_top = -144.0
 margin_right = 1120.0
 margin_bottom = -94.0
 theme = ExtResource( 2 )
+disabled = true
 text = "Task"
 
-[node name="TextureRect2" type="TextureRect" parent="button layout/stackLevelBtn"]
-visible = false
+[node name="TextureRect2" type="TextureRect" parent="buttonlayout/stackLevelBtn"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -108,7 +108,7 @@ texture = ExtResource( 5 )
 expand = true
 stretch_mode = 1
 
-[node name="graphTutBtn" type="Button" parent="button layout"]
+[node name="graphTutBtn" type="Button" parent="buttonlayout"]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 608.0
@@ -119,7 +119,7 @@ theme = ExtResource( 2 )
 disabled = true
 text = "Tutorial"
 
-[node name="TextureRect2" type="TextureRect" parent="button layout/graphTutBtn"]
+[node name="TextureRect2" type="TextureRect" parent="buttonlayout/graphTutBtn"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -133,7 +133,7 @@ texture = ExtResource( 5 )
 expand = true
 stretch_mode = 1
 
-[node name="graphLevelBtn" type="Button" parent="button layout"]
+[node name="graphLevelBtn" type="Button" parent="buttonlayout"]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 920.0
@@ -144,7 +144,7 @@ theme = ExtResource( 2 )
 disabled = true
 text = "Task"
 
-[node name="TextureRect3" type="TextureRect" parent="button layout/graphLevelBtn"]
+[node name="TextureRect3" type="TextureRect" parent="buttonlayout/graphLevelBtn"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -158,7 +158,7 @@ texture = ExtResource( 5 )
 expand = true
 stretch_mode = 1
 
-[node name="Label3" type="Label" parent="button layout"]
+[node name="stacklabel" type="Label" parent="buttonlayout"]
 modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.5
 anchor_top = 0.05
@@ -172,7 +172,7 @@ theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 1 )
 text = "Stack Level"
 
-[node name="Label4" type="Label" parent="button layout"]
+[node name="graphlabel" type="Label" parent="buttonlayout"]
 modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.5
 anchor_top = 0.05
@@ -186,8 +186,17 @@ theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 1 )
 text = "Graph Level"
 
+[connection signal="mouse_entered" from="CanvasLayer/bgImg" to="." method="_on_bgImg_mouse_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/StackRect" to="." method="_on_StackRect_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/StackRect" to="." method="_on_StackRect_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/GraphRect" to="." method="_on_GraphRect_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/GraphRect" to="." method="_on_GraphRect_mouse_exited"]
 [connection signal="button_up" from="CanvasLayer/TextureButton" to="." method="_on_TextureButton_button_up"]
-[connection signal="button_up" from="button layout/stackTutBtn" to="." method="_on_stackTutBtn_button_up"]
-[connection signal="button_up" from="button layout/stackLevelBtn" to="." method="_on_stackLevelBtn_button_up"]
-[connection signal="button_up" from="button layout/graphTutBtn" to="." method="_on_graphTutBtn_button_up"]
-[connection signal="button_up" from="button layout/graphLevelBtn" to="." method="_on_graphLevelBtn_button_up"]
+[connection signal="button_up" from="buttonlayout/stackTutBtn" to="." method="_on_stackTutBtn_button_up"]
+[connection signal="mouse_entered" from="buttonlayout/stackTutBtn" to="." method="_on_stackTutBtn_mouse_entered"]
+[connection signal="button_up" from="buttonlayout/stackLevelBtn" to="." method="_on_stackLevelBtn_button_up"]
+[connection signal="mouse_entered" from="buttonlayout/stackLevelBtn" to="." method="_on_stackLevelBtn_mouse_entered"]
+[connection signal="button_up" from="buttonlayout/graphTutBtn" to="." method="_on_graphTutBtn_button_up"]
+[connection signal="mouse_entered" from="buttonlayout/graphTutBtn" to="." method="_on_graphTutBtn_mouse_entered"]
+[connection signal="button_up" from="buttonlayout/graphLevelBtn" to="." method="_on_graphLevelBtn_button_up"]
+[connection signal="mouse_entered" from="buttonlayout/graphLevelBtn" to="." method="_on_graphLevelBtn_mouse_entered"]

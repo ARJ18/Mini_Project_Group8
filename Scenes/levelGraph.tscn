@@ -18,6 +18,13 @@ margin_bottom = 1440.0
 mouse_filter = 2
 texture = ExtResource( 8 )
 
+[node name="FuelLabel" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 130.0
+margin_bottom = 39.0
+theme = ExtResource( 6 )
+
 [node name="Road2" type="TextureRect" parent="."]
 margin_left = 620.0
 margin_top = -16.0
@@ -238,13 +245,6 @@ __meta__ = {
 position = Vector2( 110, 280 )
 rotation = -3.13378
 scale = Vector2( 0.03, 0.03 )
-
-[node name="FuelLabel" type="Label" parent="."]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 130.0
-margin_bottom = 39.0
-theme = ExtResource( 6 )
 
 [node name="ImmovableObjects" type="CanvasLayer" parent="."]
 layer = 100
