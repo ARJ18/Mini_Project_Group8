@@ -16,13 +16,4 @@ func _ready():
 #	pass
 
 
-func _on_stackTutBtn_button_up():
-	get_tree().change_scene("res://Scenes/stackTutorial.tscn")
 
-
-func _on_stackLevelBtn_button_up():
-	get_tree().change_scene("res://Scenes/levelStack.tscn")
-
-
-func _on_graphLevelBtn_button_up():
-	get_tree().change_scene("res://Scenes/levelGraph.tscn")
