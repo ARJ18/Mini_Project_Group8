@@ -317,7 +317,6 @@ margin_bottom = -27.0
 text = "Quit"
 
 [node name="STACKiNSTRUCTIONS" parent="Warnings" instance=ExtResource( 18 )]
-visible = false
 margin_top = -251.0
 margin_bottom = 251.0
 
@@ -331,7 +330,7 @@ collision_layer = 16
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PortalArea"]
 position = Vector2( 0, -2 )
 frames = ExtResource( 16 )
-frame = 1
+frame = 2
 playing = true
 flip_h = true
 
