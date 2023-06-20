@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Reusable Scenes/Car.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/levelGraph.gd" type="Script" id=2]
@@ -7,9 +7,16 @@
 [ext_resource path="res://Reusable Scenes/Pausemenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Font/font_theme.tres" type="Theme" id=6]
 [ext_resource path="res://Images/road.png" type="Texture" id=7]
+[ext_resource path="res://Images/grassbg.png" type="Texture" id=8]
 
 [node name="levelGraph" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 2560.0
+margin_bottom = 1440.0
+mouse_filter = 2
+texture = ExtResource( 8 )
 
 [node name="Road2" type="TextureRect" parent="."]
 margin_left = 620.0
@@ -90,10 +97,10 @@ expand = true
 stretch_mode = 1
 
 [node name="Road13" type="TextureRect" parent="."]
-margin_left = 200.0
-margin_top = 96.0
-margin_right = 424.0
-margin_bottom = 445.0
+margin_left = 216.0
+margin_top = 120.0
+margin_right = 440.0
+margin_bottom = 469.0
 rect_rotation = -0.199975
 mouse_filter = 2
 texture = ExtResource( 7 )
