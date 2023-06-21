@@ -17,3 +17,22 @@ func _ready():
 
 
 
+
+
+func _on_stackTutBtn_button_up():
+	get_tree().change_scene("res://Scenes/stackTutorial.tscn") 
+
+
+func _on_stackLevelBtn_button_up():
+	get_tree().change_scene("res://Scenes/levelStack.tscn")
+
+
+func _on_graphTutBtn_button_up():
+	pass
+	
+func _on_graphLevelBtn_button_up():
+	get_tree().change_scene("res://Scenes/levelGraph.tscn")
+
+
+func _on_TextureButton_button_up():
+	get_tree().change_scene("res://Scenes/main_menu.tscn") # Replace with function body.
