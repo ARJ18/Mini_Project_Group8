@@ -3,5 +3,10 @@
     {"name":"Guru","text":"Haha, your GURU reporting for duty! Alright, imagine a stack like a big pile of pancakes."},
     {"name":"Guru","text":"You can only add or remove a pancake from the top. We call it a LAST IN, FIRST OUT structure. Hungry yet?"},
     {"name":"Guru","text":"TOP pointer points to where the topmost pancake is, so always keep track of it."},
-    {"name":"Guru","text":"Let's say we've got a stack with pancakes labeled 1, 2, and 3. If we add pancake 4, it's gonna be the new star at the top."}
+    {"name":"Guru","text":"Let's say we've got a stack with pancakes labeled 1, 2, and 3. If we add pancake 4, it's gonna be the new star at the top."},
+    {"name":"Guru","text":"We call adding a pancake PUSHing. So, go ahead and PUSH a pancake onto the stack using the button."},
+    {"name":"Guru","text":"This is the algorithm for PUSH...."},
+    {"name":"Guru","text":"We first check for OVERFLOW. Overflow signifies that the stack cannot accommodate any additional elements, similar to pouring water into a glass already filled to the brim."},
+    {"name":"Guru","text":"Since it's LAST IN-FIRST OUT, you'll devour pancake number 4 before getting to the others. The one at TOP first!"},
+    {"name":"Guru","text":"End"}
 ]

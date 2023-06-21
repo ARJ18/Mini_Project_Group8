@@ -11,6 +11,7 @@ func _ready():
 	$dialogue.connect("prev_presssed",self,"handle_backward_anim")
 	$dialogue.connect("next_pressed",self,"handle_anim")
 	$AnimElems/StackPancake4.visible = false
+	$AnimElems/StackPancake5.visible = false
 	
 func _process(delta):
 	$Label.text = str($dialogue.curr_dia_id)
@@ -30,6 +31,8 @@ func handle_anim():
 		anim.play("TopEmph")
 	if $dialogue.curr_dia_id == 4:
 		anim.play("Push4")
+	if $dialogue.curr_dia_id == 5:
+		anim.play("Push5")
 
 
 func handle_backward_anim():
