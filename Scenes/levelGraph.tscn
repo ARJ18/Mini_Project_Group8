@@ -18,6 +18,13 @@ margin_bottom = 1440.0
 mouse_filter = 2
 texture = ExtResource( 8 )
 
+[node name="FuelLabel" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 130.0
+margin_bottom = 39.0
+theme = ExtResource( 6 )
+
 [node name="Road2" type="TextureRect" parent="."]
 margin_left = 620.0
 margin_top = -16.0
@@ -239,20 +246,10 @@ position = Vector2( 110, 280 )
 rotation = -3.13378
 scale = Vector2( 0.03, 0.03 )
 
-[node name="FuelLabel" type="Label" parent="."]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 130.0
-margin_bottom = 39.0
-theme = ExtResource( 6 )
-
 [node name="ImmovableObjects" type="CanvasLayer" parent="."]
 layer = 100
 
 [node name="pauseButton" parent="ImmovableObjects" instance=ExtResource( 4 )]
-
-[node name="Pausemenu" parent="." instance=ExtResource( 5 )]
-visible = false
 
 [node name="Warning" type="CanvasLayer" parent="."]
 layer = 128
@@ -286,6 +283,9 @@ margin_right = 216.0
 margin_bottom = 156.0
 text = "REPLAY"
 
+[node name="Pausemenu" parent="." instance=ExtResource( 5 )]
+visible = false
+
 [connection signal="input_event" from="City0" to="." method="_on_City0_input_event"]
 [connection signal="input_event" from="City1" to="." method="_on_City1_input_event"]
 [connection signal="input_event" from="City2" to="." method="_on_City2_input_event"]
@@ -296,7 +296,7 @@ text = "REPLAY"
 [connection signal="input_event" from="City7" to="." method="_on_City7_input_event"]
 [connection signal="input_event" from="City8" to="." method="_on_City8_input_event"]
 [connection signal="button_up" from="ImmovableObjects/pauseButton" to="." method="_on_pauseButton_button_up"]
-[connection signal="button_up" from="Pausemenu/resume" to="." method="_on_resume_button_up"]
 [connection signal="button_up" from="Warning/fueloverWarn/replayBtn" to="." method="_on_replayBtn_button_up"]
+[connection signal="button_up" from="Pausemenu/resume" to="." method="_on_resume_button_up"]
 
 [editable path="Pausemenu"]
