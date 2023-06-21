@@ -647,6 +647,12 @@ number = 4
 position = Vector2( 654, 328 )
 number = 5
 
+[node name="PushBtn" type="Button" parent="AnimElems"]
+margin_right = 12.0
+margin_bottom = 20.0
+theme = ExtResource( 6 )
+text = "PUSH"
+
 [node name="Label" type="Label" parent="."]
 margin_left = 1168.0
 margin_top = 40.0
