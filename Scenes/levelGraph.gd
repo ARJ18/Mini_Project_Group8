@@ -6,20 +6,36 @@ export var move_speed = 250
 export var moving = false
 
 onready var destination_position
-onready var direction 
+onready var direction
+
+onready var currentcity
+
+var cityDictionary = {
+	0: "City0",
+	1: "City1",
+	2: "City2",
+	3: "City3",
+	4: "City4",
+	5: "City5",
+	6: "City6",
+	7: "City7",
+	8: "City8"
+}
 
 var fuelLabel : Label
 var fuel = MAX_FUEL
 var graph = WeightedAdjacencyMatrix.new(9)
 var current_index =  0
-var next_index = 0 
+var next_index = 0
+var traversed = [0]
+
+
 
 func _ready():
-	graph_init()    
-	fuelLabel = $FuelLabel
-	fuelLabel.text = "Fuel: " + str(fuel)
+	graph_init()
+	fuel_init()
 	$Car.global_position = $City0.global_position
-
+	
 func move(delta):
 	if fuel_available():
 		if moving:
@@ -30,8 +46,8 @@ func move(delta):
 
 func _process(delta):
 	move(delta)
-
-func setFuel():
+	
+func set_fuel():
 	fuel -= graph.getWeight(current_index, next_index)
 	fuelLabel.text = "Fuel: " + str(fuel)
 func fuel_available():
@@ -39,7 +55,10 @@ func fuel_available():
 		return true
 	else :
 		return false
-
+func fuel_init():
+	fuelLabel = $FuelLabel
+	fuelLabel.text = "Fuel: " + str(fuel)
+	
 func _on_City0_input_event(_viewport, _event, _shape_idx):
 	move_to($City0)
 func _on_City1_input_event(_viewport, _event, _shape_idx):
@@ -60,21 +79,41 @@ func _on_City8_input_event(_viewport, _event, _shape_idx):
 	move_to($City8)
 
 func move_to(city):
-	next_index = int(str(city)[4])
-	if Input.is_action_just_pressed("ui_click") and moving == false and graph.hasEdge(current_index, next_index):
-		destination_position = city.global_position
-		direction = (destination_position - $Car.position).normalized()
-		if fuel_available():
-			var new_angle = PI + atan2(direction.y, direction.x)
-			$Car.rotation = new_angle
-			moving = true
-			setFuel()
-			current_index = next_index
-		else:
-			$Warning/fueloverWarn.popup()
+	if Input.is_action_just_pressed("ui_click") and moving == false:
+		next_index = int(str(city)[4])
+		if graph.hasEdge(current_index, next_index):
+			destination_position = city.global_position
+			direction = (destination_position - $Car.position).normalized()
+			if fuel_available():
+				var new_angle = PI + atan2(direction.y, direction.x)
+				$Car.rotation = new_angle
+				moving = true
+				set_fuel()
+				reset_city_color()
+				current_index = next_index
+				set_city_color()
+			else:
+				$Warning/fueloverWarn.popup()
 			
-
-
+func set_city_color():
+	print(current_index,next_index)
+	var adjacentmatrices = graph.getAdjacentVertices(current_index)
+	for city in adjacentmatrices:
+		get_node(cityDictionary[city]).modulate = Color.red
+	get_node(cityDictionary[current_index]).modulate = Color.green
+	traversed.append(current_index)
+	for city in traversed:
+		get_node(cityDictionary[city]).modulate = Color.green
+	get_node(cityDictionary[next_index]).modulate = Color.yellow
+	
+	
+func reset_city_color():
+	print(current_index,next_index)
+	var adjacentmatrices = graph.getAdjacentVertices(current_index)
+	for city in adjacentmatrices:
+		get_node(cityDictionary[city]).modulate = Color.white
+	
+	
 class WeightedAdjacencyMatrix:
 	var numVertices: int
 	var matrix: Array
@@ -110,7 +149,7 @@ class WeightedAdjacencyMatrix:
 	
 	func getAdjacentVertices(vertex: int) -> Array:
 		if vertex < 0 or vertex >= numVertices:
-			print("Invalid vertex.")	
+			print("Invalid vertex.")
 			return []
 
 		var adjacentVertices = []
@@ -164,3 +203,11 @@ func graph_init():
 
 func _on_replayBtn_button_up():
 	get_tree().reload_current_scene()
+
+
+func _on_pauseButton_button_up():
+	$Pausemenu.visible = true
+	
+
+func _on_resume_button_up():
+	pass
