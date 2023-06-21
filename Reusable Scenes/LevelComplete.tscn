@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Images/blank.png" type="Texture" id=1]
 [ext_resource path="res://Reusable Scenes/Blurmaterial.tres" type="Material" id=2]
@@ -11,6 +11,11 @@
 [ext_resource path="res://Images/buttonpack/exit/Exit - Hover.png" type="Texture" id=9]
 [ext_resource path="res://Images/buttonpack/exit/Exit - Disabled.png" type="Texture" id=10]
 [ext_resource path="res://Images/buttonpack/exit/Exit.png" type="Texture" id=11]
+[ext_resource path="res://Images/buttonpack/next/Next - Normal.png" type="Texture" id=12]
+[ext_resource path="res://Images/buttonpack/next/Next - Pressed.png" type="Texture" id=13]
+[ext_resource path="res://Images/buttonpack/next/Next - Hover.png" type="Texture" id=14]
+[ext_resource path="res://Images/buttonpack/next/Next - Disabled.png" type="Texture" id=15]
+[ext_resource path="res://Reusable Scenes/LevelComplete.gd" type="Script" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 52
@@ -20,6 +25,7 @@ use_filter = true
 font_data = ExtResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 16 )
 
 [node name="Background" type="TextureRect" parent="."]
 material = ExtResource( 2 )
@@ -84,3 +90,18 @@ texture_hover = ExtResource( 9 )
 texture_disabled = ExtResource( 10 )
 texture_focused = ExtResource( 9 )
 expand = true
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 552.0
+margin_top = 384.0
+margin_right = 688.0
+margin_bottom = 424.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
+texture_disabled = ExtResource( 15 )
+texture_focused = ExtResource( 14 )
+expand = true
+
+[connection signal="button_up" from="replay" to="." method="_on_replay_button_up"]
+[connection signal="button_up" from="exit" to="." method="_on_exit_button_up"]
