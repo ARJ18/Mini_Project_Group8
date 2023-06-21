@@ -32,6 +32,7 @@ func _ready():
 	spawn_stack_item(stack5)
 	
 	sel_item = stack1
+	set_topSelector(sel_item)
 	$Pausemenu.visible = false
 	$Warnings/crushWarning.visible = false
 	$Warnings/fallWarning.visible = false
@@ -41,16 +42,18 @@ func _ready():
 
 func _process(delta):
 	$ImmovableObjects/balance.set_text("Balance: "+ str(balance))
-	sel_item.get_tail_data().modulate = Color(select_color)
+	sel_item.get_head_data().modulate = Color(select_color)
 
 func spawn_stack_item(stack_id):
 	var new_plank = stack_item.instance()
 	add_child(new_plank)
 	var curr_pos = stack_id.get_head_data().position
+	stack_id.get_head_data().modulate = Color.white
 	stack_id.push_back(new_plank)
 	#curr_item.modulate = Color.white
 	new_plank.position.x = curr_pos.x
 	new_plank.position.y = curr_pos.y - 64
+	set_topSelector(stack_id)
 	#curr_item.modulate = Color(top_color)
 
 func on_fall():
@@ -62,36 +65,43 @@ func on_crush():
 	$ImmovableObjects/pop.disabled = true
 	$Warnings/crushWarning.popup()
 
+func set_topSelector(item):
+	$TopSelector.position = item.get_head_data().position
 
 func _on_woodPlank_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			sel_item.get_tail_data().modulate = Color.white
+			sel_item.get_head_data().modulate = Color.white
 			sel_item = stack1
+			set_topSelector(sel_item)
 
 func _on_woodPlank2_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			sel_item.get_tail_data().modulate = Color.white
+			sel_item.get_head_data().modulate = Color.white
 			sel_item = stack2
+			set_topSelector(sel_item)
 
 func _on_woodPlank3_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			sel_item.get_tail_data().modulate = Color.white
+			sel_item.get_head_data().modulate = Color.white
 			sel_item = stack3
+			set_topSelector(sel_item)
 
 func _on_woodPlank4_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			sel_item.get_tail_data().modulate = Color.white
+			sel_item.get_head_data().modulate = Color.white
 			sel_item = stack4
+			set_topSelector(sel_item)
 
 func _on_woodPlank5_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			sel_item.get_tail_data().modulate = Color.white
+			sel_item.get_head_data().modulate = Color.white
 			sel_item = stack5
+			set_topSelector(sel_item)
 
 func _on_underOK_button_up():
 	$Warnings/underflowWarning.visible = false
@@ -116,6 +126,7 @@ func _on_pop_button_up():
 	if sel_item.size() >1:
 		var popped = sel_item.pop_back()
 		popped.queue_free()
+		set_topSelector(sel_item)
 		balance +=1
 		#if !stack.empty():
 			#curr_item=stack.back()
