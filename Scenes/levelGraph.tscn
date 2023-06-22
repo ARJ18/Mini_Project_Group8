@@ -12,8 +12,8 @@
 
 [node name="levelGraph" type="Node2D"]
 script = ExtResource( 2 )
-MAX_FUEL = 225
-destinationcity = 4
+MAX_FUEL = 250
+destinationcity = 1
 
 [node name="Background" type="TextureRect" parent="."]
 margin_right = 2560.0
@@ -29,10 +29,10 @@ margin_bottom = 39.0
 theme = ExtResource( 6 )
 
 [node name="Road2" type="TextureRect" parent="."]
-margin_left = 620.0
-margin_top = -16.0
-margin_right = 844.0
-margin_bottom = 279.0
+margin_left = 642.833
+margin_top = 74.2547
+margin_right = 866.833
+margin_bottom = 369.255
 rect_rotation = 90.2437
 mouse_filter = 2
 texture = ExtResource( 7 )
@@ -40,10 +40,10 @@ expand = true
 stretch_mode = 1
 
 [node name="Road6" type="TextureRect" parent="."]
-margin_left = 243.0
-margin_top = 19.0
-margin_right = 467.0
-margin_bottom = 314.0
+margin_left = 265.833
+margin_top = 109.255
+margin_right = 489.833
+margin_bottom = 404.255
 rect_rotation = 46.3054
 rect_scale = Vector2( 0.857963, 1.0119 )
 mouse_filter = 2
@@ -52,10 +52,10 @@ expand = true
 stretch_mode = 1
 
 [node name="Road8" type="TextureRect" parent="."]
-margin_left = 624.0
-margin_top = 357.0
-margin_right = 848.0
-margin_bottom = 652.0
+margin_left = 646.833
+margin_top = 447.255
+margin_right = 870.833
+margin_bottom = 742.255
 rect_rotation = 90.2437
 mouse_filter = 2
 texture = ExtResource( 7 )
@@ -63,10 +63,10 @@ expand = true
 stretch_mode = 1
 
 [node name="Road3" type="TextureRect" parent="."]
-margin_left = 920.0
-margin_top = -16.0
-margin_right = 1144.0
-margin_bottom = 245.0
+margin_left = 942.833
+margin_top = 74.2547
+margin_right = 1166.83
+margin_bottom = 335.255
 rect_rotation = 90.2437
 mouse_filter = 2
 texture = ExtResource( 7 )
@@ -74,10 +74,10 @@ expand = true
 stretch_mode = 1
 
 [node name="Road11" type="TextureRect" parent="."]
-margin_left = 520.0
-margin_top = 96.0
-margin_right = 744.0
-margin_bottom = 445.0
+margin_left = 542.833
+margin_top = 186.255
+margin_right = 766.833
+margin_bottom = 535.255
 rect_rotation = -0.199975
 mouse_filter = 2
 texture = ExtResource( 7 )
@@ -85,10 +85,10 @@ expand = true
 stretch_mode = 1
 
 [node name="Road12" type="TextureRect" parent="."]
-margin_left = 840.0
-margin_top = 112.0
-margin_right = 1064.0
-margin_bottom = 461.0
+margin_left = 862.833
+margin_top = 202.255
+margin_right = 1086.83
+margin_bottom = 551.255
 rect_rotation = -0.199975
 mouse_filter = 2
 texture = ExtResource( 7 )
@@ -96,10 +96,10 @@ expand = true
 stretch_mode = 1
 
 [node name="Road14" type="TextureRect" parent="."]
-margin_left = 576.0
-margin_top = 184.0
-margin_right = 800.0
-margin_bottom = 629.0
+margin_left = 598.833
+margin_top = 274.255
+margin_right = 822.833
+margin_bottom = 719.255
 rect_rotation = -39.5653
 mouse_filter = 2
 texture = ExtResource( 7 )
@@ -107,10 +107,10 @@ expand = true
 stretch_mode = 1
 
 [node name="Road13" type="TextureRect" parent="."]
-margin_left = 216.0
-margin_top = 120.0
-margin_right = 440.0
-margin_bottom = 469.0
+margin_left = 238.833
+margin_top = 210.255
+margin_right = 462.833
+margin_bottom = 559.255
 rect_rotation = -0.199975
 mouse_filter = 2
 texture = ExtResource( 7 )
@@ -118,10 +118,10 @@ expand = true
 stretch_mode = 1
 
 [node name="Road7" type="TextureRect" parent="."]
-margin_left = 928.0
-margin_top = 360.0
-margin_right = 1152.0
-margin_bottom = 631.0
+margin_left = 950.833
+margin_top = 450.255
+margin_right = 1174.83
+margin_bottom = 721.255
 rect_rotation = 90.2437
 mouse_filter = 2
 texture = ExtResource( 7 )
@@ -129,10 +129,10 @@ expand = true
 stretch_mode = 1
 
 [node name="Road4" type="TextureRect" parent="."]
-margin_left = 1247.0
-margin_top = 177.0
-margin_right = 1471.0
-margin_bottom = 427.0
+margin_left = 1269.83
+margin_top = 267.255
+margin_right = 1493.83
+margin_bottom = 517.255
 rect_rotation = 127.662
 mouse_filter = 2
 texture = ExtResource( 7 )
@@ -140,10 +140,10 @@ expand = true
 stretch_mode = 1
 
 [node name="Road9" type="TextureRect" parent="."]
-margin_left = 384.0
-margin_top = 360.0
-margin_right = 608.0
-margin_bottom = 610.0
+margin_left = 406.833
+margin_top = 450.255
+margin_right = 630.833
+margin_bottom = 700.255
 rect_rotation = 129.927
 mouse_filter = 2
 texture = ExtResource( 7 )
@@ -151,10 +151,10 @@ expand = true
 stretch_mode = 1
 
 [node name="Road5" type="TextureRect" parent="."]
-margin_left = 1054.0
-margin_top = 538.0
-margin_right = 1278.0
-margin_bottom = 818.0
+margin_left = 1076.83
+margin_top = 628.255
+margin_right = 1300.83
+margin_bottom = 908.255
 rect_rotation = 225.638
 mouse_filter = 2
 texture = ExtResource( 7 )
@@ -162,10 +162,10 @@ expand = true
 stretch_mode = 1
 
 [node name="Road10" type="TextureRect" parent="."]
-margin_left = 412.0
-margin_top = 544.0
-margin_right = 636.0
-margin_bottom = 880.0
+margin_left = 434.833
+margin_top = 634.255
+margin_right = 658.833
+margin_bottom = 970.255
 rect_rotation = 235.218
 mouse_filter = 2
 texture = ExtResource( 7 )
@@ -173,7 +173,7 @@ expand = true
 stretch_mode = 1
 
 [node name="City0" parent="." instance=ExtResource( 3 )]
-position = Vector2( 110, 274 )
+position = Vector2( 132.833, 364.255 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
 __meta__ = {
@@ -181,7 +181,7 @@ __meta__ = {
 }
 
 [node name="City1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 320, 96 )
+position = Vector2( 342.833, 186.255 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
 __meta__ = {
@@ -189,7 +189,7 @@ __meta__ = {
 }
 
 [node name="City2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 640, 88 )
+position = Vector2( 662.833, 178.255 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
 __meta__ = {
@@ -197,7 +197,7 @@ __meta__ = {
 }
 
 [node name="City3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 952, 88 )
+position = Vector2( 974.833, 178.255 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
 __meta__ = {
@@ -205,7 +205,7 @@ __meta__ = {
 }
 
 [node name="City4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1185, 251 )
+position = Vector2( 1207.83, 341.255 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
 __meta__ = {
@@ -213,7 +213,7 @@ __meta__ = {
 }
 
 [node name="City5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 960, 464 )
+position = Vector2( 982.833, 554.255 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
 __meta__ = {
@@ -221,7 +221,7 @@ __meta__ = {
 }
 
 [node name="City6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 640, 464 )
+position = Vector2( 662.833, 554.255 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
 __meta__ = {
@@ -229,7 +229,7 @@ __meta__ = {
 }
 
 [node name="City7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 320, 456 )
+position = Vector2( 342.833, 546.255 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
 __meta__ = {
@@ -237,7 +237,7 @@ __meta__ = {
 }
 
 [node name="City8" parent="." instance=ExtResource( 3 )]
-position = Vector2( 640, 264 )
+position = Vector2( 662.833, 354.255 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
 __meta__ = {
@@ -245,7 +245,7 @@ __meta__ = {
 }
 
 [node name="Car" parent="." instance=ExtResource( 1 )]
-position = Vector2( 110, 280 )
+position = Vector2( 132.833, 370.255 )
 rotation = -3.13378
 scale = Vector2( 0.03, 0.03 )
 
@@ -291,20 +291,63 @@ text = "REPLAY"
 visible = false
 
 [node name="FlagStart" type="TextureRect" parent="."]
-margin_left = 28.0
-margin_top = 168.0
-margin_right = 1228.0
-margin_bottom = 1416.0
+margin_left = 65.8327
+margin_top = 254.255
+margin_right = 1265.83
+margin_bottom = 1502.25
 rect_scale = Vector2( 0.1, 0.1 )
+mouse_filter = 2
 texture = ExtResource( 9 )
 
 [node name="FlagEnd" type="TextureRect" parent="."]
-margin_left = 1120.0
-margin_top = 141.0
-margin_right = 2320.0
-margin_bottom = 1389.0
+margin_left = 1142.83
+margin_top = 231.255
+margin_right = 2342.83
+margin_bottom = 1479.25
 rect_scale = Vector2( 0.1, 0.1 )
+mouse_filter = 2
 texture = ExtResource( 9 )
+
+[node name="LevelComplete" type="CanvasLayer" parent="."]
+layer = 127
+
+[node name="WindowDialog" type="WindowDialog" parent="LevelComplete"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -208.5
+margin_top = -142.0
+margin_right = 208.5
+margin_bottom = 142.0
+theme = ExtResource( 6 )
+popup_exclusive = true
+window_title = "LEVEL COMPLETE"
+
+[node name="Button" type="Button" parent="LevelComplete/WindowDialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -139.5
+margin_top = 64.0
+margin_right = 151.5
+margin_bottom = 105.0
+theme = ExtResource( 6 )
+text = "GO TO NEXT LEVEL"
+
+[node name="Label" type="Label" parent="LevelComplete/WindowDialog"]
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.2
+margin_left = -107.0
+margin_right = 107.0
+margin_bottom = 119.0
+theme = ExtResource( 6 )
+text = "GREAT JOB! NOW TRY TO DO THE SAME, BUT WITH A DIFFERENT START AND FINISH CTIES.	 
+"
+autowrap = true
 
 [connection signal="input_event" from="City0" to="." method="_on_City0_input_event"]
 [connection signal="input_event" from="City1" to="." method="_on_City1_input_event"]

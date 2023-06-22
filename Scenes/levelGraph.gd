@@ -46,10 +46,12 @@ func move(delta):
 
 		if $Car.global_position == destination_position:
 			moving = false
+			if$Car.global_position == get_node(cityDictionary[destinationcity]).global_position:
+				$LevelComplete/WindowDialog.visible =true
+				get_tree().paused = true
 		
-		if$Car.global_position == get_node(cityDictionary[destinationcity]).global_position:
-			pass
-
+		
+			
 func _process(delta):
 	move(delta)
 	
