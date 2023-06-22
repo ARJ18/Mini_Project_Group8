@@ -1,9 +1,10 @@
 extends Node2D
 
-const MAX_FUEL = 100
+export var MAX_FUEL :int
 
-export var move_speed = 250
 export var moving = false
+export var initialcity :int
+export var destinationcity:int
 
 onready var destination_position
 onready var direction
@@ -21,9 +22,10 @@ var cityDictionary = {
 	7: "City7",
 	8: "City8"
 }
+var move_speed = 250
 
 var fuelLabel : Label
-var fuel = MAX_FUEL
+var fuel:int
 var graph = WeightedAdjacencyMatrix.new(9)
 var current_index =  0
 var next_index = 0
@@ -34,7 +36,8 @@ var traversed = [0]
 func _ready():
 	graph_init()
 	fuel_init()
-	$Car.global_position = $City0.global_position
+	set_city_color()
+	$Car.global_position =  get_node(cityDictionary[initialcity]).global_position
 	
 func move(delta):
 	if fuel_available():
@@ -43,6 +46,9 @@ func move(delta):
 
 		if $Car.global_position == destination_position:
 			moving = false
+		
+		if$Car.global_position == get_node(cityDictionary[destinationcity]).global_position:
+			pass
 
 func _process(delta):
 	move(delta)
@@ -56,6 +62,7 @@ func fuel_available():
 	else :
 		return false
 func fuel_init():
+	fuel = MAX_FUEL
 	fuelLabel = $FuelLabel
 	fuelLabel.text = "Fuel: " + str(fuel)
 	
@@ -96,7 +103,7 @@ func move_to(city):
 				$Warning/fueloverWarn.popup()
 			
 func set_city_color():
-	print(current_index,next_index)
+	
 	var adjacentmatrices = graph.getAdjacentVertices(current_index)
 	for city in adjacentmatrices:
 		get_node(cityDictionary[city]).modulate = Color.red
@@ -108,7 +115,7 @@ func set_city_color():
 	
 	
 func reset_city_color():
-	print(current_index,next_index)
+
 	var adjacentmatrices = graph.getAdjacentVertices(current_index)
 	for city in adjacentmatrices:
 		get_node(cityDictionary[city]).modulate = Color.white
@@ -159,47 +166,48 @@ class WeightedAdjacencyMatrix:
 		return adjacentVertices
 
 func graph_init():
-	graph.addEdge(0, 1, 20.0)
-	graph.addEdge(1, 0, 20.0)
+	graph.addEdge(0, 1, 40.0)
+	graph.addEdge(1, 0, 40.0)
 
-	graph.addEdge(0, 7, 8.0)
-	graph.addEdge(7, 0, 8.0)
+	graph.addEdge(0, 7, 80.0)
+	graph.addEdge(7, 0, 80.0)
 
-	graph.addEdge(1, 2, 8.0)
-	graph.addEdge(2, 1, 8.0)
+	graph.addEdge(1, 2, 80.0)
+	graph.addEdge(2, 1, 80.0)
 
-	graph.addEdge(1, 7, 11.0)
-	graph.addEdge(7, 1, 11.0)
+	graph.addEdge(1, 7, 110.0)
+	graph.addEdge(7, 1, 110.0)
 
-	graph.addEdge(2, 3, 7.0)
-	graph.addEdge(3, 2, 7.0)
+	graph.addEdge(2, 3, 70.0)
+	graph.addEdge(3, 2, 70.0)
 
-	graph.addEdge(2, 5, 4.0)
-	graph.addEdge(5, 2, 4.0)
+	graph.addEdge(2, 5, 40.0)
+	graph.addEdge(5, 2, 40.0)
 
-	graph.addEdge(2, 8, 2.0)
-	graph.addEdge(8, 2, 2.0)
+	graph.addEdge(2, 8, 20.0)
+	graph.addEdge(8, 2, 20.0)
 
-	graph.addEdge(3, 4, 9.0)
-	graph.addEdge(4, 3, 9.0)
+	graph.addEdge(3, 4, 90.0)
+	graph.addEdge(4, 3, 90.0)
 
-	graph.addEdge(3, 5, 14.0)
-	graph.addEdge(5, 3, 14.0)
+	graph.addEdge(3, 5, 140.0)
+	graph.addEdge(5, 3, 140.0)
 
-	graph.addEdge(4, 5, 10.0)
-	graph.addEdge(5, 4, 10.0)
+	graph.addEdge(4, 5, 100.0)
+	graph.addEdge(5, 4, 100.0)
 
-	graph.addEdge(5, 6, 2.0)
-	graph.addEdge(6, 5, 2.0)
+	graph.addEdge(5, 6, 20.0)
+	graph.addEdge(6, 5, 20.0)
 
-	graph.addEdge(6, 7, 1.0)
-	graph.addEdge(7, 6, 1.0)
+	graph.addEdge(6, 7, 10.0)
+	graph.addEdge(7, 6, 10.0)
 
-	graph.addEdge(6, 8, 6.0)
-	graph.addEdge(8, 6, 6.0)
+	graph.addEdge(6, 8, 60.0)
+	graph.addEdge(8, 6, 60.0)
 
-	graph.addEdge(7, 8, 7.0)
-	graph.addEdge(8, 7, 7.0)
+	graph.addEdge(7, 8, 70.0)
+	graph.addEdge(8, 7, 70.0)
+
 
 func _on_replayBtn_button_up():
 	get_tree().reload_current_scene()
