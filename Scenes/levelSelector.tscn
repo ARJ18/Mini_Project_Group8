@@ -91,10 +91,10 @@ margin_top = -144.0
 margin_right = 1120.0
 margin_bottom = -94.0
 theme = ExtResource( 2 )
-disabled = true
 text = "Task"
 
 [node name="TextureRect2" type="TextureRect" parent="buttonlayout/stackLevelBtn"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -116,10 +116,10 @@ margin_top = 40.0
 margin_right = 808.0
 margin_bottom = 90.0
 theme = ExtResource( 2 )
-disabled = true
 text = "Tutorial"
 
 [node name="TextureRect2" type="TextureRect" parent="buttonlayout/graphTutBtn"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -141,10 +141,10 @@ margin_top = 40.0
 margin_right = 1120.0
 margin_bottom = 90.0
 theme = ExtResource( 2 )
-disabled = true
 text = "Task"
 
 [node name="TextureRect3" type="TextureRect" parent="buttonlayout/graphLevelBtn"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

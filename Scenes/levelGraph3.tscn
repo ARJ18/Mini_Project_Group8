@@ -16,10 +16,10 @@
 size = 26
 font_data = ExtResource( 10 )
 
-[node name="levelGraph" type="Node2D"]
+[node name="levelGraph3" type="Node2D"]
 script = ExtResource( 2 )
-MAX_FUEL = 500
-destinationcity = 4
+MAX_FUEL = 350
+initialcity = 5
 
 [node name="Background" type="TextureRect" parent="."]
 margin_right = 2560.0
@@ -320,9 +320,9 @@ anchor_top = 0.2
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -152.0
-margin_top = -23.2
+margin_top = -31.2
 margin_right = 148.0
-margin_bottom = 24.0
+margin_bottom = -7.0
 text = "GREAT JOB! NOW TRY TO DO THE SAME, BUT WITH  DIFFERENT START AND FINISH CTIES. DONT FORGET TO USE THE ALGORITHM TO FIND THE ANSWER! "
 autowrap = true
 
@@ -331,10 +331,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -88.0
-margin_top = 48.0
-margin_right = 84.0
-margin_bottom = 74.0
+margin_left = -87.0
+margin_top = 26.0
+margin_right = 85.0
+margin_bottom = 52.0
 text = "GO TO NEXT LEVEL"
 
 [node name="Pausemenu" parent="." instance=ExtResource( 5 )]
@@ -505,7 +505,7 @@ margin_right = 216.0
 margin_bottom = 650.0
 theme = ExtResource( 6 )
 custom_fonts/font = SubResource( 1 )
-text = "ORDER OF VISITING CITIES : 1->"
+text = "ORDER OF VISITING CITIES : 5->"
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 11 )]
 visible = false
@@ -522,5 +522,8 @@ visible = false
 [connection signal="button_up" from="ImmovableObjects/pauseButton" to="." method="_on_pauseButton_button_up"]
 [connection signal="button_up" from="Popups/fueloverWarn/replayBtn" to="." method="_on_replayBtn_button_up"]
 [connection signal="button_up" from="Popups/levelComplete/nextButton" to="." method="_on_nextButton_button_up"]
+[connection signal="button_up" from="CanvasLayer/replay" to="." method="_on_replay_button_up"]
+[connection signal="button_up" from="CanvasLayer/TextureButton" to="." method="_on_TextureButton_button_up"]
 
 [editable path="Pausemenu"]
+[editable path="CanvasLayer"]

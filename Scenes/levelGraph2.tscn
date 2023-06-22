@@ -16,10 +16,11 @@
 size = 26
 font_data = ExtResource( 10 )
 
-[node name="levelGraph" type="Node2D"]
+[node name="levelGraph2" type="Node2D"]
 script = ExtResource( 2 )
-MAX_FUEL = 500
-destinationcity = 4
+MAX_FUEL = 450
+initialcity = 3
+destinationcity = 7
 
 [node name="Background" type="TextureRect" parent="."]
 margin_right = 2560.0
@@ -319,11 +320,11 @@ anchor_left = 0.5
 anchor_top = 0.2
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -152.0
-margin_top = -23.2
-margin_right = 148.0
-margin_bottom = 24.0
-text = "GREAT JOB! NOW TRY TO DO THE SAME, BUT WITH  DIFFERENT START AND FINISH CTIES. DONT FORGET TO USE THE ALGORITHM TO FIND THE ANSWER! "
+margin_left = -150.0
+margin_top = -10.2
+margin_right = 150.0
+margin_bottom = 9.79999
+text = "NICE JOB! SIT TIGHT CAUSEYOU ARE ALMOST THERE! JUST ONE MORE AND YOU WILL REACH YOUR FINAL DESTINATION!"
 autowrap = true
 
 [node name="nextButton" type="Button" parent="Popups/levelComplete"]
@@ -505,7 +506,7 @@ margin_right = 216.0
 margin_bottom = 650.0
 theme = ExtResource( 6 )
 custom_fonts/font = SubResource( 1 )
-text = "ORDER OF VISITING CITIES : 1->"
+text = "ORDER OF VISITING CITIES : 3->"
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 11 )]
 visible = false
