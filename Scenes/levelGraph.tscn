@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Reusable Scenes/Car.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/levelGraph.gd" type="Script" id=2]
@@ -8,9 +8,12 @@
 [ext_resource path="res://Font/font_theme.tres" type="Theme" id=6]
 [ext_resource path="res://Images/road.png" type="Texture" id=7]
 [ext_resource path="res://Images/grassbg.png" type="Texture" id=8]
+[ext_resource path="res://Images/Flag.png" type="Texture" id=9]
 
 [node name="levelGraph" type="Node2D"]
 script = ExtResource( 2 )
+MAX_FUEL = 225
+destinationcity = 4
 
 [node name="Background" type="TextureRect" parent="."]
 margin_right = 2560.0
@@ -269,12 +272,13 @@ window_title = "WARNING"
 
 [node name="Label" type="Label" parent="Warning/fueloverWarn"]
 anchor_left = 0.5
+anchor_top = 0.2
 anchor_right = 0.5
-margin_left = -65.0
-margin_top = 64.0
-margin_right = 65.0
-margin_bottom = 84.0
-text = " OUT OF FUEL!"
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_right = 150.0
+margin_bottom = 20.0
+text = "INSUFFICIENT FUEL TO CONTINUE!"
 
 [node name="replayBtn" type="Button" parent="Warning/fueloverWarn"]
 margin_left = 136.0
@@ -285,6 +289,22 @@ text = "REPLAY"
 
 [node name="Pausemenu" parent="." instance=ExtResource( 5 )]
 visible = false
+
+[node name="FlagStart" type="TextureRect" parent="."]
+margin_left = 28.0
+margin_top = 168.0
+margin_right = 1228.0
+margin_bottom = 1416.0
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 9 )
+
+[node name="FlagEnd" type="TextureRect" parent="."]
+margin_left = 1120.0
+margin_top = 141.0
+margin_right = 2320.0
+margin_bottom = 1389.0
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 9 )
 
 [connection signal="input_event" from="City0" to="." method="_on_City0_input_event"]
 [connection signal="input_event" from="City1" to="." method="_on_City1_input_event"]
