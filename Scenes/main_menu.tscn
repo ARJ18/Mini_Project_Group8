@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Images/dark_blue_mountain.jpg" type="Texture" id=1]
 [ext_resource path="res://Font/unispace bd.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Reusable Scenes/settings.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/main_menu.gd" type="Script" id=4]
 [ext_resource path="res://Sounds/bg_music/main_menu_bg.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Font/font_theme.tres" type="Theme" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
@@ -96,6 +97,53 @@ margin_top = -168.0
 margin_right = 324.0
 margin_bottom = 168.0
 
+[node name="NameEnter" type="WindowDialog" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -136.0
+margin_top = -72.0
+margin_right = 136.0
+margin_bottom = 72.0
+theme = ExtResource( 6 )
+popup_exclusive = true
+window_title = "Enter Name"
+
+[node name="Entry" type="TextEdit" parent="NameEnter"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -108.0
+margin_top = -20.0
+margin_right = 108.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="NameEnter"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -110.0
+margin_top = 16.0
+margin_right = 110.0
+margin_bottom = 36.0
+text = "Enter you player name:"
+align = 1
+valign = 1
+
+[node name="ConfirmBtn" type="Button" parent="NameEnter"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -41.0
+margin_top = -40.0
+margin_right = 41.0
+margin_bottom = -14.0
+text = "Confirm"
+
 [connection signal="button_up" from="buttonContainer/startButton" to="." method="_on_startButton_button_up"]
 [connection signal="button_up" from="buttonContainer/settingsButton" to="." method="_on_settingsButton_button_up"]
 [connection signal="button_up" from="buttonContainer/exitButton" to="." method="_on_exitButton_button_up"]
+[connection signal="button_up" from="NameEnter/ConfirmBtn" to="." method="_on_ConfirmBtn_button_up"]
