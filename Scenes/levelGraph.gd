@@ -67,10 +67,10 @@ func _process(delta):
 	move(delta)
 
 func flag_init():
-	$FlagStart.rect_position.x = get_node(cityDictionary[initialcity]).global_position.x - 60
+	$FlagStart.rect_position.x = get_node(cityDictionary[initialcity]).global_position.x - 30
 	$FlagStart.rect_position.y = get_node(cityDictionary[initialcity]).global_position.y - 100
 	
-	$FlagEnd.rect_position.x = get_node(cityDictionary[destinationcity]).global_position.x - 60
+	$FlagEnd.rect_position.x = get_node(cityDictionary[destinationcity]).global_position.x - 30
 	$FlagEnd.rect_position.y = get_node(cityDictionary[destinationcity]).global_position.y - 100
 		
 func set_fuel():

@@ -39,7 +39,7 @@ texture = ExtResource( 1 )
 expand = true
 
 [node name="Guru" type="Area2D" parent="."]
-position = Vector2( 63, 656 )
+position = Vector2( 56, 360 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -49,6 +49,7 @@ position = Vector2( 6.5, -8.50002 )
 scale = Vector2( 2.65625, 2.78125 )
 frames = SubResource( 3 )
 animation = "idle"
+frame = 1
 speed_scale = 0.3
 playing = true
 
@@ -58,7 +59,11 @@ playing = true
 d_file = "res://Dialogues/Graph/graphGameTutorial.json"
 
 [node name="player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1240, 616 )
+visible = false
+position = Vector2( 1248, 584 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" parent="player" index="0"]
 position = Vector2( -54, -44 )
