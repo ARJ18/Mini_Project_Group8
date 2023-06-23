@@ -14,7 +14,7 @@ func _on_options_button_up():
 
 
 func _on_exit_button_up():
-	get_tree().quit()
+	get_tree().change_scene("res://Scenes/levelSelector.tscn")
 
 
 func _on_replay_button_up():
