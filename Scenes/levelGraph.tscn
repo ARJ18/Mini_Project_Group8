@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Reusable Scenes/Car.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/levelGraph.gd" type="Script" id=2]
@@ -12,12 +12,13 @@
 [ext_resource path="res://Font/unispace bd.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Reusable Scenes/LevelComplete.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Images/Startflag.png" type="Texture" id=12]
+[ext_resource path="res://Reusable Scenes/GraphInstructions.tscn" type="PackedScene" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 26
 font_data = ExtResource( 10 )
 
-[node name="levelGraph" type="Node2D"]
+[node name="levelGraph1" type="Node2D"]
 script = ExtResource( 2 )
 MAX_FUEL = 500
 destinationcity = 4
@@ -47,7 +48,6 @@ expand = true
 stretch_mode = 1
 
 [node name="Road6" type="TextureRect" parent="."]
-visible = false
 margin_left = 245.833
 margin_top = 76.255
 margin_right = 469.833
@@ -137,7 +137,6 @@ expand = true
 stretch_mode = 1
 
 [node name="Road4" type="TextureRect" parent="."]
-visible = false
 margin_left = 1249.83
 margin_top = 234.255
 margin_right = 1473.83
@@ -149,7 +148,6 @@ expand = true
 stretch_mode = 1
 
 [node name="Road9" type="TextureRect" parent="."]
-visible = false
 margin_left = 386.833
 margin_top = 417.255
 margin_right = 610.833
@@ -161,7 +159,6 @@ expand = true
 stretch_mode = 1
 
 [node name="Road5" type="TextureRect" parent="."]
-visible = false
 margin_left = 1056.83
 margin_top = 595.255
 margin_right = 1280.83
@@ -264,7 +261,6 @@ __meta__ = {
 cityname = "H"
 
 [node name="Car" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 112.833, 337.255 )
 rotation = -3.13378
 scale = Vector2( 0.03, 0.03 )
@@ -342,6 +338,9 @@ margin_top = 48.0
 margin_right = 84.0
 margin_bottom = 74.0
 text = "GO TO NEXT LEVEL"
+
+[node name="GraphInstructions" parent="Popups" instance=ExtResource( 13 )]
+visible = false
 
 [node name="Pausemenu" parent="." instance=ExtResource( 5 )]
 visible = false
@@ -513,7 +512,7 @@ theme = ExtResource( 6 )
 custom_fonts/font = SubResource( 1 )
 text = "ORDER OF VISITING CITIES : 1->"
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 11 )]
+[node name="LevelComplete" parent="." instance=ExtResource( 11 )]
 visible = false
 
 [connection signal="input_event" from="City0" to="." method="_on_City0_input_event"]

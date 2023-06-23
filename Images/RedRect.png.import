@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pitstop_car_1.png-0ddc72120bf2b0f82346b37df6b5147e.stex"
+path="res://.import/RedRect.png-3105aeb1fe44f6df5927860a6bbe3c92.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/pitstop_car_1.png"
-dest_files=[ "res://.import/pitstop_car_1.png-0ddc72120bf2b0f82346b37df6b5147e.stex" ]
+source_file="res://Images/RedRect.png"
+dest_files=[ "res://.import/RedRect.png-3105aeb1fe44f6df5927860a6bbe3c92.stex" ]
 
 [params]
 

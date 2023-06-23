@@ -37,13 +37,14 @@ var destination_reached = false
 func _ready():
 	graph_init()
 	fuel_init()
-	print(current_index,next_index)
 	index_init()
-	print(current_index,next_index)
 	set_city_color()
 	flag_init()
 	$Car.global_position =  get_node(cityDictionary[initialcity]).global_position
 	$Popups/levelComplete.get_close_button().hide()
+	if int(str(get_node("."))[10]) == 1:
+		$Popups/GraphInstructions.popup()
+		
 	
 func move(delta):
 	if fuel_available():
@@ -55,7 +56,7 @@ func move(delta):
 		if$Car.global_position == get_node(cityDictionary[destinationcity]).global_position and !destination_reached:
 			if int(str(get_node("."))[10]) ==3:
 
-				$CanvasLayer.visible = true
+				$LevelComplete.visible = true
 				
 			else:
 				$Popups/levelComplete.popup()
