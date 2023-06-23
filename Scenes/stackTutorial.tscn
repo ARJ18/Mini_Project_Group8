@@ -741,6 +741,7 @@ __meta__ = {
 scale = Vector2( 2.25, 2.25 )
 frames = SubResource( 3 )
 animation = "idle"
+frame = 1
 speed_scale = 0.3
 playing = true
 
@@ -835,7 +836,7 @@ collision_mask = 0
 number = 4
 
 [node name="StackPancake5" parent="AnimElems" instance=ExtResource( 7 )]
-position = Vector2( 200, 288 )
+position = Vector2( 200, 328 )
 collision_layer = 0
 collision_mask = 0
 number = 5
@@ -883,6 +884,7 @@ theme = ExtResource( 6 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 124
+visible = false
 
 [node name="overflow" type="WindowDialog" parent="CanvasLayer"]
 anchor_left = 0.5
