@@ -13,6 +13,7 @@ onready var stack5 = LinkedList.new()
 var top_color = "a900ff"
 var select_color = "#ef8888"
 var key_acq = false
+onready var userdata = SavePlayer.udata
 
 var to = Vector2(120,0)
 var from = Vector2(0,0)
@@ -37,6 +38,7 @@ func _ready():
 	$Warnings/crushWarning.visible = false
 	$Warnings/fallWarning.visible = false
 	$Warnings/keyWarning.visible = false
+	$LevelComplete.visible = false
 	$Floater.set_from(from)
 	$Floater.set_to(to)
 
@@ -172,7 +174,11 @@ func _on_ShiningKey_body_entered(body):
 
 func _on_Portal_body_entered(body):
 	print("Level Finished")
-	get_tree().change_scene("res://Scenes/levelGraph.tscn")
+	$player.set_physics_process(false)
+	$LevelComplete.visible = true
+	userdata.level1 = true
+	SavePlayer.save_data()
+	
 
 func _on_Door_body_entered(body):
 	if !key_acq:

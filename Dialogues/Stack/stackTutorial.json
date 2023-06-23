@@ -7,6 +7,7 @@
     {"name":"Guru","text":"We call adding a pancake PUSHing. So, go ahead and PUSH a pancake onto the stack using the button."},
     {"name":"Guru","text":"This is the algorithm for PUSH...."},
     {"name":"Guru","text":"We first check for OVERFLOW. Overflow signifies that the stack cannot accommodate any additional elements, similar to pouring water into a glass already filled to the brim."},
+    {"name":"Guru","text":"Then we increment top and add the value to the stack."},
     {"name":"Guru","text":"Since it's LAST IN-FIRST OUT, you'll devour pancake number 4 before getting to the others. The one at TOP first!"},
     {"name":"Guru","text":"End"}
 ]
