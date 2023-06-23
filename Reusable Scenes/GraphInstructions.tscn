@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Videos/stackSelect.ogv" type="VideoStream" id=1]
 [ext_resource path="res://Videos/pushpop.webm" type="VideoStream" id=2]
@@ -7,13 +7,14 @@
 [ext_resource path="res://Images/graphCity.png" type="Texture" id=5]
 [ext_resource path="res://Images/portal/portalss.png" type="Texture" id=6]
 [ext_resource path="res://Reusable Scenes/GraphInstructions.gd" type="Script" id=7]
+[ext_resource path="res://Images/destCity.png" type="Texture" id=8]
+[ext_resource path="res://Images/startCity.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
 font_data = ExtResource( 3 )
 
 [node name="GraphInstructions" type="WindowDialog"]
-visible = true
 margin_left = 240.0
 margin_top = 128.0
 margin_right = 984.0
@@ -110,12 +111,13 @@ margin_left = -360.5
 margin_top = 16.0
 margin_right = 360.5
 margin_bottom = 59.0
-text = "Use your mouse pointer and Left Mouse button to select the stack you want to perform operations"
+text = "City with green flag. "
 align = 1
 valign = 1
 autowrap = true
 
 [node name="VideoPlayer" type="VideoPlayer" parent="TabContainer/Select"]
+visible = false
 margin_left = 49.0
 margin_top = 80.0
 margin_right = 697.0
@@ -123,6 +125,28 @@ margin_bottom = 312.0
 mouse_filter = 2
 stream = ExtResource( 1 )
 autoplay = true
+
+[node name="TextureRect2" type="TextureRect" parent="TabContainer/Select"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 164.0
+margin_top = 170.0
+margin_right = 300.0
+margin_bottom = 306.0
+mouse_filter = 2
+texture = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/Select"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -300.0
+margin_top = 178.0
+margin_right = -164.0
+margin_bottom = 314.0
+mouse_filter = 2
+texture = ExtResource( 9 )
+expand = true
 
 [node name="Next" type="Button" parent="TabContainer/Select"]
 anchor_left = 1.0
