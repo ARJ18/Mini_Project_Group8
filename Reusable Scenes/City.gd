@@ -1,5 +1,5 @@
-extends Control
-
+extends StaticBody2D
+export var cityname:String
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -8,14 +8,10 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	 $dialogue.connect("next_pressed",self,"handle_anim")
-	 $dialogue.connect("prev_presssed",self,"handle_backward_anim")
+	$CityName.text += cityname # Replace with function body.
 
-
+func _process(delta):
+	$CityName.modulate = Color.white
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
-func _on_gohomeBtn_button_up():
-	get_tree().change_scene("res://Scenes/levelSelector.tscn") # Replace with function body.

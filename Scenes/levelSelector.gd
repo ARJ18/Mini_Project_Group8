@@ -21,7 +21,7 @@ func _on_stackLevelBtn_button_up():
 
 
 func _on_graphTutBtn_button_up():
-	pass
+	get_tree().change_scene("res://Scenes/graphTutorial.tscn")
 	
 func _on_graphLevelBtn_button_up():
 	get_tree().change_scene("res://Scenes/levelGraph.tscn")
@@ -61,10 +61,10 @@ func _on_stackLevelBtn_mouse_entered():
 
 
 func _on_graphTutBtn_mouse_entered():
-	$CanvasLayer/GraphRect.modulate = Color("#886fd7")
-	$buttonlayout/graphlabel.modulate = Color.black
+	$CanvasLayer/GraphRect.modulate = Color("#211056")
+	$buttonlayout/graphlabel.modulate = Color.white
 
 
 func _on_graphLevelBtn_mouse_entered():
-	$CanvasLayer/GraphRect.modulate = Color("#886fd7")
-	$buttonlayout/graphlabel.modulate = Color.black
+	$CanvasLayer/GraphRect.modulate = Color("#211056")
+	$buttonlayout/graphlabel.modulate = Color.white

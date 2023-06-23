@@ -27,17 +27,23 @@ var move_speed = 250
 var fuelLabel : Label
 var fuel:int
 var graph = WeightedAdjacencyMatrix.new(9)
-var current_index =  0
-var next_index = 0
-var traversed = [0]
+var current_index
+var next_index
+var traversed
+var destination_reached = false
 
 
 
 func _ready():
 	graph_init()
 	fuel_init()
+	print(current_index,next_index)
+	index_init()
+	print(current_index,next_index)
 	set_city_color()
+	flag_init()
 	$Car.global_position =  get_node(cityDictionary[initialcity]).global_position
+	$Popups/levelComplete.get_close_button().hide()
 	
 func move(delta):
 	if fuel_available():
@@ -46,13 +52,27 @@ func move(delta):
 
 		if $Car.global_position == destination_position:
 			moving = false
-		
-		if$Car.global_position == get_node(cityDictionary[destinationcity]).global_position:
-			pass
+		if$Car.global_position == get_node(cityDictionary[destinationcity]).global_position and !destination_reached:
+			if int(str(get_node("."))[10]) ==3:
 
+				$CanvasLayer.visible = true
+				
+			else:
+				$Popups/levelComplete.popup()
+				
+				destination_reached= true
+			
+		
 func _process(delta):
 	move(delta)
+
+func flag_init():
+	$FlagStart.rect_position.x = get_node(cityDictionary[initialcity]).global_position.x - 30
+	$FlagStart.rect_position.y = get_node(cityDictionary[initialcity]).global_position.y - 100
 	
+	$FlagEnd.rect_position.x = get_node(cityDictionary[destinationcity]).global_position.x - 30
+	$FlagEnd.rect_position.y = get_node(cityDictionary[destinationcity]).global_position.y - 100
+		
 func set_fuel():
 	fuel -= graph.getWeight(current_index, next_index)
 	fuelLabel.text = "Fuel: " + str(fuel)
@@ -65,6 +85,11 @@ func fuel_init():
 	fuel = MAX_FUEL
 	fuelLabel = $FuelLabel
 	fuelLabel.text = "Fuel: " + str(fuel)
+
+func index_init():
+	current_index = initialcity
+	next_index = initialcity
+	traversed = [initialcity]
 	
 func _on_City0_input_event(_viewport, _event, _shape_idx):
 	move_to($City0)
@@ -99,27 +124,33 @@ func move_to(city):
 				reset_city_color()
 				current_index = next_index
 				set_city_color()
+				set_traversed()
 			else:
-				$Warning/fueloverWarn.popup()
+				$Popups/fueloverWarn.popup()
 			
 func set_city_color():
 	
 	var adjacentmatrices = graph.getAdjacentVertices(current_index)
 	for city in adjacentmatrices:
-		get_node(cityDictionary[city]).modulate = Color.red
-	get_node(cityDictionary[current_index]).modulate = Color.green
+		get_node(cityDictionary[city]+"/Sprite").modulate = Color.red
+	get_node(cityDictionary[current_index]+"/Sprite").modulate = Color.green
 	traversed.append(current_index)
 	for city in traversed:
-		get_node(cityDictionary[city]).modulate = Color.green
-	get_node(cityDictionary[next_index]).modulate = Color.yellow
+		get_node(cityDictionary[city]+"/Sprite").modulate = Color.green
+	get_node(cityDictionary[next_index]+"/Sprite").modulate = Color.yellow
 	
 	
 func reset_city_color():
 
 	var adjacentmatrices = graph.getAdjacentVertices(current_index)
 	for city in adjacentmatrices:
-		get_node(cityDictionary[city]).modulate = Color.white
-	
+		get_node(cityDictionary[city]+"/Sprite").modulate = Color.white
+
+func set_traversed():
+	if current_index!= destinationcity:
+		$Traversed.text  += str(current_index+1) + "->" 
+	else:
+		$Traversed.text  += str(current_index+1)
 	
 class WeightedAdjacencyMatrix:
 	var numVertices: int
@@ -166,47 +197,36 @@ class WeightedAdjacencyMatrix:
 		return adjacentVertices
 
 func graph_init():
-	graph.addEdge(0, 1, 40.0)
-	graph.addEdge(1, 0, 40.0)
+# Adding edges to the graph
+	graph.addEdge(0, 1, 74.0);
+	graph.addEdge(1, 0, 74.0);
+	graph.addEdge(0, 7, 142.0);
+	graph.addEdge(7, 0, 142.0);
+	graph.addEdge(1, 2, 117.0);
+	graph.addEdge(2, 1, 117.0);
+	graph.addEdge(1, 7, 183.0);
+	graph.addEdge(7, 1, 183.0);
+	graph.addEdge(2, 3, 210.0);
+	graph.addEdge(3, 2, 210.0);
+	graph.addEdge(2, 5, 135.0);
+	graph.addEdge(5, 2, 135.0);
+	graph.addEdge(2, 8, 65.0);
+	graph.addEdge(8, 2, 65.0);
+	graph.addEdge(3, 4, 73.0);
+	graph.addEdge(4, 3, 73.0);
+	graph.addEdge(3, 5, 160.0);
+	graph.addEdge(5, 3, 160.0);
+	graph.addEdge(4, 5, 191.0);
+	graph.addEdge(5, 4, 191.0);
+	graph.addEdge(5, 6, 197.0);
+	graph.addEdge(6, 5, 197.0);
+	graph.addEdge(6, 7, 89.0);
+	graph.addEdge(7, 6, 89.0);
+	graph.addEdge(6, 8, 248.0);
+	graph.addEdge(8, 6, 248.0);
+	graph.addEdge(7, 8, 180.0);
+	graph.addEdge(8, 7, 180.0);
 
-	graph.addEdge(0, 7, 80.0)
-	graph.addEdge(7, 0, 80.0)
-
-	graph.addEdge(1, 2, 80.0)
-	graph.addEdge(2, 1, 80.0)
-
-	graph.addEdge(1, 7, 110.0)
-	graph.addEdge(7, 1, 110.0)
-
-	graph.addEdge(2, 3, 70.0)
-	graph.addEdge(3, 2, 70.0)
-
-	graph.addEdge(2, 5, 40.0)
-	graph.addEdge(5, 2, 40.0)
-
-	graph.addEdge(2, 8, 20.0)
-	graph.addEdge(8, 2, 20.0)
-
-	graph.addEdge(3, 4, 90.0)
-	graph.addEdge(4, 3, 90.0)
-
-	graph.addEdge(3, 5, 140.0)
-	graph.addEdge(5, 3, 140.0)
-
-	graph.addEdge(4, 5, 100.0)
-	graph.addEdge(5, 4, 100.0)
-
-	graph.addEdge(5, 6, 20.0)
-	graph.addEdge(6, 5, 20.0)
-
-	graph.addEdge(6, 7, 10.0)
-	graph.addEdge(7, 6, 10.0)
-
-	graph.addEdge(6, 8, 60.0)
-	graph.addEdge(8, 6, 60.0)
-
-	graph.addEdge(7, 8, 70.0)
-	graph.addEdge(8, 7, 70.0)
 
 
 func _on_replayBtn_button_up():
@@ -216,6 +236,16 @@ func _on_replayBtn_button_up():
 func _on_pauseButton_button_up():
 	$Pausemenu.visible = true
 	
+func _on_nextButton_button_up():
+	if int(str(get_node("."))[10]) == 2:
+		get_tree().change_scene("res://Scenes/levelGraph3.tscn")
+	else:
+		get_tree().change_scene("res://Scenes/levelGraph2.tscn")
 
-func _on_resume_button_up():
-	pass
+
+func _on_replay_button_up():
+	get_tree().change_scene("res://Scenes/levelGraph.tscn")# Replace with function body.
+
+
+func _on_TextureButton_button_up():
+	get_tree().change_scene("res://Scenes/levelSelector.tscn")

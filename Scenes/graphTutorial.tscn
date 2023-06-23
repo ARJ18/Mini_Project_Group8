@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Images/blank.png" type="Texture" id=1]
 [ext_resource path="res://Images/GuruSprites/AnimationSheet_Character.png" type="Texture" id=2]
 [ext_resource path="res://Reusable Scenes/dialogue.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Reusable Scenes/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/graphTutorial.gd" type="Script" id=5]
+[ext_resource path="res://Font/font_theme.tres" type="Theme" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -38,7 +39,7 @@ texture = ExtResource( 1 )
 expand = true
 
 [node name="Guru" type="Area2D" parent="."]
-position = Vector2( 63, 656 )
+position = Vector2( 56, 360 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -57,7 +58,11 @@ playing = true
 d_file = "res://Dialogues/Graph/graphGameTutorial.json"
 
 [node name="player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1240, 616 )
+visible = false
+position = Vector2( 1248, 584 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" parent="player" index="0"]
 position = Vector2( -54, -44 )
@@ -68,5 +73,15 @@ visible = false
 current = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="gohomeBtn" type="Button" parent="."]
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 114.0
+margin_bottom = 64.0
+theme = ExtResource( 6 )
+text = "Go Home"
+
+[connection signal="button_up" from="gohomeBtn" to="." method="_on_gohomeBtn_button_up"]
 
 [editable path="player"]

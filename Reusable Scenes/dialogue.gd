@@ -43,10 +43,10 @@ func prev_script():
 
 func _on_goback_button_up():
 	prev_script()
-	emit_signal("prev_presssed")
+	#emit_signal("prev_presssed")
 
 
 func _on_gofront_button_up():
 	next_script()
-	emit_signal("next_pressed")
+	#emit_signal("next_pressed")
 
