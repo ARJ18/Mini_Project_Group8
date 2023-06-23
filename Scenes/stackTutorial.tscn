@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Images/blank.png" type="Texture" id=1]
 [ext_resource path="res://Images/GuruSprites/AnimationSheet_Character.png" type="Texture" id=2]
@@ -430,6 +430,35 @@ tracks/17/keys = {
 "update": 0,
 "values": [ Vector2( 464, 44 ) ]
 }
+tracks/18/type = "value"
+tracks/18/path = NodePath("AnimElems/StackPancake5:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "Stack5Highlight"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimElems/StackPancake5:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "StackAppear"
@@ -733,6 +762,7 @@ anims/Push4 = SubResource( 7 )
 anims/Push5 = SubResource( 11 )
 anims/PushAlgoAppear = SubResource( 13 )
 anims/RESET = SubResource( 5 )
+anims/Stack5Highlight = SubResource( 16 )
 anims/StackAppear = SubResource( 4 )
 anims/StackDisappear = SubResource( 9 )
 anims/TopAddHighlight = SubResource( 15 )
@@ -801,10 +831,14 @@ valign = 1
 
 [node name="StackPancake4" parent="AnimElems" instance=ExtResource( 7 )]
 position = Vector2( 654, 288 )
+collision_layer = 0
+collision_mask = 0
 number = 4
 
 [node name="StackPancake5" parent="AnimElems" instance=ExtResource( 7 )]
 position = Vector2( 200, 288 )
+collision_layer = 0
+collision_mask = 0
 number = 5
 
 [node name="PushBtn" type="Button" parent="AnimElems"]
@@ -814,6 +848,14 @@ margin_right = 502.0
 margin_bottom = 424.0
 theme = ExtResource( 6 )
 text = "PUSH"
+
+[node name="PopBtn" type="Button" parent="AnimElems"]
+margin_left = 432.0
+margin_top = 384.0
+margin_right = 502.0
+margin_bottom = 424.0
+theme = ExtResource( 6 )
+text = "POP"
 
 [node name="PushAlgo" type="TextureRect" parent="AnimElems"]
 margin_left = 688.0
@@ -856,6 +898,7 @@ popup_exclusive = true
 
 [connection signal="button_up" from="gohomeBtn" to="." method="_on_gohomeBtn_button_up"]
 [connection signal="button_up" from="AnimElems/PushBtn" to="." method="_on_PushBtn_button_up"]
+[connection signal="button_up" from="AnimElems/PopBtn" to="." method="_on_PopBtn_button_up"]
 
 [editable path="dialogue"]
 [editable path="player"]
