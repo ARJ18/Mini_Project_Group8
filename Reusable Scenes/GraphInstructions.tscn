@@ -15,6 +15,7 @@ size = 25
 font_data = ExtResource( 3 )
 
 [node name="GraphInstructions" type="WindowDialog"]
+visible = true
 margin_left = 240.0
 margin_top = 128.0
 margin_right = 984.0
@@ -111,7 +112,7 @@ margin_left = -360.5
 margin_top = 16.0
 margin_right = 360.5
 margin_bottom = 59.0
-text = "City with green flag. "
+text = "City with green flag is the starting vertex and the one with red flag is the destination vertex."
 align = 1
 valign = 1
 autowrap = true
