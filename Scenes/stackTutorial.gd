@@ -2,9 +2,12 @@ extends Control
 
 onready var anim = $stackAnim
 var stack_top = 4
+var is_pushed = false
 func _ready():
 	$player.set_physics_process(false)
 	$AnimElems.visible = false
+	$dialogue.get_node("goback").disabled = false
+	$dialogue.get_node("gofront").disabled = false
 	$AnimElems/StackPancake.visible = false
 	$AnimElems/StackPancake2.visible = false
 	$AnimElems/StackPancake3.visible = false
@@ -37,10 +40,16 @@ func handle_anim():
 		anim.play("Push4")
 	if $dialogue.curr_dia_id == 5:
 		$AnimElems/PushBtn.visible = true
+		$dialogue.get_node("goback").disabled = true
+		$dialogue.get_node("gofront").disabled = true
 	if $dialogue.curr_dia_id == 6:
 		anim.play("PushAlgoAppear")
 	if $dialogue.curr_dia_id == 7:
-		anim.play("CodeHighlight")
+		anim.play("OverflowHighlight")
+	if $dialogue.curr_dia_id == 8:
+		anim.play("TopAddHighlight")
+		anim.queue("OverflowHighlight")
+		
 
 
 func handle_backward_anim():
@@ -53,10 +62,21 @@ func handle_backward_anim():
 	if $dialogue.curr_dia_id == 3:
 		anim.play("Pop4")
 	if $dialogue.curr_dia_id == 4:
-		anim.play("pop5")
+		if is_pushed:
+			anim.play("pop5")
+			stack_top -= 1
 		$AnimElems/PushBtn.visible = false
-		stack_top -= 1
-		
+	if $dialogue.curr_dia_id == 5:
+		anim.play("pop5")
+		is_pushed = false
+		stack_top-=1
+		$AnimElems/PushAlgo.visible = false
+	if $dialogue.curr_dia_id == 6:
+		anim.stop(true)
+		$AnimElems/Marker.visible = false
+	if $dialogue.curr_dia_id == 7:
+		anim.play_backwards("TopAddHighlight")
+		anim.queue("OverflowHighlight")
 
 func _on_gohomeBtn_button_up():
 	get_tree().change_scene("res://Scenes/levelSelector.tscn")
@@ -67,4 +87,7 @@ func _on_PushBtn_button_up():
 		print("Overflow")
 	else:
 		anim.play("Push5")
+		is_pushed = true
 		stack_top += 1
+	$dialogue.get_node("goback").disabled = false
+	$dialogue.get_node("gofront").disabled = false
