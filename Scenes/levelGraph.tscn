@@ -47,6 +47,7 @@ expand = true
 stretch_mode = 1
 
 [node name="Road6" type="TextureRect" parent="."]
+visible = false
 margin_left = 245.833
 margin_top = 76.255
 margin_right = 469.833
@@ -136,6 +137,7 @@ expand = true
 stretch_mode = 1
 
 [node name="Road4" type="TextureRect" parent="."]
+visible = false
 margin_left = 1249.83
 margin_top = 234.255
 margin_right = 1473.83
@@ -147,6 +149,7 @@ expand = true
 stretch_mode = 1
 
 [node name="Road9" type="TextureRect" parent="."]
+visible = false
 margin_left = 386.833
 margin_top = 417.255
 margin_right = 610.833
@@ -158,6 +161,7 @@ expand = true
 stretch_mode = 1
 
 [node name="Road5" type="TextureRect" parent="."]
+visible = false
 margin_left = 1056.83
 margin_top = 595.255
 margin_right = 1280.83
@@ -260,6 +264,7 @@ __meta__ = {
 cityname = "H"
 
 [node name="Car" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 112.833, 337.255 )
 rotation = -3.13378
 scale = Vector2( 0.03, 0.03 )

@@ -4,7 +4,7 @@
 [ext_resource path="res://Videos/pushpop.webm" type="VideoStream" id=2]
 [ext_resource path="res://Font/unispace bd.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Images/arrow.png" type="Texture" id=4]
-[ext_resource path="res://Images/wasd.png" type="Texture" id=5]
+[ext_resource path="res://Images/graphCity.png" type="Texture" id=5]
 [ext_resource path="res://Images/portal/portalss.png" type="Texture" id=6]
 [ext_resource path="res://Reusable Scenes/GraphInstructions.gd" type="Script" id=7]
 
@@ -13,21 +13,27 @@ size = 25
 font_data = ExtResource( 3 )
 
 [node name="GraphInstructions" type="WindowDialog"]
+visible = true
 margin_left = 240.0
-margin_top = 112.0
-margin_right = 288.0
-margin_bottom = 152.0
+margin_top = 128.0
+margin_right = 984.0
+margin_bottom = 608.0
 popup_exclusive = true
 script = ExtResource( 7 )
 
 [node name="TabContainer" type="TabContainer" parent="."]
-margin_left = 5.0
-margin_top = 6.0
-margin_right = 741.0
-margin_bottom = 486.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -368.0
+margin_top = -240.0
+margin_right = 368.0
+margin_bottom = 240.0
 tab_align = 0
 
 [node name="Movement" type="Tabs" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -37,17 +43,19 @@ margin_bottom = -4.0
 
 [node name="MovementLabel" type="Label" parent="TabContainer/Movement"]
 anchor_top = 0.5
+anchor_right = 0.1
 anchor_bottom = 0.5
-margin_left = 17.0
-margin_top = 26.0
-margin_right = 722.0
-margin_bottom = 193.0
+margin_left = 7.0
+margin_top = -212.0
+margin_right = 823.0
+margin_bottom = -45.0
 custom_fonts/font = SubResource( 1 )
 text = "Each cities represent the vertices of the graph.
 Roads represent the edges."
 autowrap = true
 
 [node name="TextureRect2" type="TextureRect" parent="TabContainer/Movement"]
+visible = false
 margin_left = 540.0
 margin_top = 130.0
 margin_right = 629.0
@@ -59,14 +67,16 @@ expand = true
 [node name="TextureRect" type="TextureRect" parent="TabContainer/Movement"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -190.0
-margin_right = 190.0
-margin_bottom = 224.0
+margin_left = -304.0
+margin_top = 88.0
+margin_right = 280.0
+margin_bottom = 416.0
 mouse_filter = 2
 texture = ExtResource( 5 )
 expand = true
 
 [node name="TextureRect3" type="TextureRect" parent="TabContainer/Movement"]
+visible = false
 margin_left = 108.0
 margin_top = 130.0
 margin_right = 197.0
@@ -86,7 +96,6 @@ margin_top = -40.0
 text = "Next"
 
 [node name="Select" type="Tabs" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
