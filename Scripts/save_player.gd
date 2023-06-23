@@ -20,10 +20,7 @@ func load_data():
 			"tut1": false,
 			"level1": false,
 			"tut2": false,
-			"level2": false,
-			"hints": 0,
-			"level1stars": 0,
-			"level2stars": 0
+			"level2": false
 		}
 		save_data()
 	file.open(UserFile,file.READ)
