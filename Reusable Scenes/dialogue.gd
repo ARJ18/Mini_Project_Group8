@@ -23,7 +23,6 @@ func load_dialogue():
 
 func next_script():
 
-	print(len(dialouge))
 	if curr_dia_id >= len(dialouge)-1:
 		return 
 	curr_dia_id += 1
