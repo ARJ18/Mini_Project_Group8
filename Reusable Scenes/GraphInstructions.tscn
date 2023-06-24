@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Images/startCity.png" type="Texture" id=1]
 [ext_resource path="res://Videos/GraphTutVideo.webm" type="VideoStream" id=2]
 [ext_resource path="res://Font/unispace bd.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Images/destCity.png" type="Texture" id=4]
 [ext_resource path="res://Images/graphCity.png" type="Texture" id=5]
 [ext_resource path="res://Images/RedRect.png" type="Texture" id=6]
 [ext_resource path="res://Reusable Scenes/GraphInstructions.gd" type="Script" id=7]
+[ext_resource path="res://Images/destCity.png" type="Texture" id=8]
+[ext_resource path="res://Images/startCity.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -25,6 +25,7 @@ size = 25
 font_data = ExtResource( 3 )
 
 [node name="GraphInstructions" type="WindowDialog"]
+visible = true
 margin_left = 240.0
 margin_top = 128.0
 margin_right = 984.0
@@ -128,7 +129,7 @@ margin_top = 114.0
 margin_right = 273.0
 margin_bottom = 303.0
 rect_scale = Vector2( 1.11513, 1.07277 )
-texture = ExtResource( 1 )
+texture = ExtResource( 9 )
 
 [node name="endcity" type="TextureRect" parent="TabContainer/Flags"]
 margin_left = 440.0
@@ -136,10 +137,9 @@ margin_top = 114.0
 margin_right = 582.0
 margin_bottom = 306.0
 rect_scale = Vector2( 1.28659, 1.0628 )
-texture = ExtResource( 4 )
+texture = ExtResource( 8 )
 
 [node name="Colors" type="Tabs" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -186,7 +186,6 @@ margin_top = -40.0
 text = "Next"
 
 [node name="Fuel" type="Tabs" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -203,7 +202,7 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="ActionsVideoPlayer" type="VideoPlayer" parent="TabContainer/Fuel"]
+[node name="ActionsVideoPlayer1" type="VideoPlayer" parent="TabContainer/Fuel"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -277,3 +276,6 @@ anchor_bottom = 1.0
 margin_left = -70.0
 margin_top = -40.0
 text = "Start"
+
+[connection signal="finished" from="TabContainer/Colors/ActionsVideoPlayer" to="." method="_on_ActionsVideoPlayer_finished"]
+[connection signal="finished" from="TabContainer/Fuel/ActionsVideoPlayer1" to="." method="_on_ActionsVideoPlayer1_finished"]
