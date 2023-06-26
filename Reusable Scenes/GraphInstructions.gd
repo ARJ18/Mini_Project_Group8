@@ -22,3 +22,15 @@ func _on_ActionsVideoPlayer_finished():
 
 func _on_ActionsVideoPlayer1_finished():
 	$TabContainer/Fuel/ActionsVideoPlayer1.play()
+
+
+func _on_next_button_up():
+	$TabContainer.current_tab +=1
+
+
+func _on_previous_button_up():
+	$TabContainer.current_tab -=1
+
+
+func _on_playbtn_button_up():
+	$".".visible = false

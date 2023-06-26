@@ -41,7 +41,7 @@
         },
           {
           "name": "Guru",
-          "text": "Sure! Consider this graph with five nodes: A, B, C, D, and E."
+          "text": "Sure! Consider this graph with five nodes: A, B, C, D, and E,with the given weights for their edges."
           },
           {
           "name": "Guru",
@@ -57,11 +57,11 @@
           },
           {
           "name": "Guru",
-          "text": "Step 2: Select the node with the smallest distance as the current node. We start with node A."
+          "text": "Select the node with the smallest distance as the current node. We start with node A."
           },
           {
           "name": "Guru",
-          "text": "Step 3: Visit each neighboring node of the current node and update their distances if necessary."
+          "text": "Visit each neighboring node of the current node and update their distances if necessary."
           },
           {
           "name": "Guru",
@@ -78,10 +78,6 @@
           {
           "name": "Guru",
           "text": "In this case, we mark node A as visited and select node C as the new current node."
-          },
-          {
-          "name": "Guru",
-          "text": "Visit each neighboring node of the current node and update their distances if necessary."
           },
           {
           "name": "Guru",

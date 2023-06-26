@@ -25,7 +25,6 @@ size = 25
 font_data = ExtResource( 3 )
 
 [node name="GraphInstructions" type="WindowDialog"]
-visible = true
 margin_left = 240.0
 margin_top = 128.0
 margin_right = 984.0
@@ -45,6 +44,7 @@ margin_bottom = 240.0
 tab_align = 0
 
 [node name="Introduction" type="Tabs" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -76,7 +76,7 @@ mouse_filter = 2
 texture = ExtResource( 5 )
 expand = true
 
-[node name="NextSlide" type="Button" parent="TabContainer/Introduction"]
+[node name="next" type="Button" parent="TabContainer/Introduction"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -107,7 +107,7 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Next" type="Button" parent="TabContainer/Flags"]
+[node name="next" type="Button" parent="TabContainer/Flags"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -140,6 +140,7 @@ rect_scale = Vector2( 1.28659, 1.0628 )
 texture = ExtResource( 8 )
 
 [node name="Colors" type="Tabs" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -169,14 +170,14 @@ mouse_filter = 2
 stream = ExtResource( 2 )
 autoplay = true
 
-[node name="Button" type="Button" parent="TabContainer/Colors"]
+[node name="previous" type="Button" parent="TabContainer/Colors"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -40.0
 margin_right = 92.0
 text = "Previous"
 
-[node name="Button2" type="Button" parent="TabContainer/Colors"]
+[node name="next" type="Button" parent="TabContainer/Colors"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -186,6 +187,7 @@ margin_top = -40.0
 text = "Next"
 
 [node name="Fuel" type="Tabs" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -215,14 +217,14 @@ mouse_filter = 2
 stream = ExtResource( 2 )
 autoplay = true
 
-[node name="Button" type="Button" parent="TabContainer/Fuel"]
+[node name="previous" type="Button" parent="TabContainer/Fuel"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -40.0
 margin_right = 92.0
 text = "Previous"
 
-[node name="Button2" type="Button" parent="TabContainer/Fuel"]
+[node name="next" type="Button" parent="TabContainer/Fuel"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -240,7 +242,6 @@ rect_scale = Vector2( 0.1, 0.07 )
 texture = ExtResource( 6 )
 
 [node name="Goal" type="Tabs" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -256,12 +257,12 @@ margin_top = 32.0
 margin_right = 360.0
 margin_bottom = 176.0
 custom_fonts/font = SubResource( 4 )
-text = "Your aim is to find the shortest path between the citeies using Dijkstra's Algorithm that you just learned and navigate your way to reach the destination.
+text = "Your aim is to find the shortest path between the cities using Dijkstra's Algorithm that you just learned and navigate your way to reach the destination.
 
            Good luck on your joruney!"
 autowrap = true
 
-[node name="Button" type="Button" parent="TabContainer/Goal"]
+[node name="previous" type="Button" parent="TabContainer/Goal"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -40.0
@@ -277,5 +278,14 @@ margin_left = -70.0
 margin_top = -40.0
 text = "Start"
 
+[connection signal="button_up" from="TabContainer/Introduction/next" to="." method="_on_next_button_up"]
+[connection signal="button_up" from="TabContainer/Flags/next" to="." method="_on_next_button_up"]
+[connection signal="button_up" from="TabContainer/Flags/previous" to="." method="_on_previous_button_up"]
 [connection signal="finished" from="TabContainer/Colors/ActionsVideoPlayer" to="." method="_on_ActionsVideoPlayer_finished"]
+[connection signal="button_up" from="TabContainer/Colors/previous" to="." method="_on_previous_button_up"]
+[connection signal="button_up" from="TabContainer/Colors/next" to="." method="_on_next_button_up"]
 [connection signal="finished" from="TabContainer/Fuel/ActionsVideoPlayer1" to="." method="_on_ActionsVideoPlayer1_finished"]
+[connection signal="button_up" from="TabContainer/Fuel/previous" to="." method="_on_previous_button_up"]
+[connection signal="button_up" from="TabContainer/Fuel/next" to="." method="_on_next_button_up"]
+[connection signal="button_up" from="TabContainer/Goal/previous" to="." method="_on_previous_button_up"]
+[connection signal="button_up" from="TabContainer/Goal/playbtn" to="." method="_on_playbtn_button_up"]
