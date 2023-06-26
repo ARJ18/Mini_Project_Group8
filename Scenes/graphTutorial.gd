@@ -48,6 +48,7 @@ func application_text():
 func algorithm():
 	if $dialogue.curr_dia_id in range (6,10):
 		$algorithm.visible = true
+
 func _on_gohomeBtn_button_up():
 	get_tree().change_scene("res://Scenes/levelSelector.tscn") # Replace with function body.
 	
