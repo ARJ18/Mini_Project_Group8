@@ -26,5 +26,7 @@ func _on_startButton_button_up():
 
 func _on_ConfirmBtn_button_up():
 	var name = $NameEnter/Entry.text
-	print(name)
+	player.charname = name
+	SavePlayer.save_data()
+	print(player.charname)
 	get_tree().change_scene("res://Scenes/levelSelector.tscn")

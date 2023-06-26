@@ -26,3 +26,5 @@ func load_data():
 	file.open(UserFile,file.READ)
 	udata = file.get_var()
 	file.close()
+
+
