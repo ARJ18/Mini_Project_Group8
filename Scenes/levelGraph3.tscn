@@ -507,7 +507,7 @@ theme = ExtResource( 6 )
 custom_fonts/font = SubResource( 1 )
 text = "ORDER OF VISITING CITIES : 5->"
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 11 )]
+[node name="LevelComplete" parent="." instance=ExtResource( 11 )]
 visible = false
 
 [connection signal="input_event" from="City0" to="." method="_on_City0_input_event"]
@@ -522,8 +522,8 @@ visible = false
 [connection signal="button_up" from="ImmovableObjects/pauseButton" to="." method="_on_pauseButton_button_up"]
 [connection signal="button_up" from="Popups/fueloverWarn/replayBtn" to="." method="_on_replayBtn_button_up"]
 [connection signal="button_up" from="Popups/levelComplete/nextButton" to="." method="_on_nextButton_button_up"]
-[connection signal="button_up" from="CanvasLayer/replay" to="." method="_on_replay_button_up"]
-[connection signal="button_up" from="CanvasLayer/TextureButton" to="." method="_on_TextureButton_button_up"]
+[connection signal="button_up" from="LevelComplete/replay" to="." method="_on_replay_button_up"]
+[connection signal="button_up" from="LevelComplete/TextureButton" to="." method="_on_TextureButton_button_up"]
 
 [editable path="Pausemenu"]
-[editable path="CanvasLayer"]
+[editable path="LevelComplete"]

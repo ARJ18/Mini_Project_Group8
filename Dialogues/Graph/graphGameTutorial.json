@@ -9,11 +9,7 @@
         },
         {
           "name": "Guru",
-          "text": "Ah, Dijkstra's algorithm! A gem of knowledge indeed. It is a method to find the shortest path in a weighted graph."
-        },
-        {
-          "name": "Guru",
-          "text": "Picture a city with roads connecting various locations. Each road has a fuel consumption value associated with it."
+          "text": "Ah, Dijkstra's algorithm! A gem of knowledge indeed. It is a method to find the shortest path in a weighted graph. Picture a few cities with roads of different lengths connecting them."
         },
         {
           "name": "Player",
@@ -21,15 +17,15 @@
         },
         {
           "name": "Guru",
-          "text": "Precisely! The cities are the nodes, and the roads are the edges in the graph."
+          "text": "Precisely! The cities are the nodes, and the roads are the edges in the graph. Dijkstra's algorithm helps us find the most efficient path from one city to another, minimizing fuel consumption."
+        },
+       {
+          "name": "Player",
+          "text": "How does the algorithm work?"
         },
         {
           "name": "Guru",
-          "text": "Dijkstra's algorithm helps us find the most efficient path from one city to another, minimizing fuel consumption."
-        },
-        {
-          "name": "Player",
-          "text": "How does the algorithm work?"
+          "text": "Well, here it is!"
         },
         {
           "name": "Guru",
@@ -41,46 +37,142 @@
         },
         {
           "name": "Player",
-          "text": "Interesting. How do we choose which city to visit next?"
+          "text": "I see. But i still can't fully grasp it. Can you show it to me?"
         },
-        {
+          {
           "name": "Guru",
-          "text": "Excellent question! At each step, we select the unvisited city with the smallest tentative distance as the current city. This ensures that we explore the most efficient paths first."
-        },
-        {
+          "text": "Sure! Consider this graph with five nodes: A, B, C, D, and E."
+          },
+          {
+          "name": "Guru",
+          "text": "We will use Dijkstra's algorithm to find the shortest path from node A to all other nodes."
+          },
+          {
+          "name": "Guru",
+          "text": "The first step is to initialize the distance values. We start at node A, so we set its distance to 0."
+          },
+          {
+          "name": "Guru",
+          "text": "We set the distances of all other nodes to infinity for now."
+          },
+          {
+          "name": "Guru",
+          "text": "Step 2: Select the node with the smallest distance as the current node. We start with node A."
+          },
+          {
+          "name": "Guru",
+          "text": "Step 3: Visit each neighboring node of the current node and update their distances if necessary."
+          },
+          {
+          "name": "Guru",
+          "text": "Based on the edges and weights, we update the distances of nodes B and C."
+          },
+          {
+          "name": "Guru",
+          "text": "The distance from node A to node B is 4, and from node A to node C is 2."
+          },
+          {
+          "name": "Guru",
+          "text": "Mark the current node as visited and select the unvisited node with the smallest distance as the new current node."
+          },
+          {
+          "name": "Guru",
+          "text": "In this case, we mark node A as visited and select node C as the new current node."
+          },
+          {
+          "name": "Guru",
+          "text": "Visit each neighboring node of the current node and update their distances if necessary."
+          },
+          {
+          "name": "Guru",
+          "text": "Based on the edges and weights, we update the distance of node D."
+          },
+          {
+          "name": "Guru",
+          "text": "The distance from node A to node D is now 3."
+          },
+          {
+          "name": "Guru",
+          "text": "Mark the current node as visited and select the unvisited node with the smallest distance as the new current node."
+          },
+          {
+          "name": "Guru",
+          "text": "Node C is now visited, and we select node B as the new current node."
+          },
+          {
+          "name": "Guru",
+          "text": " Visit each neighboring node of the current node and update their distances if necessary."
+          },
+          {
+          "name": "Guru",
+          "text": "Based on the edges and weights, we update the distance of node D."
+          },
+          {
+          "name": "Guru",
+          "text": "The distance from node A to node D is now 3, and from node A to node B is 4."
+          },
+          {
+          "name": "Guru",
+          "text": "Mark the current node as visited and select the unvisited node with the smallest distance as the new current node."
+          },
+          {
+          "name": "Guru",
+          "text": "Node B is now visited, and we select node D as the new current node."
+          },
+          {
+          "name": "Guru",
+          "text": "Visit each neighboring node of the current node and update their distances if necessary."
+          },
+          {
+          "name": "Guru",
+          "text": "Based on the edges and weights, we update the distance of node E."
+          },
+          {
+          "name": "Guru",
+          "text": "The distance from node A to node E is now 8."
+          },
+          {
+          "name": "Guru",
+          "text": "Mark the current node as visited and select the unvisited node with the smallest distance as the new current node."
+          },
+          {
+          "name": "Guru",
+          "text": "Node D is now visited, and we select node E as the new current node."
+          },
+          {
+          "name": "Guru",
+          "text": "Visit each neighboring node of the current node and update their distances if necessary."
+          },
+          {
+          "name": "Guru",
+          "text": "There are no neighboring nodes to visit."
+          },
+          {
+          "name": "Guru",
+          "text": "Mark the current node as visited and select the unvisited node with the smallest distance as the new current node."
+          },
+          {
+          "name": "Guru",
+          "text": "Node E is now visited, and all nodes have been visited."
+          },
+          {
+          "name": "Guru",
+          "text": "We have successfully found the shortest paths from node A to all other nodes!"
+          },
+          {
+          "name": "Guru",
+          "text": "The shortest distance from node A to node D is 3, and from node A to node E is 8."
+          },
+          {
+          "name": "Guru",
+          "text": "Congratulations, young traveler! You have learned the basics of Dijkstra's algorithm."
+          },
+          {
           "name": "Player",
-          "text": "And what happens when we visit a city?"
-        },
-        {
+          "text": "Thank you, Guru! I now have a better understanding of Dijkstra's algorithm."
+          },
+          {
           "name": "Guru",
-          "text": "When we visit a city, we mark it as visited and analyze its neighboring cities."
-        },
-        {
-          "name": "Guru",
-          "text": "By considering the weights (fuel consumption values) on the edges, we determine the most efficient paths and update the tentative distances accordingly."
-        },
-        {
-          "name": "Player",
-          "text": "I see. Does the algorithm continue until all cities are visited?"
-        },
-        {
-          "name": "Guru",
-          "text": "Almost! It stops either when all cities have been visited or when we reach the destination city. At that point, we have found the shortest path from the source city to the destination city."
-        },
-        {
-          "name": "Player",
-          "text": "That's remarkable! Is there anything else I should know?"
-        },
-        {
-          "name": "Guru",
-          "text": "One crucial aspect is path reconstruction."
-        },
-        {
-          "name": "Guru",
-          "text": "After the algorithm ends, we can trace back from the destination city to the source city, following the path with the lowest cumulative fuel consumption."
-        },
-        {
-          "name": "Guru",
-          "text": "This gives us the shortest path to travel."
-        }
+          "text": "You're most welcome, young traveler! Remember, knowledge is a powerful tool on your journey. Safe travels!"
+          }
       ]

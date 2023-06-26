@@ -1,16 +1,26 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Videos/stackSelect.ogv" type="VideoStream" id=1]
-[ext_resource path="res://Videos/pushpop.webm" type="VideoStream" id=2]
+[ext_resource path="res://Videos/GraphTutVideo.webm" type="VideoStream" id=2]
 [ext_resource path="res://Font/unispace bd.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Images/arrow.png" type="Texture" id=4]
 [ext_resource path="res://Images/graphCity.png" type="Texture" id=5]
-[ext_resource path="res://Images/portal/portalss.png" type="Texture" id=6]
+[ext_resource path="res://Images/RedRect.png" type="Texture" id=6]
 [ext_resource path="res://Reusable Scenes/GraphInstructions.gd" type="Script" id=7]
 [ext_resource path="res://Images/destCity.png" type="Texture" id=8]
 [ext_resource path="res://Images/startCity.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 21
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 15
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 25
 font_data = ExtResource( 3 )
 
@@ -34,8 +44,7 @@ margin_right = 368.0
 margin_bottom = 240.0
 tab_align = 0
 
-[node name="Movement" type="Tabs" parent="TabContainer"]
-visible = false
+[node name="Introduction" type="Tabs" parent="TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -43,7 +52,7 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="MovementLabel" type="Label" parent="TabContainer/Movement"]
+[node name="Label1" type="Label" parent="TabContainer/Introduction"]
 anchor_top = 0.5
 anchor_right = 0.1
 anchor_bottom = 0.5
@@ -52,21 +61,11 @@ margin_top = -212.0
 margin_right = 823.0
 margin_bottom = -45.0
 custom_fonts/font = SubResource( 1 )
-text = "Each cities represent the vertices of the graph.
+text = "The cities represent the vertices of the graph.
 Roads represent the edges."
 autowrap = true
 
-[node name="TextureRect2" type="TextureRect" parent="TabContainer/Movement"]
-visible = false
-margin_left = 540.0
-margin_top = 130.0
-margin_right = 629.0
-margin_bottom = 202.0
-mouse_filter = 2
-texture = ExtResource( 4 )
-expand = true
-
-[node name="TextureRect" type="TextureRect" parent="TabContainer/Movement"]
+[node name="Rect1" type="TextureRect" parent="TabContainer/Introduction"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -304.0
@@ -77,18 +76,7 @@ mouse_filter = 2
 texture = ExtResource( 5 )
 expand = true
 
-[node name="TextureRect3" type="TextureRect" parent="TabContainer/Movement"]
-visible = false
-margin_left = 108.0
-margin_top = 130.0
-margin_right = 197.0
-margin_bottom = 202.0
-mouse_filter = 2
-texture = ExtResource( 4 )
-expand = true
-flip_h = true
-
-[node name="NextSLide" type="Button" parent="TabContainer/Movement"]
+[node name="NextSlide" type="Button" parent="TabContainer/Introduction"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -97,7 +85,8 @@ margin_left = -70.0
 margin_top = -40.0
 text = "Next"
 
-[node name="Select" type="Tabs" parent="TabContainer"]
+[node name="Flags" type="Tabs" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -105,51 +94,20 @@ margin_top = 38.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="SelectLabel" type="Label" parent="TabContainer/Select"]
+[node name="Label2" type="Label" parent="TabContainer/Flags"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -360.5
 margin_top = 16.0
 margin_right = 360.5
 margin_bottom = 59.0
-text = "City with green flag is the starting vertex and the one with red flag is the destination vertex."
+custom_fonts/font = SubResource( 2 )
+text = "The city with the green flag is your starting point and the one with the red flag is your destination"
 align = 1
 valign = 1
 autowrap = true
 
-[node name="VideoPlayer" type="VideoPlayer" parent="TabContainer/Select"]
-visible = false
-margin_left = 49.0
-margin_top = 80.0
-margin_right = 697.0
-margin_bottom = 312.0
-mouse_filter = 2
-stream = ExtResource( 1 )
-autoplay = true
-
-[node name="TextureRect2" type="TextureRect" parent="TabContainer/Select"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = 164.0
-margin_top = 170.0
-margin_right = 300.0
-margin_bottom = 306.0
-mouse_filter = 2
-texture = ExtResource( 8 )
-expand = true
-
-[node name="TextureRect" type="TextureRect" parent="TabContainer/Select"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -300.0
-margin_top = 178.0
-margin_right = -164.0
-margin_bottom = 314.0
-mouse_filter = 2
-texture = ExtResource( 9 )
-expand = true
-
-[node name="Next" type="Button" parent="TabContainer/Select"]
+[node name="Next" type="Button" parent="TabContainer/Flags"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -158,15 +116,30 @@ margin_left = -70.0
 margin_top = -40.0
 text = "Next"
 
-[node name="previous" type="Button" parent="TabContainer/Select"]
+[node name="previous" type="Button" parent="TabContainer/Flags"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -40.0
 margin_right = 92.0
 text = "Previous"
 
-[node name="Actions" type="Tabs" parent="TabContainer"]
-visible = false
+[node name="startcity" type="TextureRect" parent="TabContainer/Flags"]
+margin_left = 104.0
+margin_top = 114.0
+margin_right = 273.0
+margin_bottom = 303.0
+rect_scale = Vector2( 1.11513, 1.07277 )
+texture = ExtResource( 9 )
+
+[node name="endcity" type="TextureRect" parent="TabContainer/Flags"]
+margin_left = 440.0
+margin_top = 114.0
+margin_right = 582.0
+margin_bottom = 306.0
+rect_scale = Vector2( 1.28659, 1.0628 )
+texture = ExtResource( 8 )
+
+[node name="Colors" type="Tabs" parent="TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -174,35 +147,36 @@ margin_top = 38.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Label" type="Label" parent="TabContainer/Actions"]
+[node name="Label3" type="Label" parent="TabContainer/Colors"]
 margin_right = 721.0
 margin_bottom = 72.0
-text = "Select the required stack and press action buttons to perform actions like Push and Pop"
+custom_fonts/font = SubResource( 3 )
+text = "The status of each city is denoted by a color. The current city is denoted by a yellow color. All the traversed cities will be green in color and all the cities adjacent to the current city will be red in color.Click on a neighbouring city to travel to it."
 align = 1
 valign = 1
 autowrap = true
 
-[node name="ActionsVideoPlayer" type="VideoPlayer" parent="TabContainer/Actions"]
+[node name="ActionsVideoPlayer" type="VideoPlayer" parent="TabContainer/Colors"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -261.0
-margin_top = -156.0
-margin_right = 261.0
-margin_bottom = 156.0
+margin_left = -228.0
+margin_top = -121.0
+margin_right = 236.0
+margin_bottom = 199.0
 mouse_filter = 2
 stream = ExtResource( 2 )
 autoplay = true
 
-[node name="Button" type="Button" parent="TabContainer/Actions"]
+[node name="Button" type="Button" parent="TabContainer/Colors"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -40.0
 margin_right = 92.0
 text = "Previous"
 
-[node name="Button2" type="Button" parent="TabContainer/Actions"]
+[node name="Button2" type="Button" parent="TabContainer/Colors"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -210,6 +184,60 @@ anchor_bottom = 1.0
 margin_left = -70.0
 margin_top = -40.0
 text = "Next"
+
+[node name="Fuel" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label4" type="Label" parent="TabContainer/Fuel"]
+margin_right = 721.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 3 )
+text = "The amount of fuel remaining is given on the top left corner of the screen. During each trip between cities, the fuel is reduced by an amount equal to the weight of the connection between the cities."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ActionsVideoPlayer1" type="VideoPlayer" parent="TabContainer/Fuel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -228.0
+margin_top = -121.0
+margin_right = 236.0
+margin_bottom = 199.0
+mouse_filter = 2
+stream = ExtResource( 2 )
+autoplay = true
+
+[node name="Button" type="Button" parent="TabContainer/Fuel"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 92.0
+text = "Previous"
+
+[node name="Button2" type="Button" parent="TabContainer/Fuel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -70.0
+margin_top = -40.0
+text = "Next"
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/Fuel"]
+margin_left = 124.0
+margin_top = 90.0
+margin_right = 1024.0
+margin_bottom = 765.0
+rect_scale = Vector2( 0.1, 0.07 )
+texture = ExtResource( 6 )
 
 [node name="Goal" type="Tabs" parent="TabContainer"]
 visible = false
@@ -220,34 +248,18 @@ margin_top = 38.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Label" type="Label" parent="TabContainer/Goal"]
+[node name="Label5" type="Label" parent="TabContainer/Goal"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -360.0
 margin_top = 32.0
 margin_right = 360.0
 margin_bottom = 176.0
-text = "Your aim is to navigate the terrain and find the portal to complete the level. 
-Use the wood planks provided to you wisely to cross gaps and reach the portal safely. 
-Always keep watch of the amount of planks you have with you on the top left corner of screen."
+custom_fonts/font = SubResource( 4 )
+text = "Your aim is to find the shortest path between the citeies using Dijkstra's Algorithm that you just learned and navigate your way to reach the destination.
+
+           Good luck on your joruney!"
 autowrap = true
-
-[node name="TextureRect" type="TextureRect" parent="TabContainer/Goal"]
-margin_left = 481.0
-margin_top = 160.0
-margin_right = 658.0
-margin_bottom = 352.0
-mouse_filter = 2
-texture = ExtResource( 6 )
-expand = true
-stretch_mode = 5
-
-[node name="Label2" type="Label" parent="TabContainer/Goal"]
-margin_left = 489.0
-margin_top = 352.0
-margin_right = 669.0
-margin_bottom = 372.0
-text = "Portal to be found"
 
 [node name="Button" type="Button" parent="TabContainer/Goal"]
 anchor_top = 1.0
@@ -264,3 +276,6 @@ anchor_bottom = 1.0
 margin_left = -70.0
 margin_top = -40.0
 text = "Start"
+
+[connection signal="finished" from="TabContainer/Colors/ActionsVideoPlayer" to="." method="_on_ActionsVideoPlayer_finished"]
+[connection signal="finished" from="TabContainer/Fuel/ActionsVideoPlayer1" to="." method="_on_ActionsVideoPlayer1_finished"]

@@ -14,3 +14,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_ActionsVideoPlayer_finished():
+	$TabContainer/Colors/ActionsVideoPlayer.play() # Replace with function body.
+
+
+func _on_ActionsVideoPlayer1_finished():
+	$TabContainer/Fuel/ActionsVideoPlayer1.play()
