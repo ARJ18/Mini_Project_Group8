@@ -1,14 +1,30 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+onready var playerdata = SavePlayer.udata
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if !playerdata.tut1:
+		$buttonlayout/stackLevelBtn.disabled = true
+		$buttonlayout/stackLevelBtn/TextureRect2.visible = true 
+	else:
+		$buttonlayout/stackLevelBtn.disabled = false
+		$buttonlayout/stackLevelBtn/TextureRect2.visible = false
+
+	if !playerdata.tut2:
+		$buttonlayout/graphLevelBtn.disabled = true
+		$buttonlayout/graphLevelBtn/TextureRect3.visible = true
+	else:
+		$buttonlayout/graphLevelBtn.disabled = false
+		$buttonlayout/graphLevelBtn/TextureRect3.visible = false
+
+	if !playerdata.level1:
+		$buttonlayout/graphTutBtn.disabled = true
+		$buttonlayout/graphTutBtn/TextureRect2.visible = true
+	else:
+		$buttonlayout/graphTutBtn.disabled = false
+		$buttonlayout/graphTutBtn/TextureRect2.visible = false
 
 
 

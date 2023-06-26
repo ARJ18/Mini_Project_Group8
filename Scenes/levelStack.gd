@@ -123,6 +123,15 @@ func _on_woodPlank4_input_event(viewport, event, shape_idx):
 			sel_item = stack4
 			set_topSelector(sel_item)
 
+func wait(s):
+	var t = Timer.new()
+	t.set_wait_time(s)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	t.queue_free()
+
 func _on_resume_button_down():
 	$player.set_physics_process(true)
 	$ImmovableObjects/pushButton.disabled = false
@@ -154,9 +163,14 @@ func _on_quitBtn_button_up():
 
 
 func _on_PortalArea_body_entered(body):
-	get_tree().change_scene("res://Scenes/levelStack2.tscn")
+	$tpSFX.play()
+	player_unset_phys()
 
 
 func _on_howtoplayBtn_button_up():
 	$Warnings/STACKiNSTRUCTIONS.popup()
 	player_unset_phys()
+
+
+func _on_tpSFX_finished():
+	get_tree().change_scene("res://Scenes/levelStack2.tscn")

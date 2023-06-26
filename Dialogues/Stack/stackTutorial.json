@@ -13,5 +13,8 @@
     {"name":"Guru","text":"Removing an item from the stack is called POP. Now POP the topmost pancake from the stack using the POP button."},
     {"name":"Guru","text":"Here, we have to check if there are any pancakes left before trying to POP. If not, it can cause an UNDERFLOW."},
     {"name":"Guru","text":"Now keeping that in mind, choose the correct algorithm for POP from these two options:"},
-    {"name":"Guru","text":"End"}
+    {"name":"Guru","text":"UNDERFLOW condition occurs when we try to POP from a stack that is already empty. It's like trying to eat a pancake when ther are none left :("},
+    {"name":"Guru","text":"After checking for UNDERFLOW, we can get the value at TOP currently and then decrement TOP."},
+    {"name":"Guru","text":"These are the two most important algorithms you need to know to deal with stacks."},
+    {"name":"Guru","text":"Good Luck adventurer"}
 ]

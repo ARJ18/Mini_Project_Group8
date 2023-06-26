@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Images/background/1.png" type="Texture" id=1]
 [ext_resource path="res://Images/background/2.png" type="Texture" id=2]
@@ -20,6 +20,9 @@
 [ext_resource path="res://Images/door.png" type="Texture" id=18]
 [ext_resource path="res://Reusable Scenes/TopSelector.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Reusable Scenes/LevelComplete.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Sounds/bg_music/main_menu_bg.mp3" type="AudioStream" id=21]
+[ext_resource path="res://Sounds/teleport.wav" type="AudioStream" id=22]
+[ext_resource path="res://Sounds/keyPick.wav" type="AudioStream" id=23]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -252,12 +255,14 @@ margin_right = 1261.0
 margin_bottom = 182.0
 text = "Pop"
 
-[node name="pushSFX" type="AudioStreamPlayer2D" parent="ImmovableObjects"]
+[node name="pushSFX" type="AudioStreamPlayer" parent="ImmovableObjects"]
 stream = ExtResource( 14 )
+volume_db = -20.0
 bus = "SFX"
 
-[node name="popSFX" type="AudioStreamPlayer2D" parent="ImmovableObjects"]
+[node name="popSFX" type="AudioStreamPlayer" parent="ImmovableObjects"]
 stream = ExtResource( 15 )
+volume_db = -10.0
 bus = "SFX"
 
 [node name="pauseButton" parent="ImmovableObjects" instance=ExtResource( 11 )]
@@ -479,7 +484,7 @@ collision_layer = 16
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ShiningKey"]
 frames = SubResource( 17 )
 animation = "shinig"
-frame = 5
+frame = 10
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShiningKey"]
@@ -494,6 +499,7 @@ monitoring = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Portal"]
 frames = ExtResource( 17 )
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
@@ -534,7 +540,23 @@ shape = SubResource( 32 )
 position = Vector2( 384, 704 )
 
 [node name="LevelComplete" parent="." instance=ExtResource( 20 )]
+layer = 128
 visible = false
+
+[node name="bgmusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+volume_db = -21.0
+bus = "Music"
+
+[node name="tpSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = -18.0
+bus = "SFX"
+
+[node name="keySFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+volume_db = -14.0
+bus = "SFX"
 
 [connection signal="input_event" from="woodPlank" to="." method="_on_woodPlank_input_event"]
 [connection signal="input_event" from="woodPlank2" to="." method="_on_woodPlank2_input_event"]

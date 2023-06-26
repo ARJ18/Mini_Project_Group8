@@ -2,10 +2,11 @@ extends CanvasLayer
 
 signal next_pressed()
 signal prev_presssed()
+
 export (String, FILE, "*.json") var d_file
 
 var dialouge = []
-var curr_dia_id = -1
+export var curr_dia_id = -1
 
 func _ready():
 	start()

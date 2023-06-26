@@ -20,7 +20,7 @@ var from = Vector2(0,0)
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+	$bgmusic.play()
 	$Floater2.connect("crushed",self,"on_crush")
 	$player.connect("fall_out",self,"on_fall")
 	stack1.push_back(get_node("woodPlank"))
@@ -169,12 +169,14 @@ func _on_fallReplay_button_up():
 func _on_ShiningKey_body_entered(body):
 	$ShiningKey.visible = false
 	key_acq = true
+	$keySFX.play()
 	$InvisibleCollisionobject/Barrier.set_deferred("disabled",true)
 	$InvisibleCollisionobject.visible = false
 
 func _on_Portal_body_entered(body):
 	print("Level Finished")
 	$player.set_physics_process(false)
+	$tpSFX.play()
 	$LevelComplete.visible = true
 	userdata.level1 = true
 	SavePlayer.save_data()

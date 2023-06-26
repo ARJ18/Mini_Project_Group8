@@ -68,7 +68,6 @@ texture = ExtResource( 1 )
 expand = true
 
 [node name="Guru" type="Area2D" parent="."]
-visible = false
 position = Vector2( 56, 360 )
 __meta__ = {
 "_edit_group_": true
@@ -102,6 +101,7 @@ theme = ExtResource( 6 )
 text = "Go Home"
 
 [node name="Graph" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Node" type="TextureRect" parent="Graph"]
 margin_left = 114.0
@@ -248,6 +248,7 @@ mouse_filter = 2
 texture = ExtResource( 16 )
 
 [node name="algorithm2" type="TextureRect" parent="."]
+visible = false
 material = SubResource( 7 )
 anchor_left = 1.0
 anchor_top = 1.0

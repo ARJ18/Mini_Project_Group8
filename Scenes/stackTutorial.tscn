@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Images/blank.png" type="Texture" id=1]
 [ext_resource path="res://Images/GuruSprites/AnimationSheet_Character.png" type="Texture" id=2]
@@ -9,6 +9,11 @@
 [ext_resource path="res://Reusable Scenes/StackPancake.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Images/arrow.png" type="Texture" id=8]
 [ext_resource path="res://Images/StackTutorial/PushAlgo.png" type="Texture" id=9]
+[ext_resource path="res://Images/StackTutorial/PopAlgoWrong.png" type="Texture" id=10]
+[ext_resource path="res://Images/StackTutorial/PopAlgo.png" type="Texture" id=11]
+[ext_resource path="res://Reusable Scenes/LevelComplete.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sounds/StackTutorial/stkPop.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sounds/StackTutorial/stkPush.wav" type="AudioStream" id=14]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -27,6 +32,22 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 } ]
+
+[sub_resource type="Animation" id=17]
+resource_name = "MarkUnderflow"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PopLayer/PopMarker:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 0.380392 ), Color( 1, 0, 1, 0.380392 ), Color( 1, 0, 0, 0.380392 ) ]
+}
 
 [sub_resource type="Animation" id=14]
 resource_name = "OverflowHighlight"
@@ -81,6 +102,47 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 64, 368 ), Vector2( 64, 408 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("PopSounds")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "PopMark"
+tracks/0/type = "value"
+tracks/0/path = NodePath("PopLayer/PopMarker:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 688, 398 ), Vector2( 688, 447 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PopLayer/PopMarker:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 464, 44 ), Vector2( 464, 100 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -145,6 +207,20 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ) ]
 }
+tracks/5/type = "method"
+tracks/5/path = NodePath("PushSounds")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=11]
 resource_name = "Push5"
@@ -183,6 +259,20 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 64, 368 ), Vector2( 64, 328 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("PushSounds")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -442,6 +532,42 @@ tracks/18/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
+tracks/19/type = "value"
+tracks/19/path = NodePath("PopLayer/PopMarker:modulate")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 0.380392 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("PopLayer/PopMarker:rect_position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 688, 398 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("PopLayer/PopMarker:rect_size")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 464, 44 ) ]
+}
 
 [sub_resource type="Animation" id=16]
 resource_name = "Stack5Highlight"
@@ -562,6 +688,26 @@ tracks/7/keys = {
 }, {
 "args": [  ],
 "method": "change_mouseclick"
+} ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath("PushSounds")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.9, 1.5, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+}, {
+"args": [ 0.0 ],
+"method": "play"
+}, {
+"args": [ 0.0 ],
+"method": "play"
 } ]
 }
 
@@ -714,6 +860,20 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 64, 328 ), Vector2( 64, 368 ) ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("PopSounds")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [node name="stackTutorial" type="Control"]
 script = ExtResource( 4 )
@@ -755,8 +915,10 @@ disabled = true
 disabled = true
 
 [node name="stackAnim" type="AnimationPlayer" parent="."]
+anims/MarkUnderflow = SubResource( 17 )
 anims/OverflowHighlight = SubResource( 14 )
 anims/Pop4 = SubResource( 10 )
+anims/PopMark = SubResource( 18 )
 anims/Push4 = SubResource( 7 )
 anims/Push5 = SubResource( 11 )
 anims/PushAlgoAppear = SubResource( 13 )
@@ -835,7 +997,8 @@ collision_mask = 0
 number = 4
 
 [node name="StackPancake5" parent="AnimElems" instance=ExtResource( 7 )]
-position = Vector2( 200, 328 )
+visible = false
+position = Vector2( 200, 310 )
 collision_layer = 0
 collision_mask = 0
 number = 5
@@ -874,6 +1037,112 @@ margin_bottom = 432.0
 texture = ExtResource( 1 )
 expand = true
 
+[node name="PopLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="WrongPop" type="CheckBox" parent="PopLayer"]
+margin_left = 210.0
+margin_top = 570.0
+margin_right = 234.0
+margin_bottom = 597.0
+theme = ExtResource( 6 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 1, 0, 0, 1 )
+custom_colors/font_color_hover_pressed = Color( 1, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+text = "Option 1"
+
+[node name="RightPop" type="CheckBox" parent="PopLayer"]
+margin_left = 847.0
+margin_top = 570.0
+margin_right = 955.0
+margin_bottom = 598.0
+theme = ExtResource( 6 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 1, 0, 0, 1 )
+custom_colors/font_color_hover_pressed = Color( 1, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+text = "Option 2"
+flat = true
+
+[node name="PopAlgoWrong" type="TextureRect" parent="PopLayer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 107.0
+margin_top = -347.0
+margin_right = 515.0
+margin_bottom = -159.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+
+[node name="PopAlgoCorrect" type="TextureRect" parent="PopLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -592.0
+margin_top = -352.0
+margin_right = -128.0
+margin_bottom = -166.0
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="PopMarker" type="TextureRect" parent="PopLayer"]
+modulate = Color( 1, 0, 0, 0.380392 )
+margin_left = 688.0
+margin_top = 398.0
+margin_right = 1152.0
+margin_bottom = 442.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ConfirmOption" type="Button" parent="PopLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -80.0
+margin_top = -131.0
+margin_right = 80.0
+margin_bottom = -91.0
+theme = ExtResource( 6 )
+text = "Confirm Option"
+
+[node name="PushAlgo" type="TextureRect" parent="PopLayer"]
+margin_left = 106.0
+margin_top = 368.0
+margin_right = 589.0
+margin_bottom = 531.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+
+[node name="PushAlgotitle" type="Label" parent="PopLayer"]
+visible = false
+margin_left = 253.0
+margin_top = 562.0
+margin_right = 353.0
+margin_bottom = 576.0
+theme = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "PUSH algorithm"
+
+[node name="PopAlgotitle" type="Label" parent="PopLayer"]
+visible = false
+margin_left = 866.0
+margin_top = 570.0
+margin_right = 958.0
+margin_bottom = 584.0
+theme = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "POP algorithm"
+
 [node name="Label" type="Label" parent="."]
 margin_left = 1168.0
 margin_top = 40.0
@@ -883,7 +1152,6 @@ theme = ExtResource( 6 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 124
-visible = false
 
 [node name="overflow" type="WindowDialog" parent="CanvasLayer"]
 anchor_left = 0.5
@@ -896,9 +1164,135 @@ margin_right = 144.0
 margin_bottom = 88.0
 popup_exclusive = true
 
+[node name="SelectOption" type="WindowDialog" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -61.0
+margin_right = 200.0
+margin_bottom = 61.0
+theme = ExtResource( 6 )
+popup_exclusive = true
+window_title = "Warning"
+
+[node name="Label" type="Label" parent="CanvasLayer/SelectOption"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -54.5
+margin_right = 128.0
+margin_bottom = 54.5
+text = "Please select an option to continue"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Success" type="WindowDialog" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -61.0
+margin_right = 200.0
+margin_bottom = 61.0
+theme = ExtResource( 6 )
+popup_exclusive = true
+window_title = "Success"
+
+[node name="Label" type="Label" parent="CanvasLayer/Success"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -54.5
+margin_right = 128.0
+margin_bottom = 54.5
+text = "Kudos!! You have selected the corrected option"
+align = 1
+autowrap = true
+
+[node name="SucNext" type="Button" parent="CanvasLayer/Success"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -26.0
+text = "NEXT"
+
+[node name="Lost" type="WindowDialog" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -61.0
+margin_right = 200.0
+margin_bottom = 61.0
+theme = ExtResource( 6 )
+popup_exclusive = true
+window_title = "Oops"
+
+[node name="Label" type="Label" parent="CanvasLayer/Lost"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -54.5
+margin_right = 128.0
+margin_bottom = 54.5
+text = "Oops!! You seem to have selected the wrong option"
+align = 1
+autowrap = true
+
+[node name="lostNext" type="Button" parent="CanvasLayer/Lost"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -26.0
+text = "NEXT"
+
+[node name="FinishBtn" type="Button" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 598.0
+margin_top = 589.0
+margin_right = 683.0
+margin_bottom = 629.0
+theme = ExtResource( 6 )
+text = "Finish"
+
+[node name="CanvasLayer2" parent="." instance=ExtResource( 12 )]
+layer = 128
+visible = false
+
+[node name="PushSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -14.0
+bus = "SFX"
+
+[node name="PopSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -12.0
+bus = "SFX"
+
 [connection signal="button_up" from="gohomeBtn" to="." method="_on_gohomeBtn_button_up"]
 [connection signal="button_up" from="AnimElems/PushBtn" to="." method="_on_PushBtn_button_up"]
 [connection signal="button_up" from="AnimElems/PopBtn" to="." method="_on_PopBtn_button_up"]
+[connection signal="pressed" from="PopLayer/WrongPop" to="." method="_on_WrongPop_pressed"]
+[connection signal="pressed" from="PopLayer/RightPop" to="." method="_on_RightPop_pressed"]
+[connection signal="button_up" from="PopLayer/ConfirmOption" to="." method="_on_ConfirmOption_button_up"]
+[connection signal="button_up" from="CanvasLayer/Success/SucNext" to="." method="_on_SucNext_button_up"]
+[connection signal="button_up" from="CanvasLayer/Lost/lostNext" to="." method="_on_lostNext_button_up"]
+[connection signal="button_up" from="FinishBtn" to="." method="_on_FinishBtn_button_up"]
 
 [editable path="dialogue"]
 [editable path="player"]

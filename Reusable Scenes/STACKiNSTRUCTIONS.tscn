@@ -3,10 +3,10 @@
 [ext_resource path="res://Font/font_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Font/unispace bd.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Reusable Scenes/STACKiNSTRUCTIONS.gd" type="Script" id=3]
-[ext_resource path="res://Videos/stackSelect.ogv" type="VideoStream" id=4]
+[ext_resource path="res://Videos/StackSelect (2).ogv" type="VideoStream" id=4]
 [ext_resource path="res://Images/arrow.png" type="Texture" id=5]
 [ext_resource path="res://Images/wasd.png" type="Texture" id=6]
-[ext_resource path="res://Videos/pushpop.webm" type="VideoStream" id=7]
+[ext_resource path="res://Videos/pushpop.ogv" type="VideoStream" id=7]
 [ext_resource path="res://Images/portal/portalss.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
@@ -14,6 +14,7 @@ size = 25
 font_data = ExtResource( 2 )
 
 [node name="STACKiNSTRUCTIONS" type="WindowDialog"]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -35,6 +36,7 @@ margin_bottom = 486.0
 tab_align = 0
 
 [node name="Movement" type="Tabs" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -108,16 +110,16 @@ margin_left = -360.5
 margin_top = 16.0
 margin_right = 360.5
 margin_bottom = 59.0
-text = "Use your mouse pointer and Left Mouse button to select the stack you want to perform operations"
+text = "Click on the base woodplank to select a stack. TOP of the selected stack is highlighted"
 align = 1
 valign = 1
 autowrap = true
 
 [node name="VideoPlayer" type="VideoPlayer" parent="TabContainer/Select"]
-margin_left = 49.0
+margin_left = 4.0
 margin_top = 80.0
-margin_right = 697.0
-margin_bottom = 312.0
+margin_right = 724.0
+margin_bottom = 384.0
 mouse_filter = 2
 stream = ExtResource( 4 )
 autoplay = true
@@ -139,7 +141,6 @@ margin_right = 92.0
 text = "Previous"
 
 [node name="Actions" type="Tabs" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -160,10 +161,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -261.0
-margin_top = -156.0
-margin_right = 261.0
-margin_bottom = 156.0
+margin_left = -264.0
+margin_top = -153.0
+margin_right = 288.0
+margin_bottom = 186.0
 mouse_filter = 2
 stream = ExtResource( 7 )
 autoplay = true
