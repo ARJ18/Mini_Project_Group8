@@ -93,6 +93,7 @@ position = Vector2( 6.5, -8.50002 )
 scale = Vector2( 2.65625, 2.78125 )
 frames = SubResource( 3 )
 animation = "idle"
+frame = 1
 speed_scale = 0.3
 playing = true
 
@@ -177,13 +178,13 @@ text = "B"
 
 [node name="Dist3" type="Label" parent="Graph"]
 visible = false
-margin_left = 123.0
-margin_top = 514.0
-margin_right = 221.0
-margin_bottom = 611.0
+margin_left = 130.0
+margin_top = 511.0
+margin_right = 162.0
+margin_bottom = 542.0
 theme = ExtResource( 6 )
 custom_fonts/font = SubResource( 9 )
-text = " ∞"
+text = "∞"
 
 [node name="Node3" type="TextureRect" parent="Graph"]
 margin_left = 161.0
@@ -233,10 +234,10 @@ text = "D"
 
 [node name="Dist5" type="Label" parent="Graph"]
 visible = false
-margin_left = 190.0
-margin_top = 634.0
-margin_right = 288.0
-margin_bottom = 731.0
+margin_left = 185.0
+margin_top = 638.0
+margin_right = 283.0
+margin_bottom = 735.0
 theme = ExtResource( 6 )
 custom_fonts/font = SubResource( 9 )
 text = " ∞"
@@ -295,7 +296,7 @@ margin_right = 97.0609
 margin_bottom = 68.9939
 rect_rotation = -89.8735
 theme = ExtResource( 6 )
-text = "1"
+text = "3"
 
 [node name="Edge3" type="TextureRect" parent="Graph"]
 margin_left = 283.0

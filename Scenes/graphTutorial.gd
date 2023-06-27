@@ -111,12 +111,40 @@ func graph():
 		graph_color(3,Color.lightcoral)
 	if  $dialogue.curr_dia_id>=20:
 		graph_color(4,Color.lightyellow)
+	else:
+		reset_color(4)
 	if  $dialogue.curr_dia_id>=21:
-		$Graph/Dist4.text = "3"
+		$Graph/Dist4.text = "5"
 	else:
 		$Graph/Dist4.text = initialtext
+	if $dialogue.curr_dia_id>=23:
+		graph_color(3,Color.lightgreen)
+		graph_color(2,Color.lightcoral)
+		reset_color(4)
 	
+	if $dialogue.curr_dia_id>=25:
+		graph_color(4,Color.lightyellow)
 	
+	if $dialogue.curr_dia_id>=28:
+		graph_color(2,Color.lightgreen)
+		graph_color(4,Color.lightcoral)
+	if $dialogue.curr_dia_id>=30:
+		graph_color(5,Color.lightyellow)
+	else:
+		reset_color(5)
+	if $dialogue.curr_dia_id>=31:
+		$Graph/Dist5.text = "10"
+	else:
+		$Graph/Dist5.text = initialtext
+	if $dialogue.curr_dia_id>=33:
+		graph_color(4,Color.lightgreen)
+		graph_color(5,Color.lightcoral)
+	if $dialogue.curr_dia_id>=37:
+		graph_color(5,Color.lightgreen)
+	
+	if$dialogue.curr_dia_id>=40:
+		$Graph.visible = false
+		$algorithm2.visible = false
 		
 		
 		

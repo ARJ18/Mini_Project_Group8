@@ -85,7 +85,7 @@
           },
           {
           "name": "Guru",
-          "text": "The distance from node A to node D is now 3."
+          "text": "The distance from node A to node D is the sum of distance from A to C and the weight of edge CD which is 2 + 3 = 5."
           },
           {
           "name": "Guru",
@@ -97,7 +97,7 @@
           },
           {
           "name": "Guru",
-          "text": " Visit each neighboring node of the current node and update their distances if necessary."
+          "text": "Visit each neighboring node of the current node and update their distances if necessary."
           },
           {
           "name": "Guru",
@@ -105,7 +105,7 @@
           },
           {
           "name": "Guru",
-          "text": "The distance from node A to node D is now 3, and from node A to node B is 4."
+          "text": "The distance from node A to node D is now 5, and the distance to D through B is 4 + 3 = 7. So we keep the smaller value."
           },
           {
           "name": "Guru",
@@ -125,7 +125,7 @@
           },
           {
           "name": "Guru",
-          "text": "The distance from node A to node E is now 8."
+          "text": "The distance from node A to node E is the sum of distance from A to D and the weight of edge from D to E which is 5 + 5 = 8"
           },
           {
           "name": "Guru",
@@ -157,7 +157,7 @@
           },
           {
           "name": "Guru",
-          "text": "The shortest distance from node A to node D is 3, and from node A to node E is 8."
+          "text": "The shortest distance from A to B is 4, from A to C is 3, from A to D is 5 and from A to E is 10."
           },
           {
           "name": "Guru",
@@ -169,6 +169,6 @@
           },
           {
           "name": "Guru",
-          "text": "You're most welcome, young traveler! Remember, knowledge is a powerful tool on your journey. Safe travels!"
+          "text": "You're most welcome, young traveler! Now use this knowledge to face the challenges ahead of you!"
           }
       ]
