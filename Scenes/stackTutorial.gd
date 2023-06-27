@@ -242,8 +242,11 @@ func _on_lostNext_button_up():
 	$CanvasLayer/Lost.visible = false
 	handle_anim()
 
-
 func _on_FinishBtn_button_up():
 	$CanvasLayer2.visible = true
 	playerdata.tut1 = true
 	SavePlayer.save_data()
+
+
+func _on_TextureButton_button_up():
+	get_tree().change_scene("res://Scenes/levelStack.tscn")

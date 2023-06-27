@@ -17,6 +17,7 @@ theme = ExtResource( 1 )
 tab_align = 0
 
 [node name="Video" type="Tabs" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -88,6 +89,34 @@ margin_right = 572.0
 margin_bottom = 90.0
 value = 50.0
 
+[node name="System" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label" type="Label" parent="TabContainer/System"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -69.0
+margin_right = -136.0
+margin_bottom = -49.0
+theme = ExtResource( 1 )
+text = "Reset System"
+
+[node name="ResetBtn" type="Button" parent="TabContainer/System"]
+margin_left = 436.0
+margin_top = 66.0
+margin_right = 511.0
+margin_bottom = 106.0
+theme = ExtResource( 1 )
+text = "RESET"
+
 [node name="CloseBtn" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
@@ -104,4 +133,5 @@ text = "Close"
 [connection signal="drag_ended" from="TabContainer/Video/BrightSlide" to="." method="_on_BrightSlide_drag_ended"]
 [connection signal="drag_ended" from="TabContainer/Audio/musicvol" to="." method="_on_musicvol_drag_ended"]
 [connection signal="drag_ended" from="TabContainer/Audio/sfxvol" to="." method="_on_sfxvol_drag_ended"]
+[connection signal="button_up" from="TabContainer/System/ResetBtn" to="." method="_on_ResetBtn_button_up"]
 [connection signal="button_up" from="CloseBtn" to="." method="_on_CloseBtn_button_up"]

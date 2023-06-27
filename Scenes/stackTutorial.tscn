@@ -1294,6 +1294,8 @@ bus = "SFX"
 [connection signal="button_up" from="CanvasLayer/Success/SucNext" to="." method="_on_SucNext_button_up"]
 [connection signal="button_up" from="CanvasLayer/Lost/lostNext" to="." method="_on_lostNext_button_up"]
 [connection signal="button_up" from="FinishBtn" to="." method="_on_FinishBtn_button_up"]
+[connection signal="button_up" from="CanvasLayer2/TextureButton" to="." method="_on_TextureButton_button_up"]
 
 [editable path="dialogue"]
 [editable path="player"]
+[editable path="CanvasLayer2"]

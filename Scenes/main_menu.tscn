@@ -98,7 +98,6 @@ margin_right = 324.0
 margin_bottom = 168.0
 
 [node name="NameEnter" type="WindowDialog" parent="."]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

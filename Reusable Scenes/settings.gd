@@ -1,6 +1,6 @@
 extends PopupDialog
 
-
+onready var player_data = SavePlayer.udata
 onready var settings_data = SaveSettings.data
 
 func _ready():
@@ -51,3 +51,13 @@ func _on_musicvol_drag_ended(value_changed):
 func _on_sfxvol_drag_ended(value_changed):
 	var percentage = $TabContainer/Audio/sfxvol.value
 	set_volume_db(2,percentage)
+
+
+func _on_ResetBtn_button_up():
+	player_data.charname = "Player1"
+	player_data.tut1 = false
+	player_data.level1 = false
+	player_data.tut2 = false
+	player_data.level2 = false
+	SavePlayer.save_data()
+	get_tree().change_scene("res://Scenes/main_menu.tscn")
