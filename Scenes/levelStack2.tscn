@@ -484,7 +484,7 @@ collision_layer = 16
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ShiningKey"]
 frames = SubResource( 17 )
 animation = "shinig"
-frame = 10
+frame = 15
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShiningKey"]

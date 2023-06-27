@@ -107,10 +107,12 @@ func _on_woodPlank5_input_event(viewport, event, shape_idx):
 
 func _on_underOK_button_up():
 	$Warnings/underflowWarning.visible = false
+	$player.set_physics_process(true)
 
 
 func _on_overOK_button_up():
 	$Warnings/overflowWarning.visible = false
+	$player.set_physics_process(true)
 
 
 func _on_push_button_up():

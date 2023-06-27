@@ -146,7 +146,8 @@ func graph():
 		$Graph.visible = false
 		$algorithm2.visible = false
 		
-		
+	if$dialogue.curr_dia_id>=42:
+		$CanvasLayer.visible = true
 
 	
 
@@ -154,3 +155,7 @@ func _on_gohomeBtn_button_up():
 	get_tree().change_scene("res://Scenes/levelSelector.tscn") # Replace with function body.
 	
 
+
+
+func _on_TextureButton_button_up():
+	get_tree().change_scene("res://Scenes/levelGraph.tscn")
