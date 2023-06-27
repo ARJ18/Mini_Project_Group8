@@ -147,7 +147,7 @@ func graph():
 		$algorithm2.visible = false
 		
 		
-		
+
 	
 
 func _on_gohomeBtn_button_up():
